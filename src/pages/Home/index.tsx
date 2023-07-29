@@ -24,33 +24,23 @@ to{
 const partner = [
   {
     name: 'binance',
-    img: (
-      <img src={getImageUrl('@/assets/images/_global/partner/binance.svg')} />
-    ),
+    img: <img src={getImageUrl('@/assets/images/_global/partner/binance.svg')} />,
   },
   {
     name: 'exodus',
-    img: (
-      <img src={getImageUrl('@/assets/images/_global/partner/exodus.svg')} />
-    ),
+    img: <img src={getImageUrl('@/assets/images/_global/partner/exodus.svg')} />,
   },
   {
     name: 'plasmapay',
-    img: (
-      <img src={getImageUrl('@/assets/images/_global/partner/plasmapay.svg')} />
-    ),
+    img: <img src={getImageUrl('@/assets/images/_global/partner/plasmapay.svg')} />,
   },
   {
     name: 'revolut',
-    img: (
-      <img src={getImageUrl('@/assets/images/_global/partner/revolut.svg')} />
-    ),
+    img: <img src={getImageUrl('@/assets/images/_global/partner/revolut.svg')} />,
   },
   {
     name: 'sequoia',
-    img: (
-      <img src={getImageUrl('@/assets/images/_global/partner/sequoia.svg')} />
-    ),
+    img: <img src={getImageUrl('@/assets/images/_global/partner/sequoia.svg')} />,
   },
 ];
 
@@ -62,9 +52,7 @@ const meidas = [
   },
   {
     type: 'facebook',
-    img: (
-      <img src={getImageUrl('@/assets/images/_global/media/facebook.svg')} />
-    ),
+    img: <img src={getImageUrl('@/assets/images/_global/media/facebook.svg')} />,
     href: '',
   },
   {
@@ -170,17 +158,13 @@ const roadmap1 = [
   {
     title: 'Q2',
     y: '2023',
-    contentsPrefix: (
-      <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />
-    ),
+    contentsPrefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
     contents: ['Prediction Marketplace (done)'],
   },
   {
     title: 'Q3',
     y: '2023',
-    contentsPrefix: (
-      <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />
-    ),
+    contentsPrefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
     contents: [
       'Launch Genesis Tarot Card NFT (Celtic Art Series)',
       'IIssue TART token',
@@ -191,9 +175,7 @@ const roadmap1 = [
   {
     title: 'Q2',
     y: '2023',
-    contentsPrefix: (
-      <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />
-    ),
+    contentsPrefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
     contents: [
       'Launch Carding Reading game',
       'Develop Mystery Box feature',
@@ -206,21 +188,13 @@ const roadmap2 = [
   {
     title: 'Q2',
     y: '2025',
-    contentsPrefix: (
-      <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />
-    ),
-    contents: [
-      'Collaborate with other brands and KOLs',
-      'Issue additional NFT series',
-      'Launch more card games',
-    ],
+    contentsPrefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
+    contents: ['Collaborate with other brands and KOLs', 'Issue additional NFT series', 'Launch more card games'],
   },
   {
     title: 'Q2',
     y: '2024',
-    contentsPrefix: (
-      <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />
-    ),
+    contentsPrefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
     contents: ['Launch Tarotverse'],
   },
   {
@@ -247,26 +221,11 @@ const magicianLevel = [
     prefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
     type: 'Level',
     children: [
-      <img
-        style={{ width: '42px' }}
-        src={getImageUrl('@/assets/images/_global/level/Level1.svg')}
-      />,
-      <img
-        style={{ width: '42px' }}
-        src={getImageUrl('@/assets/images/_global/level/more.svg')}
-      />,
-      <img
-        style={{ width: '42px' }}
-        src={getImageUrl('@/assets/images/_global/level/Level2.svg')}
-      />,
-      <img
-        style={{ width: '42px' }}
-        src={getImageUrl('@/assets/images/_global/level/Level3.svg')}
-      />,
-      <img
-        style={{ width: '42px' }}
-        src={getImageUrl('@/assets/images/_global/level/Level4.svg')}
-      />,
+      <img style={{ width: '42px' }} src={getImageUrl('@/assets/images/_global/level/Level1.svg')} />,
+      <img style={{ width: '42px' }} src={getImageUrl('@/assets/images/_global/level/more.svg')} />,
+      <img style={{ width: '42px' }} src={getImageUrl('@/assets/images/_global/level/Level2.svg')} />,
+      <img style={{ width: '42px' }} src={getImageUrl('@/assets/images/_global/level/Level3.svg')} />,
+      <img style={{ width: '42px' }} src={getImageUrl('@/assets/images/_global/level/Level4.svg')} />,
       <BaseLabel light>
         <span className="f-16" style={{ color: '#E1E1E1' }}>
           11 Levle
@@ -575,11 +534,7 @@ const MainSection = styled(Basic)`
     .i-card {
       padding: 44px 50px;
       border-radius: 12px;
-      background: linear-gradient(
-        to bottom,
-        rgba(255, 211, 77, 0.2) 0%,
-        rgba(255, 211, 77, 0.05) 100%
-      );
+      background: linear-gradient(to bottom, rgba(255, 211, 77, 0.2) 0%, rgba(255, 211, 77, 0.05) 100%);
       /* opacity: 0.3; */
       .main-img {
         width: 472px;
@@ -614,7 +569,7 @@ const MainSection = styled(Basic)`
           position: absolute;
           top: 50%;
           transform: translate(0%, -50%);
-          content: "";
+          content: '';
           display: inline-block;
           height: 1px;
           width: 100%;
@@ -625,7 +580,7 @@ const MainSection = styled(Basic)`
           top: 50%;
           left: 0%;
           transform: translate(8px, -100%);
-          content: "";
+          content: '';
           display: inline-block;
           height: 30px;
           width: 1px;
@@ -638,9 +593,7 @@ const MainSection = styled(Basic)`
   .sc5 {
     .thin-border {
       position: relative;
-      background: url(${getImageUrl(
-        '@/assets/images/_global/tarot/border.svg',
-      )});
+      background: url(${getImageUrl('@/assets/images/_global/tarot/border.svg')});
       background-size: cover;
       background-repeat: no-repeat;
       width: 383px;
@@ -674,7 +627,7 @@ const MainSection = styled(Basic)`
       }
     }
 
-    .disable{
+    .disable {
       filter: opacity(0.4);
     }
   }
@@ -687,7 +640,7 @@ const MainSection = styled(Basic)`
       &::after,
       &::before {
         position: absolute;
-        content: "";
+        content: '';
         display: inline-block;
         height: 100%;
         z-index: 1;
@@ -771,14 +724,9 @@ const totalPage = 2;
 export function Component() {
   const [curPage, setCurPage] = useState(1);
   const filteredTarots = useMemo(
-    () =>
-      tarots.filter(
-        (i, index) =>
-          index < curPage * perSize && index >= (curPage - 1) * perSize,
-      ),
+    () => tarots.filter((i, index) => index < curPage * perSize && index >= (curPage - 1) * perSize),
     [curPage],
   );
-
 
   const handleAdd = () => {
     if (curPage >= 2) {
@@ -799,11 +747,7 @@ export function Component() {
     <>
       <Container className="pages-landing flex flex-col gap-200">
         <section className="sc1 maxw-1250 minw-1200 relative flex flex-col items-center gap-17">
-          <img
-            className="a-icon a-icon-1"
-            src={getImageUrl('@/assets/images/_global/icon1.svg')}
-            alt=""
-          />
+          <img className="a-icon a-icon-1" src={getImageUrl('@/assets/images/_global/icon1.svg')} alt="" />
 
           <h1 className="f-61">
             ll these old letters of my Book are
@@ -813,38 +757,17 @@ export function Component() {
               <br /> AL vel Legis I:57
             </span>
           </h1>
-          <img
-            className="a-icon a-icon-2"
-            src={getImageUrl('@/assets/images/_global/icon2.svg')}
-            alt=""
-          />
+          <img className="a-icon a-icon-2" src={getImageUrl('@/assets/images/_global/icon2.svg')} alt="" />
           <div className="banner-img-container relative flex flex-row justify-center">
             <span className="a-l">
-              Reversed cards hold within them growth and insight;{' '}
-              <span className="active-color">upright cards</span> symbolize joy
-              and abundance
+              Reversed cards hold within them growth and insight; <span className="active-color">upright cards</span>{' '}
+              symbolize joy and abundance
             </span>
-            <img
-              className="a-icon a-icon-5"
-              src={getImageUrl('@/assets/images/_global/icon5.svg')}
-              alt=""
-            />
-            <img
-              className="main-img"
-              src={getImageUrl('@/assets/images/_global/nft1.png')}
-              alt=""
-            />
+            <img className="a-icon a-icon-5" src={getImageUrl('@/assets/images/_global/icon5.svg')} alt="" />
+            <img className="main-img" src={getImageUrl('@/assets/images/_global/nft1.png')} alt="" />
             <span className="a-r">May the light of wisdom guide your soul</span>
-            <img
-              className="a-icon a-icon-3"
-              src={getImageUrl('@/assets/images/_global/icon3.svg')}
-              alt=""
-            />
-            <img
-              className="a-icon a-icon-4"
-              src={getImageUrl('@/assets/images/_global/icon4.svg')}
-              alt=""
-            />
+            <img className="a-icon a-icon-3" src={getImageUrl('@/assets/images/_global/icon3.svg')} alt="" />
+            <img className="a-icon a-icon-4" src={getImageUrl('@/assets/images/_global/icon4.svg')} alt="" />
           </div>
         </section>
 
@@ -853,7 +776,9 @@ export function Component() {
             <div className="f-48">Initial NFT Offering</div>
             <div className="flex flex-row gap-23 items-center">
               <span className="f-34 sub-color">Counting Down</span>
-              <span className="f-50 sub-active-color">50days</span>
+              <span className="f-50 sub-active-color" style={{ fontFamily: '"Canela Trial Bold"' }}>
+                50days
+              </span>
             </div>
           </div>
           <div className="border-1 flex flex-row items-center justify-between base-nft-exhi gap-50">
@@ -864,28 +789,16 @@ export function Component() {
                 </span>
               </BaseLabel>
               <div>
-                <img
-                  src={getImageUrl('@/assets/images/_global/NFT-left.png')}
-                  alt=""
-                />
+                <img src={getImageUrl('@/assets/images/_global/NFT-left.png')} alt="" />
               </div>
             </div>
             <div className="flex flex-col gap-30">
               <div className="flex flex-row items-center gap-16 justify-center">
-                <img
-                  src={getImageUrl('@/assets/images/_global/icon6.svg')}
-                  alt=""
-                />
-                <span
-                  className="f-18"
-                  style={{ color: 'rgba(255, 255, 253, 0.8)' }}
-                >
+                <img src={getImageUrl('@/assets/images/_global/icon6.svg')} alt="" />
+                <span className="f-18" style={{ color: 'rgba(255, 255, 253, 0.8)' }}>
                   The Magician
                 </span>
-                <img
-                  src={getImageUrl('@/assets/images/_global/icon7.svg')}
-                  alt=""
-                />
+                <img src={getImageUrl('@/assets/images/_global/icon7.svg')} alt="" />
               </div>
 
               <div className="flex flex-col gap-20">
@@ -914,10 +827,7 @@ export function Component() {
                 </span>
               </BaseLabel>
               <div>
-                <img
-                  src={getImageUrl('@/assets/images/_global/NFT-right.png')}
-                  alt=""
-                />
+                <img src={getImageUrl('@/assets/images/_global/NFT-right.png')} alt="" />
               </div>
             </div>
           </div>
@@ -933,47 +843,23 @@ export function Component() {
           <div className="flex flex-row items-center gap-44">
             <div className="i-card flex flex-col gap-34">
               <div className="flex flex-row items-center gap-16 justify-center">
-                <img
-                  src={getImageUrl('@/assets/images/_global/icon12.svg')}
-                  alt=""
-                />
-                <span
-                  className="f-28"
-                  style={{ color: 'rgba(255, 255, 253, 0.8)' }}
-                >
+                <img src={getImageUrl('@/assets/images/_global/icon12.svg')} alt="" />
+                <span className="f-28" style={{ color: 'rgba(255, 255, 253, 0.8)' }}>
                   Prediction Team
                 </span>
-                <img
-                  src={getImageUrl('@/assets/images/_global/icon12.svg')}
-                  alt=""
-                />
+                <img src={getImageUrl('@/assets/images/_global/icon12.svg')} alt="" />
               </div>
-              <img
-                className="main-img"
-                src={getImageUrl('@/assets/images/_global/team.png')}
-              />
+              <img className="main-img" src={getImageUrl('@/assets/images/_global/team.png')} />
             </div>
             <div className="i-card flex flex-col gap-34">
               <div className="flex flex-row items-center gap-16 justify-center">
-                <img
-                  src={getImageUrl('@/assets/images/_global/icon12.svg')}
-                  alt=""
-                />
-                <span
-                  className="f-28"
-                  style={{ color: 'rgba(255, 255, 253, 0.8)' }}
-                >
+                <img src={getImageUrl('@/assets/images/_global/icon12.svg')} alt="" />
+                <span className="f-28" style={{ color: 'rgba(255, 255, 253, 0.8)' }}>
                   Prediction Market
                 </span>
-                <img
-                  src={getImageUrl('@/assets/images/_global/icon12.svg')}
-                  alt=""
-                />
+                <img src={getImageUrl('@/assets/images/_global/icon12.svg')} alt="" />
               </div>
-              <img
-                className="main-img"
-                src={getImageUrl('@/assets/images/_global/market.png')}
-              />
+              <img className="main-img" src={getImageUrl('@/assets/images/_global/market.png')} />
             </div>
           </div>
         </section>
@@ -994,22 +880,13 @@ export function Component() {
               </div>
               <div className="line flex flex-row ">
                 <div className="flex-1">
-                  <img
-                    src={getImageUrl('@/assets/images/_global/icon6.svg')}
-                    alt=""
-                  />
+                  <img src={getImageUrl('@/assets/images/_global/icon6.svg')} alt="" />
                 </div>
                 <div className="flex-1">
-                  <img
-                    src={getImageUrl('@/assets/images/_global/icon6.svg')}
-                    alt=""
-                  />
+                  <img src={getImageUrl('@/assets/images/_global/icon6.svg')} alt="" />
                 </div>
                 <div className="flex-1">
-                  <img
-                    src={getImageUrl('@/assets/images/_global/icon6.svg')}
-                    alt=""
-                  />
+                  <img src={getImageUrl('@/assets/images/_global/icon6.svg')} alt="" />
                 </div>
               </div>
               <div className="flex flex-row ">
@@ -1018,10 +895,7 @@ export function Component() {
                     {i.contents.map((j) => (
                       <div className="flex flex-row items-start gap-10">
                         {i.contentsPrefix}
-                        <div
-                          className="f-18 maxw-300"
-                          style={{ color: '#CFCFB0' }}
-                        >
+                        <div className="f-18 maxw-300" style={{ color: '#CFCFB0' }}>
                           {j}
                         </div>
                       </div>
@@ -1042,24 +916,14 @@ export function Component() {
               </div>
               <div className="line flex flex-row ">
                 <div className="flex-1">
-                  <img
-                    src={getImageUrl('@/assets/images/_global/icon6.svg')}
-                    alt=""
-                  />
+                  <img src={getImageUrl('@/assets/images/_global/icon6.svg')} alt="" />
                 </div>
                 <div className="flex-1">
-                  <img
-                    src={getImageUrl('@/assets/images/_global/icon6.svg')}
-                    alt=""
-                  />
+                  <img src={getImageUrl('@/assets/images/_global/icon6.svg')} alt="" />
                 </div>
                 <p className="flex-1 relative">
-                  <img
-                    src={getImageUrl('@/assets/images/_global/icon14.svg')}
-                  />
-                  <img
-                    src={getImageUrl('@/assets/images/_global/icon15.svg')}
-                  />
+                  <img src={getImageUrl('@/assets/images/_global/icon14.svg')} />
+                  <img src={getImageUrl('@/assets/images/_global/icon15.svg')} />
                 </p>
               </div>
               <div className="flex flex-row ">
@@ -1068,10 +932,7 @@ export function Component() {
                     {i.contents.map((j) => (
                       <div className="flex flex-row items-start gap-10">
                         {i.contentsPrefix}
-                        <div
-                          className="f-18 maxw-300"
-                          style={{ color: '#CFCFB0' }}
-                        >
+                        <div className="f-18 maxw-300" style={{ color: '#CFCFB0' }}>
                           {j}
                         </div>
                       </div>
@@ -1090,10 +951,7 @@ export function Component() {
           <div className="flex flex-col gap-40 maxw-1250 ">
             <div className="flex flex-row justify-center gap-50 flex-wrap">
               {filteredTarots.map((i, index) => (
-                <div
-                  key={index}
-                  className="thin-border flex flex-row items-center justify-center"
-                >
+                <div key={index} className="thin-border flex flex-row items-center justify-center">
                   <div className="c relative flex-wrap flex flex-col items-center justify-center">
                     <div className="relative">
                       {i.src}
@@ -1141,15 +999,9 @@ export function Component() {
 
         <section className="sc6 minw-1200 relative flex flex-col items-center gap-70">
           <div className="flex flex-row items-center justify-center gap-20">
-            <img
-              src={getImageUrl('@/assets/images/_global/icon13.svg')}
-              alt=""
-            />
+            <img src={getImageUrl('@/assets/images/_global/icon13.svg')} alt="" />
             <div className="f-48">OUR PARTNERS</div>
-            <img
-              src={getImageUrl('@/assets/images/_global/icon13.svg')}
-              alt=""
-            />
+            <img src={getImageUrl('@/assets/images/_global/icon13.svg')} alt="" />
           </div>
 
           <div className="scroll-logo-container maxw-1250 flex flex-col gap-10">
@@ -1159,45 +1011,28 @@ export function Component() {
               ))}
             </div>
             <div className="flex flex-row items-center gap-40">
-              {[...partner, ...partner, ...partner, ...partner]
-                .reverse()
-                .map((i) => (
-                  <div key={i.name}>{i.img}</div>
-                ))}
+              {[...partner, ...partner, ...partner, ...partner].reverse().map((i) => (
+                <div key={i.name}>{i.img}</div>
+              ))}
             </div>
           </div>
 
           <div style={{ marginTop: '110px' }} className="maxw-1250">
             <div className="flex flex-row gap-180">
               <div className="relative">
-                <img
-                  src={getImageUrl('@/assets/images/_global/icon18.png')}
-                  alt=""
-                />
-                <img
-                  className="a-nft"
-                  src={getImageUrl('@/assets/images/_global/NFT-left.png')}
-                  alt=""
-                />
+                <img src={getImageUrl('@/assets/images/_global/icon18.png')} alt="" />
+                <img className="a-nft" src={getImageUrl('@/assets/images/_global/NFT-left.png')} alt="" />
               </div>
               <div className="flex flex-col gap-44 ">
                 <span className="f-48">NEWS ABOUT US</span>
-                <div
-                  className="maxw-484 f-22"
-                  style={{ color: '#9A9A9A', textAlign: 'left' }}
-                >
-                  TAROTPI is a platform for fate prediction and card sales,
-                  including 10,000 NFT cards，Including 22 large cards, which
-                  will be issued and sold through Opensea. And the constellation
-                  prediction platform will also be launched.
+                <div className="maxw-484 f-22" style={{ color: '#9A9A9A', textAlign: 'left' }}>
+                  TAROTPI is a platform for fate prediction and card sales, including 10,000 NFT cards，Including 22
+                  large cards, which will be issued and sold through Opensea. And the constellation prediction platform
+                  will also be launched.
                 </div>
                 <div className="flex flex-row flex-wrap gap-34">
                   {partner.map((i) => (
-                    <div
-                      className="flex-1"
-                      style={{ maxWidth: '30%' }}
-                      key={i.name}
-                    >
+                    <div className="flex-1" style={{ maxWidth: '30%' }} key={i.name}>
                       {i.img}
                     </div>
                   ))}
@@ -1209,19 +1044,13 @@ export function Component() {
 
         <section className="sc7 minw-1200 relative flex flex-col items-center gap-40">
           <div className="flex flex-row items-center justify-center gap-20">
-            <img
-              src={getImageUrl('@/assets/images/_global/icon13.svg')}
-              alt=""
-            />
+            <img src={getImageUrl('@/assets/images/_global/icon13.svg')} alt="" />
             <div className="f-48">JOIN OUR COMMUNITY</div>
-            <img
-              src={getImageUrl('@/assets/images/_global/icon13.svg')}
-              alt=""
-            />
+            <img src={getImageUrl('@/assets/images/_global/icon13.svg')} alt="" />
           </div>
           <div className="f-22 maxw-858" style={{ color: '#9A9A9A' }}>
-            In our community, there will be the latest horoscope NFT hairstyle
-            trends, live broadcast to predict the horoscope.
+            In our community, there will be the latest horoscope NFT hairstyle trends, live broadcast to predict the
+            horoscope.
           </div>
           <div className="flex flex-row gap-40">
             {meidas.map((i) => (

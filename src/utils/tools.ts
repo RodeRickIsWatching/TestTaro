@@ -254,7 +254,7 @@ export const rangeRandom = (min = 0, max = 0) => {
   return Math.random() * (max - min) + min;
 };
 
-function getRandom(min: number, max: number) {
+export function getRandom(min: number, max: number) {
   return Math.round(Math.random() * (max - min) + min);
 }
 
