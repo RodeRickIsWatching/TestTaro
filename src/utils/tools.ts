@@ -299,3 +299,7 @@ export function isJSONString(str: string) {
 export const getExtensive = (res: any, option: { suffix?: any; prefix?: any }) => {
   return !BigNumber(res).isFinite() ? 'Extensive' : (option?.prefix || '') + res + (option?.suffix || '');
 };
+
+export const verifyDevice = () => {
+  return /android|iphone/i.test(window.navigator.userAgent) ? 'mobile' : 'pc';
+};

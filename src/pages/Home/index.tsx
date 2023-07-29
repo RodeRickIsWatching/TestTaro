@@ -1,8 +1,10 @@
 import { getImageUrl } from '@/utils/tools';
 import './index.scss';
-import { keyframes, styled } from 'styled-components';
+import { css, keyframes, styled } from 'styled-components';
 import BaseLabel from '@/components/_global/BaseLabel';
 import { useMemo, useState } from 'react';
+import useMobile from '@/hooks/useMobile';
+import React from 'react';
 
 const scroll = keyframes`
 from{
@@ -24,33 +26,23 @@ to{
 const partner = [
   {
     name: 'binance',
-    img: (
-      <img src={getImageUrl('@/assets/images/_global/partner/binance.svg')} />
-    ),
+    img: <img src={getImageUrl('@/assets/images/_global/partner/binance.svg')} />,
   },
   {
     name: 'exodus',
-    img: (
-      <img src={getImageUrl('@/assets/images/_global/partner/exodus.svg')} />
-    ),
+    img: <img src={getImageUrl('@/assets/images/_global/partner/exodus.svg')} />,
   },
   {
     name: 'plasmapay',
-    img: (
-      <img src={getImageUrl('@/assets/images/_global/partner/plasmapay.svg')} />
-    ),
+    img: <img src={getImageUrl('@/assets/images/_global/partner/plasmapay.svg')} />,
   },
   {
     name: 'revolut',
-    img: (
-      <img src={getImageUrl('@/assets/images/_global/partner/revolut.svg')} />
-    ),
+    img: <img src={getImageUrl('@/assets/images/_global/partner/revolut.svg')} />,
   },
   {
     name: 'sequoia',
-    img: (
-      <img src={getImageUrl('@/assets/images/_global/partner/sequoia.svg')} />
-    ),
+    img: <img src={getImageUrl('@/assets/images/_global/partner/sequoia.svg')} />,
   },
 ];
 
@@ -62,9 +54,7 @@ const meidas = [
   },
   {
     type: 'facebook',
-    img: (
-      <img src={getImageUrl('@/assets/images/_global/media/facebook.svg')} />
-    ),
+    img: <img src={getImageUrl('@/assets/images/_global/media/facebook.svg')} />,
     href: '',
   },
   {
@@ -170,17 +160,13 @@ const roadmap1 = [
   {
     title: 'Q2',
     y: '2023',
-    contentsPrefix: (
-      <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />
-    ),
+    contentsPrefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
     contents: ['Prediction Marketplace (done)'],
   },
   {
     title: 'Q3',
     y: '2023',
-    contentsPrefix: (
-      <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />
-    ),
+    contentsPrefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
     contents: [
       'Launch Genesis Tarot Card NFT (Celtic Art Series)',
       'IIssue TART token',
@@ -191,9 +177,7 @@ const roadmap1 = [
   {
     title: 'Q2',
     y: '2023',
-    contentsPrefix: (
-      <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />
-    ),
+    contentsPrefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
     contents: [
       'Launch Carding Reading game',
       'Develop Mystery Box feature',
@@ -206,21 +190,13 @@ const roadmap2 = [
   {
     title: 'Q2',
     y: '2025',
-    contentsPrefix: (
-      <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />
-    ),
-    contents: [
-      'Collaborate with other brands and KOLs',
-      'Issue additional NFT series',
-      'Launch more card games',
-    ],
+    contentsPrefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
+    contents: ['Collaborate with other brands and KOLs', 'Issue additional NFT series', 'Launch more card games'],
   },
   {
     title: 'Q2',
     y: '2024',
-    contentsPrefix: (
-      <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />
-    ),
+    contentsPrefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
     contents: ['Launch Tarotverse'],
   },
   {
@@ -231,132 +207,12 @@ const roadmap2 = [
   },
 ];
 
-const magicianLevel = [
-  {
-    prefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
-    type: 'Ranty',
-    children: [
-      <BaseLabel light>
-        <span className="f-16" style={{ color: '#E1E1E1' }}>
-          EPIC
-        </span>
-      </BaseLabel>,
-    ],
-  },
-  {
-    prefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
-    type: 'Level',
-    children: [
-      <img
-        style={{ width: '42px' }}
-        src={getImageUrl('@/assets/images/_global/level/Level1.svg')}
-      />,
-      <img
-        style={{ width: '42px' }}
-        src={getImageUrl('@/assets/images/_global/level/more.svg')}
-      />,
-      <img
-        style={{ width: '42px' }}
-        src={getImageUrl('@/assets/images/_global/level/Level2.svg')}
-      />,
-      <img
-        style={{ width: '42px' }}
-        src={getImageUrl('@/assets/images/_global/level/Level3.svg')}
-      />,
-      <img
-        style={{ width: '42px' }}
-        src={getImageUrl('@/assets/images/_global/level/Level4.svg')}
-      />,
-      <BaseLabel light>
-        <span className="f-16" style={{ color: '#E1E1E1' }}>
-          11 Levle
-        </span>
-      </BaseLabel>,
-    ],
-  },
-  {
-    prefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
-    type: 'Arribute',
-    children: [
-      <img src={getImageUrl('@/assets/images/_global/attr/icon1.png')} />,
-      <BaseLabel light>
-        <span className="f-16" style={{ color: '#E1E1E1' }}>
-          Wind
-        </span>
-      </BaseLabel>,
-    ],
-  },
-  {
-    prefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
-    type: 'Power',
-    children: [
-      <img src={getImageUrl('@/assets/images/_global/attr/icon1.png')} />,
-      <BaseLabel light>
-        <span className="f-16" style={{ color: '#E1E1E1' }}>
-          ?
-        </span>
-      </BaseLabel>,
-
-      <img src={getImageUrl('@/assets/images/_global/attr/icon2.png')} />,
-      <BaseLabel light>
-        <span className="f-16" style={{ color: '#E1E1E1' }}>
-          ?
-        </span>
-      </BaseLabel>,
-
-      <img src={getImageUrl('@/assets/images/_global/attr/icon3.png')} />,
-      <BaseLabel light>
-        <span className="f-16" style={{ color: '#E1E1E1' }}>
-          ?
-        </span>
-      </BaseLabel>,
-
-      <img src={getImageUrl('@/assets/images/_global/attr/icon4.png')} />,
-      <BaseLabel light>
-        <span className="f-16" style={{ color: '#E1E1E1' }}>
-          ?
-        </span>
-      </BaseLabel>,
-    ],
-  },
-  {
-    prefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
-    type: 'Suits',
-    children: [
-      <img src={getImageUrl('@/assets/images/_global/attr/icon5.png')} />,
-      <BaseLabel light>
-        <span className="f-16" style={{ color: '#E1E1E1' }}>
-          X
-        </span>
-      </BaseLabel>,
-
-      <img src={getImageUrl('@/assets/images/_global/attr/icon6.png')} />,
-      <BaseLabel light>
-        <span className="f-16" style={{ color: '#E1E1E1' }}>
-          V
-        </span>
-      </BaseLabel>,
-
-      <img src={getImageUrl('@/assets/images/_global/attr/icon7.png')} />,
-      <BaseLabel light>
-        <span className="f-16" style={{ color: '#E1E1E1' }}>
-          II
-        </span>
-      </BaseLabel>,
-
-      <img src={getImageUrl('@/assets/images/_global/attr/icon8.png')} />,
-      <BaseLabel light>
-        <span className="f-16" style={{ color: '#E1E1E1' }}>
-          IV
-        </span>
-      </BaseLabel>,
-    ],
-  },
-];
-
-const Basic = styled.section`
+const Basic = styled.section<{ ifMobile?: boolean }>`
   &.gap-200 {
     gap: 200px;
+  }
+  &.gap-66 {
+    gap: 66px;
   }
 
   .gap-180 {
@@ -372,6 +228,9 @@ const Basic = styled.section`
   }
   .gap-70 {
     gap: 70px;
+  }
+  .gap-66 {
+    gap: 66px;
   }
 
   .gap-50 {
@@ -389,11 +248,23 @@ const Basic = styled.section`
   .gap-30 {
     gap: 30px;
   }
+
+  .gap-26 {
+    gap: 26px;
+  }
   .gap-23 {
     gap: 23px;
   }
+
+  .gap-18 {
+    gap: 18px;
+  }
   .gap-17 {
     gap: 17px;
+  }
+
+  .gap-15 {
+    gap: 15px;
   }
 
   .gap-9 {
@@ -405,6 +276,10 @@ const Basic = styled.section`
 
   .minw-1200 {
     min-width: 1200px;
+  }
+
+  .maxw-1095 {
+    max-width: 955px;
   }
 
   .maxw-1200 {
@@ -427,6 +302,10 @@ const Basic = styled.section`
 
   .maxw-858 {
     max-width: 858px;
+  }
+
+  .maxw-320 {
+    max-width: 320px;
   }
 
   .f-50 {
@@ -489,6 +368,16 @@ const Basic = styled.section`
     letter-spacing: 2px;
   }
 
+  .f-20 {
+    font-family: Canela Trial;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 24px */
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
   .f-17 {
     text-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
     font-family: Canela Trial;
@@ -509,6 +398,17 @@ const Basic = styled.section`
     letter-spacing: 0.326px;
   }
 
+  .f-12 {
+    color: #fff;
+    text-align: center;
+    font-family: Canela Trial;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 150% */
+    letter-spacing: 1.5px;
+  }
+
   .f-18 {
     font-family: Canela Trial;
     font-size: 18.138px;
@@ -516,6 +416,15 @@ const Basic = styled.section`
     font-weight: 400;
     line-height: 120%; /* 21.766px */
     letter-spacing: 1.814px;
+  }
+
+  .f-31 {
+    text-align: center;
+    font-family: Canela Trial;
+    font-size: 31px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 37.2px */
   }
 
   .f-61 {
@@ -526,13 +435,56 @@ const Basic = styled.section`
     /* letter-spacing: 3px; */
     text-align: center;
   }
+
+  .m-f-13 {
+    text-align: center;
+    font-family: Canela Trial;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 15.6px */
+    letter-spacing: 0.13px;
+  }
+
+  .m-f-14 {
+    font-family: Canela Trial;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 1px;
+  }
+
+  .m-f-16 {
+    text-align: center;
+    font-family: Canela Trial;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 19.2px */
+    letter-spacing: 1px;
+  }
+
+  .m-f-18 {
+    text-align: center;
+    font-family: Canela Trial Bold;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 120%; /* 21.6px */
+    letter-spacing: 1px;
+  }
 `;
 
-const MainSection = styled(Basic)`
+const MainSection = styled(Basic)<{ ifMobile?: boolean }>`
   .sc1 {
     .banner-img-container {
       .main-img {
-        width: 442px;
+        width: ${({ ifMobile }) => (ifMobile ? '340px' : '442px')};
+      }
+
+      .m-a-l {
+        text-align: center;
       }
       .a-l,
       .a-r {
@@ -566,24 +518,28 @@ const MainSection = styled(Basic)`
 
   .sc2 {
     .base-nft-exhi {
-      padding: 52px 63px;
+      width: 100%;
+      padding: ${({ ifMobile }) => (ifMobile ? '22px 20px' : '52px 63px')};
     }
   }
 
   .sc3 {
     position: relative;
     .i-card {
-      padding: 44px 50px;
+      padding: ${({ ifMobile }) => (ifMobile ? '22px' : '44px 50px')};
       border-radius: 12px;
-      background: linear-gradient(
-        to bottom,
-        rgba(255, 211, 77, 0.2) 0%,
-        rgba(255, 211, 77, 0.05) 100%
-      );
+      background: linear-gradient(to bottom, rgba(255, 211, 77, 0.2) 0%, rgba(255, 211, 77, 0.05) 100%);
       /* opacity: 0.3; */
       .main-img {
-        width: 472px;
-        height: 230px;
+        ${({ ifMobile }) =>
+          ifMobile
+            ? css`
+                width: 100%;
+              `
+            : css`
+                width: 472px;
+                height: 230px;
+              `}
       }
     }
   }
@@ -614,7 +570,7 @@ const MainSection = styled(Basic)`
           position: absolute;
           top: 50%;
           transform: translate(0%, -50%);
-          content: "";
+          content: '';
           display: inline-block;
           height: 1px;
           width: 100%;
@@ -625,9 +581,9 @@ const MainSection = styled(Basic)`
           top: 50%;
           left: 0%;
           transform: translate(8px, -100%);
-          content: "";
+          content: '';
           display: inline-block;
-          height: 30px;
+          height: ${({ ifMobile }) => (ifMobile ? '20px' : '30px')};
           width: 1px;
           background-color: #fedd82;
         }
@@ -638,26 +594,32 @@ const MainSection = styled(Basic)`
   .sc5 {
     .thin-border {
       position: relative;
-      background: url(${getImageUrl(
-        '@/assets/images/_global/tarot/border.svg',
-      )});
-      background-size: cover;
+      background: url(${getImageUrl('@/assets/images/_global/tarot/border.svg')});
+      background-size: ${({ ifMobile }) => (ifMobile ? 'contain' : 'cover')};
       background-repeat: no-repeat;
-      width: 383px;
-      height: 490.5px;
+      width: ${({ ifMobile }) => (ifMobile ? '330px' : '383px')};
+      /* height: 490.5px; */
+      aspect-ratio: 355 / 447;
       &:hover .desc {
         transform: translate(0, 0%) !important;
       }
 
       & > .c {
-        padding: 55px 55px;
+        padding: ${({ ifMobile }) => (ifMobile ? '14px 25px' : '55px')};
 
         & > div {
           overflow: hidden;
 
           img {
-            width: 276px;
-            height: 414px;
+            ${({ ifMobile }) =>
+              ifMobile
+                ? css`
+                    width: calc(254px - 20px);
+                  `
+                : css`
+                    width: 276px;
+                    height: 414px;
+                  `};
           }
           .desc {
             transition: all linear 0.4s;
@@ -674,7 +636,7 @@ const MainSection = styled(Basic)`
       }
     }
 
-    .disable{
+    .disable {
       filter: opacity(0.4);
     }
   }
@@ -687,7 +649,7 @@ const MainSection = styled(Basic)`
       &::after,
       &::before {
         position: absolute;
-        content: "";
+        content: '';
         display: inline-block;
         height: 100%;
         z-index: 1;
@@ -698,11 +660,11 @@ const MainSection = styled(Basic)`
       }
       &::after {
         right: 0;
-        transform: translate(50%, 0) scale(5);
+        transform: translate(50%, 0) scaleY(${({ ifMobile }) => (ifMobile ? 3 : 5)});
       }
       &::before {
         left: 0;
-        transform: translate(-50%, 0) scale(5);
+        transform: translate(-50%, 0) scaleY(${({ ifMobile }) => (ifMobile ? 3 : 5)});
       }
 
       & > div:nth-of-type(1) {
@@ -715,7 +677,7 @@ const MainSection = styled(Basic)`
 
     .a-nft {
       position: absolute;
-      width: 200px;
+      width: ${({ ifMobile }) => (ifMobile ? '180px' : '200px')};
       top: 50%;
       left: 50%;
       transform: translate(-60%, -30%);
@@ -723,11 +685,34 @@ const MainSection = styled(Basic)`
   }
 `;
 
-const Container = styled(MainSection)`
+const Container = styled(MainSection)<{ ifMobile?: boolean }>`
   background: url(${getImageUrl('@/assets/images/_global/tarotpi.svg')});
   background-size: cover;
   background-repeat: no-repeat;
-  margin-top: 117px;
+  margin-top: ${({ ifMobile }) => (ifMobile ? '0' : '117px')};
+  padding: ${({ ifMobile }) => (ifMobile ? '25px' : '')};
+
+  ${({ ifMobile }) =>
+    ifMobile &&
+    css`
+      .minw-1200 {
+        min-width: auto;
+      }
+
+      .maxw-1095 {
+        max-width: 100%;
+      }
+
+      .maxw-1200 {
+        max-width: 100%;
+        margin: auto;
+      }
+
+      .maxw-1250 {
+        max-width: 100%;
+        margin: auto;
+      }
+    `}
 
   .a-icon {
     position: absolute;
@@ -765,24 +750,23 @@ const Container = styled(MainSection)`
   }
 `;
 
-const perSize = 6;
-const totalPage = 2;
-
 export function Component() {
+  const ifMobile = useMobile();
   const [curPage, setCurPage] = useState(1);
+
+  const perSize = useMemo(() => (ifMobile ? 1 : 6), [ifMobile]);
+  const totalPage = useMemo(() => (ifMobile ? 12 : 2), [ifMobile]);
+
+  const [curSelectInMobile, setCurSelectInMobile] = useState(1);
+
   const filteredTarots = useMemo(
-    () =>
-      tarots.filter(
-        (i, index) =>
-          index < curPage * perSize && index >= (curPage - 1) * perSize,
-      ),
-    [curPage],
+    () => tarots.filter((i, index) => index < curPage * perSize && index >= (curPage - 1) * perSize),
+    [curPage, perSize],
   );
 
-
   const handleAdd = () => {
-    if (curPage >= 2) {
-      setCurPage(2);
+    if (curPage >= totalPage) {
+      setCurPage(totalPage);
       return;
     }
     setCurPage((old) => old + 1);
@@ -795,305 +779,515 @@ export function Component() {
     setCurPage((old) => old - 1);
   };
 
+  const magicianLevel = [
+    {
+      prefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
+      type: 'Ranty',
+      children: [
+        <BaseLabel light>
+          <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
+            EPIC
+          </span>
+        </BaseLabel>,
+      ],
+    },
+    {
+      prefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
+      type: 'Level',
+      children: [
+        <img
+          style={{ width: ifMobile ? '34px' : '42px' }}
+          src={getImageUrl('@/assets/images/_global/level/Level1.svg')}
+        />,
+        <img
+          style={{ width: ifMobile ? '34px' : '42px' }}
+          src={getImageUrl('@/assets/images/_global/level/more.svg')}
+        />,
+        <img
+          style={{ width: ifMobile ? '34px' : '42px' }}
+          src={getImageUrl('@/assets/images/_global/level/Level2.svg')}
+        />,
+        <img
+          style={{ width: ifMobile ? '34px' : '42px' }}
+          src={getImageUrl('@/assets/images/_global/level/Level3.svg')}
+        />,
+        <img
+          style={{ width: ifMobile ? '34px' : '42px' }}
+          src={getImageUrl('@/assets/images/_global/level/Level4.svg')}
+        />,
+        <BaseLabel light>
+          <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
+            11 Levle
+          </span>
+        </BaseLabel>,
+      ],
+    },
+    {
+      prefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
+      type: 'Arribute',
+      children: [
+        <img src={getImageUrl('@/assets/images/_global/attr/icon1.png')} />,
+        <BaseLabel light>
+          <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
+            Wind
+          </span>
+        </BaseLabel>,
+      ],
+    },
+    {
+      prefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
+      type: 'Power',
+      children: [
+        <img src={getImageUrl('@/assets/images/_global/attr/icon1.png')} />,
+        <BaseLabel light size={ifMobile ? '21px' : '27px'}>
+          <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
+            ?
+          </span>
+        </BaseLabel>,
+
+        <img src={getImageUrl('@/assets/images/_global/attr/icon2.png')} />,
+        <BaseLabel light size={ifMobile ? '21px' : '27px'}>
+          <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
+            ?
+          </span>
+        </BaseLabel>,
+
+        <img src={getImageUrl('@/assets/images/_global/attr/icon3.png')} />,
+        <BaseLabel light size={ifMobile ? '21px' : '27px'}>
+          <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
+            ?
+          </span>
+        </BaseLabel>,
+
+        <img src={getImageUrl('@/assets/images/_global/attr/icon4.png')} />,
+        <BaseLabel light size={ifMobile ? '21px' : '27px'}>
+          <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
+            ?
+          </span>
+        </BaseLabel>,
+      ],
+    },
+    {
+      prefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
+      type: 'Suits',
+      children: [
+        <img src={getImageUrl('@/assets/images/_global/attr/icon5.png')} />,
+        <BaseLabel light size={ifMobile ? '21px' : '27px'}>
+          <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
+            X
+          </span>
+        </BaseLabel>,
+
+        <img src={getImageUrl('@/assets/images/_global/attr/icon6.png')} />,
+        <BaseLabel light size={ifMobile ? '21px' : '27px'}>
+          <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
+            V
+          </span>
+        </BaseLabel>,
+
+        <img src={getImageUrl('@/assets/images/_global/attr/icon7.png')} />,
+        <BaseLabel light size={ifMobile ? '21px' : '27px'}>
+          <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
+            II
+          </span>
+        </BaseLabel>,
+
+        <img src={getImageUrl('@/assets/images/_global/attr/icon8.png')} />,
+        <BaseLabel light size={ifMobile ? '21px' : '27px'}>
+          <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
+            IV
+          </span>
+        </BaseLabel>,
+      ],
+    },
+  ];
+
   return (
     <>
-      <Container className="pages-landing flex flex-col gap-200">
+      <Container ifMobile={ifMobile} className={`pages-landing flex flex-col ${ifMobile ? 'gap-66' : 'gap-200'}`}>
         <section className="sc1 maxw-1250 minw-1200 relative flex flex-col items-center gap-17">
-          <img
-            className="a-icon a-icon-1"
-            src={getImageUrl('@/assets/images/_global/icon1.svg')}
-            alt=""
-          />
+          {ifMobile ? null : (
+            <img className="a-icon a-icon-1" src={getImageUrl('@/assets/images/_global/icon1.svg')} alt="" />
+          )}
 
-          <h1 className="f-61">
-            ll these old letters of my Book are
-            <br /> aright; but צ is not the Star.{' '}
-            <span className="active-color">
-              ---- Liber
-              <br /> AL vel Legis I:57
-            </span>
+          <h1 className={ifMobile ? 'f-31' : 'f-61 maxw-1095'}>
+            ll these old letters of my Book are aright; but צ is not the Star.
+            <span className="active-color">---- Liber AL vel Legis I:57</span>
           </h1>
-          <img
-            className="a-icon a-icon-2"
-            src={getImageUrl('@/assets/images/_global/icon2.svg')}
-            alt=""
-          />
-          <div className="banner-img-container relative flex flex-row justify-center">
-            <span className="a-l">
-              Reversed cards hold within them growth and insight;{' '}
-              <span className="active-color">upright cards</span> symbolize joy
-              and abundance
-            </span>
-            <img
-              className="a-icon a-icon-5"
-              src={getImageUrl('@/assets/images/_global/icon5.svg')}
-              alt=""
-            />
-            <img
-              className="main-img"
-              src={getImageUrl('@/assets/images/_global/nft1.png')}
-              alt=""
-            />
-            <span className="a-r">May the light of wisdom guide your soul</span>
-            <img
-              className="a-icon a-icon-3"
-              src={getImageUrl('@/assets/images/_global/icon3.svg')}
-              alt=""
-            />
-            <img
-              className="a-icon a-icon-4"
-              src={getImageUrl('@/assets/images/_global/icon4.svg')}
-              alt=""
-            />
+
+          {ifMobile ? null : (
+            <img className="a-icon a-icon-2" src={getImageUrl('@/assets/images/_global/icon2.svg')} alt="" />
+          )}
+
+          {ifMobile ? (
+            <div className="banner-img-container relative flex flex-col items-center">
+              <div className="f-12 m-a-l maxw-320">
+                Reversed cards hold within them growth and insight; <span className="active-color">upright cards</span>{' '}
+                symbolize joy and abundance
+              </div>
+              <img className="main-img" src={getImageUrl('@/assets/images/_global/nft1.png')} alt="" />
+            </div>
+          ) : (
+            <div className="banner-img-container relative flex flex-row justify-center">
+              <span className="a-l">
+                Reversed cards hold within them growth and insight; <span className="active-color">upright cards</span>{' '}
+                symbolize joy and abundance
+              </span>
+              <img className="a-icon a-icon-5" src={getImageUrl('@/assets/images/_global/icon5.svg')} alt="" />
+              <img className="main-img" src={getImageUrl('@/assets/images/_global/nft1.png')} alt="" />
+              <span className="a-r">May the light of wisdom guide your soul</span>
+              <img className="a-icon a-icon-3" src={getImageUrl('@/assets/images/_global/icon3.svg')} alt="" />
+              <img className="a-icon a-icon-4" src={getImageUrl('@/assets/images/_global/icon4.svg')} alt="" />
+            </div>
+          )}
+        </section>
+
+        <section
+          className={`sc2 maxw-1250 minw-1200 relative flex flex-col items-center ${ifMobile ? 'gap-26' : 'gap-70'}`}
+        >
+          <div
+            className={`flex flex-row items-center ${
+              ifMobile ? 'justify-center' : 'justify-between'
+            } gap-17 w-full flex-wrap`}
+          >
+            <div className={ifMobile ? 'f-20' : 'f-48'}>Initial NFT Offering</div>
+            <div className="flex flex-row gap-23 items-center flex-wrap">
+              <span className={`${ifMobile ? 'm-f-16' : 'f-34'} sub-color`}>Counting Down</span>
+              <span className={`${ifMobile ? 'm-f-18' : 'f-50'} sub-active-color`}>50days</span>
+            </div>
+          </div>
+          {ifMobile ? (
+            <div
+              className={`border-1 flex flex-col items-center justify-between base-nft-exhi ${
+                ifMobile ? 'gap-30' : 'gap-50'
+              }`}
+            >
+              <div className="flex flex-col gap-9 items-center">
+                <div className="flex flex-row gap-8">
+                  <BaseLabel
+                    onClick={() => {
+                      setCurSelectInMobile(1);
+                    }}
+                  >
+                    <span style={{ color: curSelectInMobile === 1 ? '#CB9D3A' : '#CECECC' }} className="f-18">
+                      Card Face
+                    </span>
+                  </BaseLabel>
+                  <BaseLabel
+                    onClick={() => {
+                      setCurSelectInMobile(2);
+                    }}
+                  >
+                    <span style={{ color: curSelectInMobile === 2 ? '#CB9D3A' : '#CECECC' }} className="f-18">
+                      Card Back
+                    </span>
+                  </BaseLabel>
+                </div>
+                <div>
+                  {curSelectInMobile === 1 ? (
+                    <img src={getImageUrl('@/assets/images/_global/NFT-left.png')} alt="" />
+                  ) : (
+                    <img src={getImageUrl('@/assets/images/_global/NFT-right.png')} alt="" />
+                  )}
+                </div>
+              </div>
+              <div className="flex flex-col gap-30 w-full">
+                <div className="flex flex-row items-center gap-16 justify-center">
+                  <img src={getImageUrl('@/assets/images/_global/icon6.svg')} alt="" />
+                  <span className="f-18" style={{ color: 'rgba(255, 255, 253, 0.8)' }}>
+                    The Magician
+                  </span>
+                  <img src={getImageUrl('@/assets/images/_global/icon7.svg')} alt="" />
+                </div>
+
+                <div className="flex flex-col gap-20">
+                  {magicianLevel.map((i) => (
+                    <div key={i.type} className="flex flex-col gap-10">
+                      <div className="flex flex-row gap-8">
+                        {i.prefix}
+                        <span className={ifMobile ? 'm-f-14' : 'f-18'} style={{ color: '#E1BF5E' }}>
+                          {i.type}
+                        </span>
+                      </div>
+
+                      <div className={`flex flex-row ${ifMobile ? 'gap-6' : 'gap-10'} items-center`}>
+                        {i.children.map((j, index) => (
+                          <span key={index}>{j}</span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {/* <div className="flex flex-col gap-9 items-center">
+                <BaseLabel>
+                  <span style={{ color: '#CECECC' }} className="f-18">
+                    NFT opposite
+                  </span>
+                </BaseLabel>
+                <div>
+                  <img src={getImageUrl('@/assets/images/_global/NFT-right.png')} alt="" />
+                </div>
+              </div> */}
+            </div>
+          ) : (
+            <div
+              className={`border-1 flex flex-row items-center justify-between base-nft-exhi ${
+                ifMobile ? 'gap-50' : 'gap-50'
+              }`}
+            >
+              <div className="flex flex-col gap-9 items-center">
+                <BaseLabel>
+                  <span style={{ color: '#CECECC' }} className="f-18">
+                    NFT front
+                  </span>
+                </BaseLabel>
+                <div>
+                  <img src={getImageUrl('@/assets/images/_global/NFT-left.png')} alt="" />
+                </div>
+              </div>
+              <div className="flex flex-col gap-30">
+                <div className="flex flex-row items-center gap-16 justify-center">
+                  <img src={getImageUrl('@/assets/images/_global/icon6.svg')} alt="" />
+                  <span className="f-18" style={{ color: 'rgba(255, 255, 253, 0.8)' }}>
+                    The Magician
+                  </span>
+                  <img src={getImageUrl('@/assets/images/_global/icon7.svg')} alt="" />
+                </div>
+
+                <div className="flex flex-col gap-20">
+                  {magicianLevel.map((i) => (
+                    <div key={i.type} className="flex flex-col gap-10">
+                      <div className="flex flex-row gap-8">
+                        {i.prefix}
+                        <span className="f-18" style={{ color: '#E1BF5E' }}>
+                          {i.type}
+                        </span>
+                      </div>
+
+                      <div className="flex flex-row gap-10 items-center">
+                        {i.children.map((j, index) => (
+                          <span key={index}>{j}</span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="flex flex-col gap-9 items-center">
+                <BaseLabel>
+                  <span style={{ color: '#CECECC' }} className="f-18">
+                    NFT opposite
+                  </span>
+                </BaseLabel>
+                <div>
+                  <img src={getImageUrl('@/assets/images/_global/NFT-right.png')} alt="" />
+                </div>
+              </div>
+            </div>
+          )}
+        </section>
+
+        <section className={`sc3 minw-1200 relative flex flex-col items-center ${ifMobile ? 'gap-18' : 'gap-70'}`}>
+          <div className={`flex flex-col items-center ${ifMobile ? 'gap-10' : 'gap-24'}`}>
+            <div className={ifMobile ? 'f-20' : 'f-48'}>NFT Benefits</div>
+            <div className={ifMobile ? 'm-f-16' : 'f-30'} style={{ color: '#A6A695' }}>
+              Get Your First TAROT Card to Predict Now
+            </div>
+          </div>
+          <div className={`flex flex-row items-center ${ifMobile ? 'gap-16' : 'gap-44'} flex-wrap`}>
+            <div className={`i-card flex flex-col ${ifMobile ? 'gap-16' : 'gap-34'}`}>
+              <div className={`flex flex-row items-center ${ifMobile ? 'gap-6' : 'gap-16'} justify-center`}>
+                <img
+                  style={{ width: ifMobile ? '20px' : '36px' }}
+                  src={getImageUrl('@/assets/images/_global/icon12.svg')}
+                  alt=""
+                />
+                <span className={ifMobile ? 'm-f-16' : 'f-28'} style={{ color: 'rgba(255, 255, 253, 0.8)' }}>
+                  Prediction Team
+                </span>
+                <img
+                  style={{ width: ifMobile ? '20px' : '36px' }}
+                  src={getImageUrl('@/assets/images/_global/icon12.svg')}
+                  alt=""
+                />
+              </div>
+              <img className="main-img" src={getImageUrl('@/assets/images/_global/team.png')} />
+            </div>
+            <div className={`i-card flex flex-col ${ifMobile ? 'gap-16' : 'gap-34'}`}>
+              <div className={`flex flex-row items-center ${ifMobile ? 'gap-6' : 'gap-16'} justify-center`}>
+                <img
+                  style={{ width: ifMobile ? '20px' : '36px' }}
+                  src={getImageUrl('@/assets/images/_global/icon12.svg')}
+                  alt=""
+                />
+                <span className={ifMobile ? 'm-f-16' : 'f-28'} style={{ color: 'rgba(255, 255, 253, 0.8)' }}>
+                  Prediction Market
+                </span>
+                <img
+                  style={{ width: ifMobile ? '20px' : '36px' }}
+                  src={getImageUrl('@/assets/images/_global/icon12.svg')}
+                  alt=""
+                />
+              </div>
+              <img className="main-img" src={getImageUrl('@/assets/images/_global/market.png')} />
+            </div>
           </div>
         </section>
 
-        <section className="sc2 maxw-1250 minw-1200 relative flex flex-col items-center gap-70">
-          <div className="flex flex-row items-center justify-between gap-17 w-full">
-            <div className="f-48">Initial NFT Offering</div>
-            <div className="flex flex-row gap-23 items-center">
-              <span className="f-34 sub-color">Counting Down</span>
-              <span className="f-50 sub-active-color">50days</span>
-            </div>
+        <section className={`sc4 minw-1200 relative flex flex-col items-center ${ifMobile ? 'gap-26' : 'gap-70'}`}>
+          <div className="flex flex-col items-center gap-24">
+            <div className={ifMobile ? 'f-20' : 'f-48'}>ROAD MAP</div>
           </div>
-          <div className="border-1 flex flex-row items-center justify-between base-nft-exhi gap-50">
-            <div className="flex flex-col gap-9 items-center">
-              <BaseLabel>
-                <span style={{ color: '#CECECC' }} className="f-18">
-                  NFT front
-                </span>
-              </BaseLabel>
-              <div>
-                <img
-                  src={getImageUrl('@/assets/images/_global/NFT-left.png')}
-                  alt=""
-                />
-              </div>
-            </div>
-            <div className="flex flex-col gap-30">
-              <div className="flex flex-row items-center gap-16 justify-center">
-                <img
-                  src={getImageUrl('@/assets/images/_global/icon6.svg')}
-                  alt=""
-                />
-                <span
-                  className="f-18"
-                  style={{ color: 'rgba(255, 255, 253, 0.8)' }}
-                >
-                  The Magician
-                </span>
-                <img
-                  src={getImageUrl('@/assets/images/_global/icon7.svg')}
-                  alt=""
-                />
-              </div>
 
-              <div className="flex flex-col gap-20">
-                {magicianLevel.map((i) => (
-                  <div key={i.type} className="flex flex-col gap-10">
-                    <div className="flex flex-row gap-8">
-                      {i.prefix}
-                      <span className="f-18" style={{ color: '#E1BF5E' }}>
-                        {i.type}
-                      </span>
+          {ifMobile ? (
+            <div className="flex flex-col gap-50 w-full maxw-1250">
+              <div className="roadmap-1 flex flex-col gap-30">
+                {roadmap1.map((i, index) => (
+                  <div className="flex flex-col gap-20" key={index}>
+                    <div key={i.title} className="flex-1 flex flex-row gap-6">
+                      <span className={ifMobile ? 'f-16' : 'f-28'}>{i.title}</span>
+                      <span className={`${ifMobile ? 'f-16' : 'f-28'} active-color`}>{i.y}</span>
                     </div>
 
-                    <div className="flex flex-row gap-10 items-center">
-                      {i.children.map((j, index) => (
-                        <span key={index}>{j}</span>
+                    <div className="line flex flex-row ">
+                      <div className="flex-1">
+                        <img src={getImageUrl('@/assets/images/_global/icon6.svg')} alt="" />
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col flex-1 gap-10">
+                      {i.contents.map((j) => (
+                        <div className="flex flex-row items-start gap-10">
+                          {i.contentsPrefix}
+                          <div className={`${ifMobile ? 'm-f-14' : 'f-18'} maxw-300`} style={{ color: '#CFCFB0' }}>
+                            {j}
+                          </div>
+                        </div>
                       ))}
                     </div>
                   </div>
                 ))}
               </div>
-            </div>
-            <div className="flex flex-col gap-9 items-center">
-              <BaseLabel>
-                <span style={{ color: '#CECECC' }} className="f-18">
-                  NFT opposite
-                </span>
-              </BaseLabel>
-              <div>
-                <img
-                  src={getImageUrl('@/assets/images/_global/NFT-right.png')}
-                  alt=""
-                />
-              </div>
-            </div>
-          </div>
-        </section>
 
-        <section className="sc3 minw-1200 relative flex flex-col items-center gap-70">
-          <div className="flex flex-col items-center gap-24">
-            <div className="f-48">NFT Benefits</div>
-            <div className="f-30" style={{ color: '#A6A695' }}>
-              Get Your First TAROT Card to Predict Now
-            </div>
-          </div>
-          <div className="flex flex-row items-center gap-44">
-            <div className="i-card flex flex-col gap-34">
-              <div className="flex flex-row items-center gap-16 justify-center">
-                <img
-                  src={getImageUrl('@/assets/images/_global/icon12.svg')}
-                  alt=""
-                />
-                <span
-                  className="f-28"
-                  style={{ color: 'rgba(255, 255, 253, 0.8)' }}
-                >
-                  Prediction Team
-                </span>
-                <img
-                  src={getImageUrl('@/assets/images/_global/icon12.svg')}
-                  alt=""
-                />
-              </div>
-              <img
-                className="main-img"
-                src={getImageUrl('@/assets/images/_global/team.png')}
-              />
-            </div>
-            <div className="i-card flex flex-col gap-34">
-              <div className="flex flex-row items-center gap-16 justify-center">
-                <img
-                  src={getImageUrl('@/assets/images/_global/icon12.svg')}
-                  alt=""
-                />
-                <span
-                  className="f-28"
-                  style={{ color: 'rgba(255, 255, 253, 0.8)' }}
-                >
-                  Prediction Market
-                </span>
-                <img
-                  src={getImageUrl('@/assets/images/_global/icon12.svg')}
-                  alt=""
-                />
-              </div>
-              <img
-                className="main-img"
-                src={getImageUrl('@/assets/images/_global/market.png')}
-              />
-            </div>
-          </div>
-        </section>
+              <div className="roadmap-2 flex flex-col gap-30">
+                {roadmap2
+                  .filter((i) => i.title)
+                  .map((i, index) => (
+                    <div className="flex flex-col gap-20" key={index}>
+                      <div key={i.title} className="flex-1 flex flex-row gap-6">
+                        <span className={ifMobile ? 'f-16' : 'f-28'}>{i.title}</span>
+                        <span className={`${ifMobile ? 'f-16' : 'f-28'} active-color`}>{i.y}</span>
+                      </div>
 
-        <section className="sc4 minw-1200 relative flex flex-col items-center gap-70">
-          <div className="flex flex-col items-center gap-24">
-            <div className="f-48">ROAD MAP</div>
-          </div>
-          <div className="flex flex-col gap-50 w-full maxw-1250">
-            <div className="roadmap-1 flex flex-col gap-30">
-              <div className="flex flex-row ">
-                {roadmap1.map((i) => (
-                  <div key={i.title} className="flex-1 flex flex-row gap-6">
-                    <span className="f-28">{i.title}</span>
-                    <span className="f-28 active-color">{i.y}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="line flex flex-row ">
-                <div className="flex-1">
-                  <img
-                    src={getImageUrl('@/assets/images/_global/icon6.svg')}
-                    alt=""
-                  />
-                </div>
-                <div className="flex-1">
-                  <img
-                    src={getImageUrl('@/assets/images/_global/icon6.svg')}
-                    alt=""
-                  />
-                </div>
-                <div className="flex-1">
-                  <img
-                    src={getImageUrl('@/assets/images/_global/icon6.svg')}
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div className="flex flex-row ">
-                {roadmap1.map((i, index) => (
-                  <div key={index} className="flex flex-col flex-1 gap-10">
-                    {i.contents.map((j) => (
-                      <div className="flex flex-row items-start gap-10">
-                        {i.contentsPrefix}
-                        <div
-                          className="f-18 maxw-300"
-                          style={{ color: '#CFCFB0' }}
-                        >
-                          {j}
+                      <div className="line flex flex-row ">
+                        <div className="flex-1">
+                          <img src={getImageUrl('@/assets/images/_global/icon6.svg')} alt="" />
                         </div>
                       </div>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </div>
 
-            <div className="roadmap-2 flex flex-col gap-30">
-              <div className="flex flex-row ">
-                {roadmap2.map((i) => (
-                  <div key={i.title} className="flex-1 flex flex-row gap-6">
-                    <span className="f-28">{i.title}</span>
-                    <span className="f-28 active-color">{i.y}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="line flex flex-row ">
-                <div className="flex-1">
-                  <img
-                    src={getImageUrl('@/assets/images/_global/icon6.svg')}
-                    alt=""
-                  />
-                </div>
-                <div className="flex-1">
-                  <img
-                    src={getImageUrl('@/assets/images/_global/icon6.svg')}
-                    alt=""
-                  />
-                </div>
-                <p className="flex-1 relative">
-                  <img
-                    src={getImageUrl('@/assets/images/_global/icon14.svg')}
-                  />
-                  <img
-                    src={getImageUrl('@/assets/images/_global/icon15.svg')}
-                  />
-                </p>
-              </div>
-              <div className="flex flex-row ">
-                {roadmap2.map((i, index) => (
-                  <div key={index} className="flex flex-col flex-1 gap-10">
-                    {i.contents.map((j) => (
-                      <div className="flex flex-row items-start gap-10">
-                        {i.contentsPrefix}
-                        <div
-                          className="f-18 maxw-300"
-                          style={{ color: '#CFCFB0' }}
-                        >
-                          {j}
-                        </div>
+                      <div className="flex flex-col flex-1 gap-10">
+                        {i.contents.map((j) => (
+                          <div className="flex flex-row items-start gap-10">
+                            {i.contentsPrefix}
+                            <div className={`${ifMobile ? 'm-f-14' : 'f-18'} maxw-300`} style={{ color: '#CFCFB0' }}>
+                              {j}
+                            </div>
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-                ))}
+                    </div>
+                  ))}
               </div>
             </div>
-          </div>
+          ) : (
+            <div className="flex flex-col gap-50 w-full maxw-1250">
+              <div className="roadmap-1 flex flex-col gap-30">
+                <div className="flex flex-row ">
+                  {roadmap1.map((i) => (
+                    <div key={i.title} className="flex-1 flex flex-row gap-6">
+                      <span className="f-28">{i.title}</span>
+                      <span className="f-28 active-color">{i.y}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="line flex flex-row ">
+                  <div className="flex-1">
+                    <img src={getImageUrl('@/assets/images/_global/icon6.svg')} alt="" />
+                  </div>
+                  <div className="flex-1">
+                    <img src={getImageUrl('@/assets/images/_global/icon6.svg')} alt="" />
+                  </div>
+                  <div className="flex-1">
+                    <img src={getImageUrl('@/assets/images/_global/icon6.svg')} alt="" />
+                  </div>
+                </div>
+                <div className="flex flex-row ">
+                  {roadmap1.map((i, index) => (
+                    <div key={index} className="flex flex-col flex-1 gap-10">
+                      {i.contents.map((j) => (
+                        <div className="flex flex-row items-start gap-10">
+                          {i.contentsPrefix}
+                          <div className="f-18 maxw-300" style={{ color: '#CFCFB0' }}>
+                            {j}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="roadmap-2 flex flex-col gap-30">
+                <div className="flex flex-row ">
+                  {roadmap2.map((i) => (
+                    <div key={i.title} className="flex-1 flex flex-row gap-6">
+                      <span className="f-28">{i.title}</span>
+                      <span className="f-28 active-color">{i.y}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="line flex flex-row ">
+                  <div className="flex-1">
+                    <img src={getImageUrl('@/assets/images/_global/icon6.svg')} alt="" />
+                  </div>
+                  <div className="flex-1">
+                    <img src={getImageUrl('@/assets/images/_global/icon6.svg')} alt="" />
+                  </div>
+                  <p className="flex-1 relative">
+                    <img src={getImageUrl('@/assets/images/_global/icon14.svg')} />
+                    <img src={getImageUrl('@/assets/images/_global/icon15.svg')} />
+                  </p>
+                </div>
+                <div className="flex flex-row ">
+                  {roadmap2.map((i, index) => (
+                    <div key={index} className="flex flex-col flex-1 gap-10">
+                      {i.contents.map((j) => (
+                        <div className="flex flex-row items-start gap-10">
+                          {i.contentsPrefix}
+                          <div className="f-18 maxw-300" style={{ color: '#CFCFB0' }}>
+                            {j}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
         </section>
 
-        <section className="sc5 minw-1200 relative flex flex-col items-center gap-70">
+        <section className={`sc5 minw-1200 relative flex flex-col items-center ${ifMobile ? 'gap-26' : 'gap-70'}`}>
           <div className="flex flex-col items-center gap-24">
-            <div className="f-48">TAROT COMMUNITY AMBASSADORS</div>
+            <div className={ifMobile ? 'f-20' : 'f-48'} style={{ textAlign: 'center' }}>
+              TAROT COMMUNITY AMBASSADORS
+            </div>
           </div>
-          <div className="flex flex-col gap-40 maxw-1250 ">
+          <div className={`flex flex-col ${ifMobile ? 'gap-20' : 'gap-40'}  maxw-1250 `}>
             <div className="flex flex-row justify-center gap-50 flex-wrap">
               {filteredTarots.map((i, index) => (
-                <div
-                  key={index}
-                  className="thin-border flex flex-row items-center justify-center"
-                >
+                <div key={index} className="thin-border flex flex-row items-center justify-center">
                   <div className="c relative flex-wrap flex flex-col items-center justify-center">
                     <div className="relative">
                       {i.src}
@@ -1124,7 +1318,7 @@ export function Component() {
                 // <span key={index}>{i}</span>
               ))}
             </div>
-            <div className="flex flex-row gap-30 justify-center items-center">
+            <div className={`flex flex-row ${ifMobile ? '' : 'gap-30'} justify-center items-center`}>
               <img
                 onClick={handleMinus}
                 className={`pointer ${curPage === 1 ? 'disable' : ''}`}
@@ -1139,14 +1333,16 @@ export function Component() {
           </div>
         </section>
 
-        <section className="sc6 minw-1200 relative flex flex-col items-center gap-70">
+        <section className={`sc6 minw-1200 relative flex flex-col items-center ${ifMobile ? 'gap-26' : 'gap-70'}`}>
           <div className="flex flex-row items-center justify-center gap-20">
             <img
+              style={ifMobile ? { width: '30px' } : {}}
               src={getImageUrl('@/assets/images/_global/icon13.svg')}
               alt=""
             />
-            <div className="f-48">OUR PARTNERS</div>
+            <div className={ifMobile ? 'f-20' : 'f-48'}>OUR PARTNERS</div>
             <img
+              style={ifMobile ? { width: '30px' } : {}}
               src={getImageUrl('@/assets/images/_global/icon13.svg')}
               alt=""
             />
@@ -1159,73 +1355,122 @@ export function Component() {
               ))}
             </div>
             <div className="flex flex-row items-center gap-40">
-              {[...partner, ...partner, ...partner, ...partner]
-                .reverse()
-                .map((i) => (
-                  <div key={i.name}>{i.img}</div>
-                ))}
+              {[...partner, ...partner, ...partner, ...partner].reverse().map((i) => (
+                <div key={i.name}>{i.img}</div>
+              ))}
             </div>
           </div>
 
-          <div style={{ marginTop: '110px' }} className="maxw-1250">
-            <div className="flex flex-row gap-180">
-              <div className="relative">
-                <img
-                  src={getImageUrl('@/assets/images/_global/icon18.png')}
-                  alt=""
-                />
-                <img
-                  className="a-nft"
-                  src={getImageUrl('@/assets/images/_global/NFT-left.png')}
-                  alt=""
-                />
-              </div>
-              <div className="flex flex-col gap-44 ">
-                <span className="f-48">NEWS ABOUT US</span>
-                <div
-                  className="maxw-484 f-22"
-                  style={{ color: '#9A9A9A', textAlign: 'left' }}
-                >
-                  TAROTPI is a platform for fate prediction and card sales,
-                  including 10,000 NFT cards，Including 22 large cards, which
-                  will be issued and sold through Opensea. And the constellation
-                  prediction platform will also be launched.
-                </div>
-                <div className="flex flex-row flex-wrap gap-34">
-                  {partner.map((i) => (
-                    <div
-                      className="flex-1"
-                      style={{ maxWidth: '30%' }}
-                      key={i.name}
-                    >
-                      {i.img}
-                    </div>
-                  ))}
+          {ifMobile ? (
+            <div style={{ marginTop: '66px' }} className="maxw-1250">
+              <div className="flex flex-row gap-180 justify-center">
+                <div className={`flex flex-col ${ifMobile ? 'gap-16' : 'gap-44'} items-center`}>
+                  <span className={ifMobile ? 'f-20' : 'f-48'}>NEWS ABOUT US</span>
+
+                  <div className="relative">
+                    <img
+                      style={ifMobile ? { width: '100%' } : {}}
+                      src={getImageUrl('@/assets/images/_global/icon18.png')}
+                      alt=""
+                    />
+                    <img className="a-nft" src={getImageUrl('@/assets/images/_global/NFT-left.png')} alt="" />
+                  </div>
+
+                  <div
+                    className={`maxw-484 ${ifMobile ? 'm-f-14' : 'f-22'}`}
+                    style={{ color: '#9A9A9A', textAlign: 'left' }}
+                  >
+                    TAROTPI is a platform for fate prediction and card sales, including 10,000 NFT cards，Including 22
+                    large cards, which will be issued and sold through Opensea. And the constellation prediction
+                    platform will also be launched.
+                  </div>
+                  <div className={`flex flex-row flex-wrap ${ifMobile ? 'gap-24' : 'gap-34'}`}>
+                    {partner.map((i) => (
+                      <div
+                        className={ifMobile ? '' : 'flex-1'}
+                        style={{ maxWidth: ifMobile ? 'calc(30% - 12px)' : '30%' }}
+                        key={i.name}
+                      >
+                        {React.cloneElement(i.img, {
+                          style: {
+                            width: '100%',
+                          },
+                        })}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          ) : (
+            <div style={{ marginTop: '110px' }} className="maxw-1250">
+              <div className="flex flex-row gap-180">
+                <div className="relative">
+                  <img src={getImageUrl('@/assets/images/_global/icon18.png')} alt="" />
+                  <img className="a-nft" src={getImageUrl('@/assets/images/_global/NFT-left.png')} alt="" />
+                </div>
+                <div className="flex flex-col gap-44 ">
+                  <span className={ifMobile ? 'f-20' : 'f-48'}>NEWS ABOUT US</span>
+                  <div className="maxw-484 f-22" style={{ color: '#9A9A9A', textAlign: 'left' }}>
+                    TAROTPI is a platform for fate prediction and card sales, including 10,000 NFT cards，Including 22
+                    large cards, which will be issued and sold through Opensea. And the constellation prediction
+                    platform will also be launched.
+                  </div>
+                  <div className="flex flex-row flex-wrap gap-34">
+                    {partner.map((i) => (
+                      <div className="flex-1" style={{ maxWidth: '30%' }} key={i.name}>
+                        {i.img}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </section>
 
-        <section className="sc7 minw-1200 relative flex flex-col items-center gap-40">
+        <section className={`sc7 minw-1200 relative flex flex-col items-center ${ifMobile ? 'gap-15' : 'gap-40'}`}>
           <div className="flex flex-row items-center justify-center gap-20">
             <img
+              style={ifMobile ? { width: '30px' } : {}}
               src={getImageUrl('@/assets/images/_global/icon13.svg')}
               alt=""
             />
-            <div className="f-48">JOIN OUR COMMUNITY</div>
+            <div
+              style={{
+                whiteSpace: 'nowrap',
+              }}
+              className={ifMobile ? 'f-20' : 'f-48'}
+            >
+              JOIN OUR COMMUNITY
+            </div>
             <img
+              style={ifMobile ? { width: '30px' } : {}}
               src={getImageUrl('@/assets/images/_global/icon13.svg')}
               alt=""
             />
           </div>
-          <div className="f-22 maxw-858" style={{ color: '#9A9A9A' }}>
-            In our community, there will be the latest horoscope NFT hairstyle
-            trends, live broadcast to predict the horoscope.
+          <div
+            className={`${ifMobile ? 'm-f-14' : 'f-22'} maxw-858`}
+            style={{ color: '#9A9A9A', textAlign: ifMobile ? 'center' : 'left' }}
+          >
+            In our community, there will be the latest horoscope NFT hairstyle trends, live broadcast to predict the
+            horoscope.
           </div>
-          <div className="flex flex-row gap-40">
+          <div className={`flex flex-row ${ifMobile ? 'gap-20' : 'gap-40'} flex-wrap`}>
             {meidas.map((i) => (
-              <a href={i.href} key={i.type}>
+              <a
+                href={i.href}
+                key={i.type}
+                style={
+                  ifMobile
+                    ? {
+                        // transform: 'scale(0.8)',
+                        maxWidth: 'calc(50% - 10px)',
+                      }
+                    : {}
+                }
+              >
                 <div>{i.img}</div>
               </a>
             ))}

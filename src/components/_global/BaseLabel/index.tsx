@@ -1,8 +1,8 @@
-import { css, styled } from "styled-components";
+import { css, styled } from 'styled-components';
 
-const Container = styled.div<{ light?: boolean }>`
+const Container = styled.div<{ light?: boolean; size?: string }>`
   &::before {
-    content: "";
+    content: '';
     width: 105%;
     height: 105%;
     position: absolute;
@@ -14,13 +14,9 @@ const Container = styled.div<{ light?: boolean }>`
 
     border-radius: 36px;
 
-    opacity: ${({light})=> light ? 1 : 0.5};
+    opacity: ${({ light }) => (light ? 1 : 0.5)};
 
-    background: linear-gradient(
-              153deg,
-              rgba(255, 211, 77, 0.6) 0%,
-              rgba(255, 211, 77, 0.1) 100%
-            );
+    background: linear-gradient(153deg, rgba(255, 211, 77, 0.8) 0%, rgba(255, 211, 77, 0.1) 100%);
     filter: blur(3.6276848316192627px);
   }
   padding: 3px 10px;
@@ -28,14 +24,34 @@ const Container = styled.div<{ light?: boolean }>`
   border: 1px solid rgba(139, 115, 46, 0.5);
   border-radius: 36px;
   backdrop-filter: blur(3px);
-  /* opacity: 0.5; */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ${({ size }) =>
+    size &&
+    css`
+      width: ${size};
+      height: ${size};
+    `}/* opacity: 0.5; */
 
   /* filter: blur(3.6276848316192627px); */
 
   /* opacity: 0.5; */
 `;
 
-const BaseLabel = ({ children, light }: { children: any; light?: boolean }) => {
+const BaseLabel = ({
+  children,
+  light,
+  size,
+  onClick,
+}: {
+  children: any;
+  light?: boolean;
+  size?: string;
+  onClick?: any;
+}) => {
   return (
     // <svg
     //   width="92"
@@ -100,7 +116,7 @@ const BaseLabel = ({ children, light }: { children: any; light?: boolean }) => {
     //   </defs>
     // </svg>
 
-    <Container light={light}>
+    <Container light={light} size={size} onClick={onClick}>
       {/* <div className="bg" /> */}
       {children}
     </Container>

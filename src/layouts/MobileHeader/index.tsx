@@ -37,7 +37,7 @@ const navs = [
   { label: 'Collections', href: '/collections' },
 ];
 
-const Header = () => {
+const MobileHeader = () => {
   const { pathname } = useLocation();
 
   return (
@@ -47,7 +47,7 @@ const Header = () => {
       </div>
 
       <div className="flex flex-row gap-20 items-center">
-        {navs.map((i, index) => (
+        {/* {navs.map((i, index) => (
           <NavLink
             key={index}
             className={({ isActive }) => (isActive || pathname === i?.extraHref ? 'active-link' : '')}
@@ -55,10 +55,10 @@ const Header = () => {
           >
             <div className="pointer nav-label">{i.label}</div>
           </NavLink>
-        ))}
+        ))} */}
       </div>
     </Container>
   );
 };
 
-export default Header;
+export default MobileHeader;
