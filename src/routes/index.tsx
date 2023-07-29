@@ -27,13 +27,9 @@ const router = createBrowserRouter([
     path: '*',
     element: <NoMatch />,
   },
-], {
-  basename: '/'
-});
+]);
 
 function NoMatch() {
-  // console.log('123123');
-
   const navigate = useNavigate();
 
   useEffect(() => {

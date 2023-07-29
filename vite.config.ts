@@ -27,6 +27,7 @@ export default defineConfig({
       verbose: false,
       template: 'public/index.html',
       pages: [{ name: 'index', filename: 'index.html' }],
+      rewrites: [{ from: /^(?!.*charting_library).*$/i, to: '/public/index.html' }],
     }),
     nodePolyfills({ protocolImports: true }),
   ],
