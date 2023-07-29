@@ -1,0 +1,38 @@
+.component-pagination {
+  gap: 8px;
+  margin-top: 16px;
+  li {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    user-select: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+    justify-content: center !important;
+    svg {
+      fill: rgba(255, 255, 255, 0.85);
+      transition: all 0.3s ease-in;
+    }
+    &.selected {
+      background: rgba(255, 255, 255, 0.25);
+    }
+    &:not(.disabled, .omit):hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+  }
+  .item {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.45);
+    transition: all 0.3s ease-in;
+  }
+  .selected {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+  }
+  .disabled {
+    cursor: not-allowed;
+    svg {
+      fill: rgba(255, 255, 255, 0.25);
+    }
+  }
+}
