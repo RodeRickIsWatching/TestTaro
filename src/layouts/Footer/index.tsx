@@ -3,7 +3,6 @@ import { getImageUrl } from '@/utils/tools';
 import { styled } from 'styled-components';
 
 const Container = styled.div`
-  margin-top: 60px;
   margin-bottom: 62px;
   &.gap-40 {
     gap: 40px;
@@ -22,7 +21,7 @@ const Footer = () => {
   const ifMobile = useMobile();
 
   return (
-    <Container className="flex flex-col gap-40">
+    <Container className="flex flex-col gap-40" style={{marginTop: ifMobile ? '60px' : '172px'}}>
       {ifMobile ? (
         <img src={getImageUrl('@/assets/images/_global/m-footer.svg')} alt="" />
       ) : (
