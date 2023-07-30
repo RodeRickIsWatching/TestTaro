@@ -2,24 +2,23 @@ import { getImageUrl } from '@/utils/tools';
 import './index.scss';
 import { css, keyframes, styled } from 'styled-components';
 import BaseLabel from '@/components/_global/BaseLabel';
-import { useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import useMobile from '@/hooks/useMobile';
-import React from 'react';
 
 const scroll = keyframes`
 from{
   transform: translate(0%, 0);
 }
 to{
-  transform: translate(-75%, 0);
+  transform: translate(-145%, 0);
 }
 `;
 const scrollReverse = keyframes`
 from{
-  transform: translate(-150%, 0);
+  transform: translate(-145%, 0);
 }
 to{
-  transform: translate(-75%, 0);
+  transform: translate(-0%, 0);
 }
 `;
 
@@ -668,10 +667,10 @@ const MainSection = styled(Basic)<{ ifMobile?: boolean }>`
       }
 
       & > div:nth-of-type(1) {
-        animation: ${scroll} linear 20s infinite;
+        animation: ${scroll} linear 30s infinite;
       }
       & > div:nth-of-type(2) {
-        animation: ${scrollReverse} linear 20s infinite;
+        animation: ${scrollReverse} linear 30s infinite;
       }
     }
 
