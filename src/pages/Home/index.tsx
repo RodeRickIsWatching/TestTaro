@@ -4,6 +4,7 @@ import { css, keyframes, styled } from 'styled-components';
 import BaseLabel from '@/components/_global/BaseLabel';
 import React, { useMemo, useState } from 'react';
 import useMobile from '@/hooks/useMobile';
+import { useCountDown } from 'ahooks';
 
 const scroll = keyframes`
 from{
@@ -788,6 +789,13 @@ export function Component() {
   const ifMobile = useMobile();
   const [curPage, setCurPage] = useState(1);
 
+  const [countdown, formattedRes] = useCountDown({
+    targetDate: `${new Date().getFullYear()}-10-01 00:00:00`,
+  });
+
+  const { days } = formattedRes;
+
+
   const perSize = useMemo(() => (ifMobile ? 1 : 6), [ifMobile]);
   const totalPage = useMemo(() => (ifMobile ? 12 : 2), [ifMobile]);
 
@@ -989,7 +997,7 @@ export function Component() {
             <div className={ifMobile ? 'f-20' : 'f-48'}>Initial NFT Offering</div>
             <div className="flex flex-row gap-23 items-center flex-wrap">
               <span className={`${ifMobile ? 'm-f-16' : 'f-34'} sub-color`}>Counting Down</span>
-              <span className={`${ifMobile ? 'm-f-18' : 'f-50'} sub-active-color`}>50days</span>
+              <span className={`${ifMobile ? 'm-f-18' : 'f-50'} sub-active-color`}>{days}days</span>
             </div>
           </div>
           {ifMobile ? (
