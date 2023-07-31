@@ -24,25 +24,51 @@ to{
 
 const partner = [
   {
-    name: 'binance',
-    img: <img src={getImageUrl('@/assets/images/_global/partner/binance.svg')} />,
+    name: 'bnb-chain',
+    img: <img src={getImageUrl('@/assets/images/_global/partner/bnb-chain.svg')} />,
+  },
+
+  {
+    name: 'pancakeswap',
+    img: <img src={getImageUrl('@/assets/images/_global/partner/pancakeSwap.svg')} />,
+  },
+
+  {
+    name: 'cmc',
+    img: <img src={getImageUrl('@/assets/images/_global/partner/cmc.svg')} />,
   },
   {
-    name: 'exodus',
-    img: <img src={getImageUrl('@/assets/images/_global/partner/exodus.svg')} />,
+    name: 'coingecko',
+    img: <img src={getImageUrl('@/assets/images/_global/partner/coingecko.svg')} />,
   },
   {
-    name: 'plasmapay',
-    img: <img src={getImageUrl('@/assets/images/_global/partner/plasmapay.svg')} />,
+    name: 'uniswap',
+    img: <img src={getImageUrl('@/assets/images/_global/partner/uniswap.svg')} />,
   },
   {
-    name: 'revolut',
-    img: <img src={getImageUrl('@/assets/images/_global/partner/revolut.svg')} />,
+    name: 'openSea',
+    img: <img src={getImageUrl('@/assets/images/_global/partner/openSea.svg')} />,
   },
-  {
-    name: 'sequoia',
-    img: <img src={getImageUrl('@/assets/images/_global/partner/sequoia.svg')} />,
-  },
+  // {
+  //   name: 'binance',
+  //   img: <img src={getImageUrl('@/assets/images/_global/partner/binance.svg')} />,
+  // },
+  // {
+  //   name: 'exodus',
+  //   img: <img src={getImageUrl('@/assets/images/_global/partner/exodus.svg')} />,
+  // },
+  // {
+  //   name: 'plasmapay',
+  //   img: <img src={getImageUrl('@/assets/images/_global/partner/plasmapay.svg')} />,
+  // },
+  // {
+  //   name: 'revolut',
+  //   img: <img src={getImageUrl('@/assets/images/_global/partner/revolut.svg')} />,
+  // },
+  // {
+  //   name: 'sequoia',
+  //   img: <img src={getImageUrl('@/assets/images/_global/partner/sequoia.svg')} />,
+  // },
 ];
 
 const medias = [
@@ -72,86 +98,86 @@ const tarots = [
   {
     name: 'Bilge Sahim',
     country: 'Turkey',
-    lng: 'English; Turkish; korean',
+    lng: 'English; Turkish; Korean',
     sign: 'Aries',
-    src: <img src={getImageUrl('@/assets/images/_global/tarot/card1.png')} />,
+    src: <img src={getImageUrl('@/assets/images/_global/tarot/Aries.png')} />,
   },
   {
     name: 'Muhammad Rizwan',
     country: 'Pakistan',
     lng: 'English; Urdu',
     sign: 'Gemini',
-    src: <img src={getImageUrl('@/assets/images/_global/tarot/card1.png')} />,
+    src: <img src={getImageUrl('@/assets/images/_global/tarot/Gemini.png')} />,
   },
   {
     name: 'Keo Ceo',
     country: 'Myanmar',
     lng: 'English; Burmese',
     sign: 'Taurus',
-    src: <img src={getImageUrl('@/assets/images/_global/tarot/card1.png')} />,
+    src: <img src={getImageUrl('@/assets/images/_global/tarot/Taurus.png')} />,
   },
   {
     name: 'Ronald Maunze',
     country: 'Zimbabwe',
     lng: 'English; Chinese; Shona; Portuguese',
     sign: 'Cancer',
-    src: <img src={getImageUrl('@/assets/images/_global/tarot/card1.png')} />,
+    src: <img src={getImageUrl('@/assets/images/_global/tarot/Cancer.png')} />,
   },
   {
     name: 'Sheikh Muhammad Usama',
     country: 'Saudi Arabia',
     lng: 'English; Arabic',
     sign: 'Leo',
-    src: <img src={getImageUrl('@/assets/images/_global/tarot/card1.png')} />,
+    src: <img src={getImageUrl('@/assets/images/_global/tarot/Leo.png')} />,
   },
   {
     name: 'Ayaka Fujiwara',
-    country: 'Japen',
+    country: 'Japan',
     lng: 'English; Japanese',
     sign: 'Virgo',
-    src: <img src={getImageUrl('@/assets/images/_global/tarot/card1.png')} />,
+    src: <img src={getImageUrl('@/assets/images/_global/tarot/Virgo.png')} />,
   },
   {
     name: 'James Mcmurray',
     country: 'Ireland',
     lng: 'English;',
     sign: 'Libra',
-    src: <img src={getImageUrl('@/assets/images/_global/tarot/card2.png')} />,
+    src: <img src={getImageUrl('@/assets/images/_global/tarot/Libra.png')} />,
   },
   {
     name: 'Yonatan Henok',
     country: 'Ethiopian',
     lng: 'English; French',
-    sign: 'Scorpion',
-    src: <img src={getImageUrl('@/assets/images/_global/tarot/card2.png')} />,
+    sign: 'Scorpio',
+    src: <img src={getImageUrl('@/assets/images/_global/tarot/Scorpio.png')} />,
   },
   {
     name: 'Jennie Hua',
     country: 'Singapore',
     lng: 'English; Chinese',
     sign: 'Sagittarius',
-    src: <img src={getImageUrl('@/assets/images/_global/tarot/card2.png')} />,
+    src: <img src={getImageUrl('@/assets/images/_global/tarot/Sagittarius.png')} />,
   },
   {
     name: 'Musa Jonathan Sesay',
     country: 'Sierra Leone',
     lng: 'English',
     sign: 'Capricorn',
-    src: <img src={getImageUrl('@/assets/images/_global/tarot/card2.png')} />,
+    src: <img src={getImageUrl('@/assets/images/_global/tarot/Capricorn.png')} />,
   },
   {
     name: 'Hyeon Jeong',
     country: 'Korea',
     lng: 'English; Korean',
     sign: 'Aquarius',
-    src: <img src={getImageUrl('@/assets/images/_global/tarot/card2.png')} />,
+    src: <img src={getImageUrl('@/assets/images/_global/tarot/Aquarius.png')} />,
   },
   {
     name: 'Shamim Mia',
     country: 'Bangladesh',
     lng: 'English; Bengali',
     sign: 'Pisces',
-    src: <img src={getImageUrl('@/assets/images/_global/tarot/card2.png')} />,
+    src: <img src={getImageUrl('@/assets/images/_global/tarot/Pisces.png')} />,
   },
 ];
 
@@ -160,28 +186,24 @@ const roadmap1 = [
     title: 'Q2',
     y: '2023',
     contentsPrefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
-    contents: ['Prediction Marketplace (done)'],
+    contents: ['Prediction Marketplace (completed)'],
   },
   {
     title: 'Q3',
     y: '2023',
     contentsPrefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
     contents: [
-      'Launch Genesis Tarot Card NFT (Celtic Art Series)',
-      'IIssue TART token',
+      'Launch Genesis NFT Tarot Card (Celtic Art Series)',
+      'Issue TART token',
       'Complete Major and Minor Arcana upgrading features',
       'Implement P2E feature',
     ],
   },
   {
-    title: 'Q2',
+    title: 'Q3',
     y: '2023',
     contentsPrefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
-    contents: [
-      'Launch Carding Reading game',
-      'Develop Mystery Box feature',
-      'Develop marketplace for tarot card trading',
-    ],
+    contents: ['Launch Card Reading game', 'Develop Mystery Box feature', 'Develop marketplace for tarot card trading'],
   },
 ];
 
@@ -604,7 +626,7 @@ const MainSection = styled(Basic)<{ ifMobile?: boolean }>`
       }
 
       & > .c {
-        padding: ${({ ifMobile }) => (ifMobile ? '14px 25px' : '55px')};
+        padding: ${({ ifMobile }) => (ifMobile ? '14px 25px' : '55px 0 55px 22.5px')};
 
         & > div {
           overflow: hidden;
@@ -671,6 +693,19 @@ const MainSection = styled(Basic)<{ ifMobile?: boolean }>`
       }
       & > div:nth-of-type(2) {
         animation: ${scrollReverse} linear 30s infinite;
+      }
+      img {
+        min-width: 160px;
+        height: 50px;
+        object-fit: cover;
+      }
+    }
+
+    .partner {
+      img {
+        min-width: 160px;
+        height: 50px;
+        object-fit: cover;
       }
     }
 
@@ -816,14 +851,14 @@ export function Component() {
         />,
         <BaseLabel light>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
-            11 Levle
+            Level 11
           </span>
         </BaseLabel>,
       ],
     },
     {
       prefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
-      type: 'Arribute',
+      type: 'Attribute',
       children: [
         <img src={getImageUrl('@/assets/images/_global/attr/icon1.png')} />,
         <BaseLabel light>
@@ -909,9 +944,11 @@ export function Component() {
             <img className="a-icon a-icon-1" src={getImageUrl('@/assets/images/_global/icon1.svg')} alt="" />
           )}
 
-          <h1 className={ifMobile ? 'f-31' : 'f-61 maxw-1095'}>
+          <h1 className={ifMobile ? 'f-31' : 'f-61 maxw-1095'} style={{ letterSpacing: '3px' }}>
             ll these old letters of my Book are aright; but צ is not the Star.
-            <span className="active-color">---- Liber AL vel Legis I:57</span>
+            <span className="active-color" style={{ letterSpacing: '3px' }}>
+              ---- Liber AL vel Legis I:57
+            </span>
           </h1>
 
           {ifMobile ? null : (
@@ -1379,9 +1416,9 @@ export function Component() {
                     className={`maxw-484 ${ifMobile ? 'm-f-14' : 'f-22'}`}
                     style={{ color: '#9A9A9A', textAlign: 'left' }}
                   >
-                    TAROTPI is a platform for fate prediction and card sales, including 10,000 NFT cards，Including 22
-                    large cards, which will be issued and sold through Opensea. And the constellation prediction
-                    platform will also be launched.
+                    TarotPi is a platform driven by NFT tarot cards and prediction. Featuring 9,999 NFT cards and 22
+                    major arcana characters, the NFT cards will be issued and sold on OpenSea! The Constellation
+                    Prediction platform will also be launched soon!
                   </div>
                   <div className={`flex flex-row flex-wrap ${ifMobile ? 'gap-24' : 'gap-34'}`}>
                     {partner.map((i) => (
@@ -1411,11 +1448,11 @@ export function Component() {
                 <div className="flex flex-col gap-44 ">
                   <span className={ifMobile ? 'f-20' : 'f-48'}>NEWS ABOUT US</span>
                   <div className="maxw-484 f-22" style={{ color: '#9A9A9A', textAlign: 'left' }}>
-                    TAROTPI is a platform for fate prediction and card sales, including 10,000 NFT cards，Including 22
-                    large cards, which will be issued and sold through Opensea. And the constellation prediction
-                    platform will also be launched.
+                    TarotPi is a platform driven by NFT tarot cards and prediction. Featuring 9,999 NFT cards and 22
+                    major arcana characters, the NFT cards will be issued and sold on OpenSea! The Constellation
+                    Prediction platform will also be launched soon!
                   </div>
-                  <div className="flex flex-row flex-wrap gap-34">
+                  <div className="flex flex-row flex-wrap gap-34 partner">
                     {partner.map((i) => (
                       <div className="flex-1" style={{ maxWidth: '30%' }} key={i.name}>
                         {i.img}
@@ -1453,8 +1490,8 @@ export function Component() {
             className={`${ifMobile ? 'm-f-14' : 'f-22'} maxw-858`}
             style={{ color: '#9A9A9A', textAlign: ifMobile ? 'center' : 'left' }}
           >
-            In our community, there will be the latest horoscope NFT hairstyle trends, live broadcast to predict the
-            horoscope.
+            Join our community for the latest horoscope NFT hairstyle trends and live broadcasts for horoscope
+            predictions.
           </div>
           <div className={`flex flex-row ${ifMobile ? 'gap-20' : 'gap-40'} flex-wrap`}>
             {medias.map((i) => (
