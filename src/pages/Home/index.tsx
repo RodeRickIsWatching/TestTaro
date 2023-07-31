@@ -45,26 +45,26 @@ const partner = [
   },
 ];
 
-const meidas = [
+const medias = [
   {
     type: 'twitter',
     img: <img src={getImageUrl('@/assets/images/_global/media/twitter.svg')} />,
-    href: '',
+    href: 'https://twitter.com/TarotPi?t=rd1hsbX3bOp_wpdfLlPV-Q&s=09',
   },
   {
     type: 'facebook',
     img: <img src={getImageUrl('@/assets/images/_global/media/facebook.svg')} />,
-    href: '',
+    href: 'https://www.facebook.com/profile.php?id=100094770578472&_rdc=2&_rdr',
   },
   {
     type: 'tiktok',
     img: <img src={getImageUrl('@/assets/images/_global/media/tiktok.svg')} />,
-    href: '',
+    href: 'https://www.tiktok.com/@Tarot_pi',
   },
   {
     type: 'ins',
     img: <img src={getImageUrl('@/assets/images/_global/media/ins.svg')} />,
-    href: '',
+    href: 'https://instagram.com/_tarotpi?igshid=MzNlNGNkZWQ4Mg==',
   },
 ];
 
@@ -1403,7 +1403,7 @@ export function Component() {
             </div>
           ) : (
             <div style={{ marginTop: '110px' }} className="maxw-1250">
-              <div className="flex flex-row gap-180">
+              <div className="flex flex-row gap-180 items-center">
                 <div className="relative">
                   <img src={getImageUrl('@/assets/images/_global/icon18.png')} alt="" />
                   <img className="a-nft" src={getImageUrl('@/assets/images/_global/NFT-left.png')} alt="" />
@@ -1457,9 +1457,10 @@ export function Component() {
             horoscope.
           </div>
           <div className={`flex flex-row ${ifMobile ? 'gap-20' : 'gap-40'} flex-wrap`}>
-            {meidas.map((i) => (
+            {medias.map((i) => (
               <a
                 href={i.href}
+                target="_blank"
                 key={i.type}
                 style={
                   ifMobile
