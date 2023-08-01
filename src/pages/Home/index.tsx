@@ -74,24 +74,29 @@ const partner = [
 
 const medias = [
   {
-    type: 'twitter',
-    img: <img src={getImageUrl('@/assets/images/_global/media/twitter.svg')} />,
-    href: 'https://twitter.com/TarotPi?t=rd1hsbX3bOp_wpdfLlPV-Q&s=09',
-  },
-  {
-    type: 'facebook',
-    img: <img src={getImageUrl('@/assets/images/_global/media/facebook.svg')} />,
-    href: 'https://www.facebook.com/profile.php?id=100094770578472&_rdc=2&_rdr',
-  },
-  {
     type: 'tiktok',
     img: <img src={getImageUrl('@/assets/images/_global/media/tiktok.svg')} />,
     href: 'https://www.tiktok.com/@Tarot_pi',
   },
   {
+    type: 'twitter',
+    img: <img src={getImageUrl('@/assets/images/_global/media/twitter.svg')} />,
+    href: 'https://twitter.com/tarotpi',
+  },
+  {
     type: 'ins',
     img: <img src={getImageUrl('@/assets/images/_global/media/ins.svg')} />,
-    href: 'https://instagram.com/_tarotpi?igshid=MzNlNGNkZWQ4Mg==',
+    href: 'https://www.instagram.com/_tarotpi/',
+  },
+  {
+    type: 'facebook',
+    img: <img src={getImageUrl('@/assets/images/_global/media/facebook.svg')} />,
+    href: 'https://www.facebook.com/profile.php?id=100094770578472',
+  },
+  {
+    type: 'medium',
+    img: <img src={getImageUrl('@/assets/images/_global/media/medium.svg')} />,
+    href: 'https://medium.com/@tarotpi',
   },
 ];
 
@@ -201,7 +206,7 @@ const roadmap1 = [
     ],
   },
   {
-    title: 'Q3',
+    title: 'Q4',
     y: '2023',
     contentsPrefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
     contents: ['Launch Card Reading game', 'Develop Mystery Box feature', 'Develop marketplace for tarot card trading'],
@@ -210,8 +215,8 @@ const roadmap1 = [
 
 const roadmap2 = [
   {
-    title: 'Q2',
-    y: '2025',
+    title: 'Q1',
+    y: '2024',
     contentsPrefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
     contents: ['Collaborate with other brands and KOLs', 'Issue additional NFT series', 'Launch more card games'],
   },
@@ -616,9 +621,9 @@ const MainSection = styled(Basic)<{ ifMobile?: boolean }>`
   .sc5 {
     .thin-border {
       position: relative;
-      background: url(${getImageUrl('@/assets/images/_global/tarot/border.svg')});
+      /* background: url(${getImageUrl('@/assets/images/_global/tarot/border.svg')});
       background-size: ${({ ifMobile }) => (ifMobile ? 'contain' : 'cover')};
-      background-repeat: no-repeat;
+      background-repeat: no-repeat; */
       width: ${({ ifMobile }) => (ifMobile ? '330px' : '383px')};
       /* height: 490.5px; */
       aspect-ratio: 355 / 447;
@@ -721,9 +726,23 @@ const MainSection = styled(Basic)<{ ifMobile?: boolean }>`
 `;
 
 const Container = styled(MainSection)<{ ifMobile?: boolean }>`
-  background: url(${getImageUrl('@/assets/images/_global/tarotpi.svg')});
-  background-size: cover;
-  background-repeat: no-repeat;
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100vw;
+    height: calc(100% + 81px + 117px);
+    top: calc(-81px - 117px);
+    bottom: 0;
+    left: 50%;
+    right: 0;
+    transform: translate(-50%, 0);
+    background: url(${getImageUrl('@/assets/images/_global/tarotpi.svg')});
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-block;
+    z-index: -1;
+  }
   margin-top: ${({ ifMobile }) => (ifMobile ? '0' : '117px')};
   padding: ${({ ifMobile }) => (ifMobile ? '25px' : '')};
 
@@ -795,7 +814,6 @@ export function Component() {
 
   const { days } = formattedRes;
 
-
   const perSize = useMemo(() => (ifMobile ? 1 : 6), [ifMobile]);
   const totalPage = useMemo(() => (ifMobile ? 12 : 2), [ifMobile]);
 
@@ -824,7 +842,7 @@ export function Component() {
   const magicianLevel = [
     {
       prefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
-      type: 'Ranty',
+      type: 'Rarity',
       children: [
         <BaseLabel light>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
@@ -837,26 +855,26 @@ export function Component() {
       prefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
       type: 'Level',
       children: [
-        <img
-          style={{ width: ifMobile ? '34px' : '42px' }}
-          src={getImageUrl('@/assets/images/_global/level/Level1.svg')}
-        />,
-        <img
-          style={{ width: ifMobile ? '34px' : '42px' }}
-          src={getImageUrl('@/assets/images/_global/level/more.svg')}
-        />,
-        <img
-          style={{ width: ifMobile ? '34px' : '42px' }}
-          src={getImageUrl('@/assets/images/_global/level/Level2.svg')}
-        />,
+        // <img
+        //   style={{ width: ifMobile ? '34px' : '42px' }}
+        //   src={getImageUrl('@/assets/images/_global/level/Level1.svg')}
+        // />,
+        // <img
+        //   style={{ width: ifMobile ? '34px' : '42px' }}
+        //   src={getImageUrl('@/assets/images/_global/level/more.svg')}
+        // />,
+        // <img
+        //   style={{ width: ifMobile ? '34px' : '42px' }}
+        //   src={getImageUrl('@/assets/images/_global/level/Level2.svg')}
+        // />,
         <img
           style={{ width: ifMobile ? '34px' : '42px' }}
           src={getImageUrl('@/assets/images/_global/level/Level3.svg')}
         />,
-        <img
-          style={{ width: ifMobile ? '34px' : '42px' }}
-          src={getImageUrl('@/assets/images/_global/level/Level4.svg')}
-        />,
+        // <img
+        //   style={{ width: ifMobile ? '34px' : '42px' }}
+        //   src={getImageUrl('@/assets/images/_global/level/Level4.svg')}
+        // />,
         <BaseLabel light>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
             Level 11
@@ -868,10 +886,10 @@ export function Component() {
       prefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
       type: 'Attribute',
       children: [
-        <img src={getImageUrl('@/assets/images/_global/attr/icon1.png')} />,
+        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon2.png')} />,
         <BaseLabel light>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
-            Wind
+            Fire
           </span>
         </BaseLabel>,
       ],
@@ -880,31 +898,31 @@ export function Component() {
       prefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
       type: 'Power',
       children: [
-        <img src={getImageUrl('@/assets/images/_global/attr/icon1.png')} />,
-        <BaseLabel light size={ifMobile ? '21px' : '27px'}>
+        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon2.png')} />,
+        <BaseLabel light>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
-            ?
+            1905
           </span>
         </BaseLabel>,
 
-        <img src={getImageUrl('@/assets/images/_global/attr/icon2.png')} />,
-        <BaseLabel light size={ifMobile ? '21px' : '27px'}>
+        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon3.png')} />,
+        <BaseLabel light>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
-            ?
+            975
           </span>
         </BaseLabel>,
 
-        <img src={getImageUrl('@/assets/images/_global/attr/icon3.png')} />,
-        <BaseLabel light size={ifMobile ? '21px' : '27px'}>
+        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon1.png')} />,
+        <BaseLabel light>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
-            ?
+            956
           </span>
         </BaseLabel>,
 
-        <img src={getImageUrl('@/assets/images/_global/attr/icon4.png')} />,
-        <BaseLabel light size={ifMobile ? '21px' : '27px'}>
+        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon4.png')} />,
+        <BaseLabel light>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
-            ?
+            980
           </span>
         </BaseLabel>,
       ],
@@ -913,28 +931,28 @@ export function Component() {
       prefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
       type: 'Suits',
       children: [
-        <img src={getImageUrl('@/assets/images/_global/attr/icon5.png')} />,
+        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon5.png')} />,
         <BaseLabel light size={ifMobile ? '21px' : '27px'}>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
             X
           </span>
         </BaseLabel>,
 
-        <img src={getImageUrl('@/assets/images/_global/attr/icon6.png')} />,
+        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon6.png')} />,
         <BaseLabel light size={ifMobile ? '21px' : '27px'}>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
             V
           </span>
         </BaseLabel>,
 
-        <img src={getImageUrl('@/assets/images/_global/attr/icon7.png')} />,
+        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon7.png')} />,
         <BaseLabel light size={ifMobile ? '21px' : '27px'}>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
             II
           </span>
         </BaseLabel>,
 
-        <img src={getImageUrl('@/assets/images/_global/attr/icon8.png')} />,
+        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon8.png')} />,
         <BaseLabel light size={ifMobile ? '21px' : '27px'}>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
             IV
@@ -953,7 +971,7 @@ export function Component() {
           )}
 
           <h1 className={ifMobile ? 'f-31' : 'f-61 maxw-1095'} style={{ letterSpacing: '3px' }}>
-            ll these old letters of my Book are aright; but צ is not the Star.
+            All these old letters of my Book are aright; but צ is not the Star.
             <span className="active-color" style={{ letterSpacing: '3px' }}>
               ---- Liber AL vel Legis I:57
             </span>
@@ -1029,9 +1047,9 @@ export function Component() {
                 </div>
                 <div>
                   {curSelectInMobile === 1 ? (
-                    <img src={getImageUrl('@/assets/images/_global/NFT-left.png')} alt="" />
+                    <img style={{ width: '260px' }} src={getImageUrl('@/assets/images/_global/NFT-left.png')} alt="" />
                   ) : (
-                    <img src={getImageUrl('@/assets/images/_global/NFT-right.png')} alt="" />
+                    <img style={{ width: '260px' }} src={getImageUrl('@/assets/images/_global/NFT-right.png')} alt="" />
                   )}
                 </div>
               </div>
@@ -1054,7 +1072,7 @@ export function Component() {
                         </span>
                       </div>
 
-                      <div className={`flex flex-row ${ifMobile ? 'gap-6' : 'gap-10'} items-center`}>
+                      <div className={`flex flex-row ${ifMobile ? 'gap-6' : 'gap-10'} items-center flex-wrap`}>
                         {i.children.map((j, index) => (
                           <span key={index}>{j}</span>
                         ))}
@@ -1087,7 +1105,7 @@ export function Component() {
                   </span>
                 </BaseLabel>
                 <div>
-                  <img src={getImageUrl('@/assets/images/_global/NFT-left.png')} alt="" />
+                  <img style={{ width: '320px' }} src={getImageUrl('@/assets/images/_global/NFT-left.png')} alt="" />
                 </div>
               </div>
               <div className="flex flex-col gap-30">
@@ -1125,7 +1143,7 @@ export function Component() {
                   </span>
                 </BaseLabel>
                 <div>
-                  <img src={getImageUrl('@/assets/images/_global/NFT-right.png')} alt="" />
+                  <img style={{ width: '320px' }} src={getImageUrl('@/assets/images/_global/NFT-right.png')} alt="" />
                 </div>
               </div>
             </div>
@@ -1140,7 +1158,7 @@ export function Component() {
             </div>
           </div>
           <div className={`flex flex-row items-center ${ifMobile ? 'gap-16' : 'gap-44'} flex-wrap`}>
-            <div className={`i-card flex flex-col ${ifMobile ? 'gap-16' : 'gap-34'}`}>
+            <div className={`i-card flex flex-col  ${ifMobile ? 'gap-16 w-full' : 'gap-34'}`}>
               <div className={`flex flex-row items-center ${ifMobile ? 'gap-6' : 'gap-16'} justify-center`}>
                 <img
                   style={{ width: ifMobile ? '20px' : '36px' }}
@@ -1158,7 +1176,7 @@ export function Component() {
               </div>
               <img className="main-img" src={getImageUrl('@/assets/images/_global/team.png')} />
             </div>
-            <div className={`i-card flex flex-col ${ifMobile ? 'gap-16' : 'gap-34'}`}>
+            <div className={`i-card flex flex-col ${ifMobile ? 'gap-16 w-full' : 'gap-34'}`}>
               <div className={`flex flex-row items-center ${ifMobile ? 'gap-6' : 'gap-16'} justify-center`}>
                 <img
                   style={{ width: ifMobile ? '20px' : '36px' }}
@@ -1417,7 +1435,7 @@ export function Component() {
                       src={getImageUrl('@/assets/images/_global/icon18.png')}
                       alt=""
                     />
-                    <img className="a-nft" src={getImageUrl('@/assets/images/_global/NFT-left.png')} alt="" />
+                    <img className="a-nft" src={getImageUrl('@/assets/images/_global/news-about-us.png')} alt="" />
                   </div>
 
                   <div
@@ -1425,8 +1443,8 @@ export function Component() {
                     style={{ color: '#9A9A9A', textAlign: 'left' }}
                   >
                     TarotPi is a platform driven by NFT tarot cards and prediction. Featuring 9,999 NFT cards and 22
-                    major arcana characters, the NFT cards will be issued and sold on OpenSea! The Constellation
-                    Prediction platform will also be launched soon!
+                    major arcana characters, the NFT cards will be issued and sold on OpenSea! The TarotPi Prophet will
+                    also be launched soon!
                   </div>
                   <div className={`flex flex-row flex-wrap ${ifMobile ? 'gap-24' : 'gap-34'}`}>
                     {partner.map((i) => (
@@ -1451,7 +1469,12 @@ export function Component() {
               <div className="flex flex-row gap-180 items-center">
                 <div className="relative">
                   <img src={getImageUrl('@/assets/images/_global/icon18.png')} alt="" />
-                  <img className="a-nft" src={getImageUrl('@/assets/images/_global/NFT-left.png')} alt="" />
+                  <img
+                    style={{ width: '230px' }}
+                    className="a-nft"
+                    src={getImageUrl('@/assets/images/_global/news-about-us.png')}
+                    alt=""
+                  />
                 </div>
                 <div className="flex flex-col gap-44 ">
                   <span className={ifMobile ? 'f-20' : 'f-48'}>NEWS ABOUT US</span>
@@ -1498,8 +1521,7 @@ export function Component() {
             className={`${ifMobile ? 'm-f-14' : 'f-22'} maxw-858`}
             style={{ color: '#9A9A9A', textAlign: ifMobile ? 'center' : 'left' }}
           >
-            Join our community for the latest horoscope NFT hairstyle trends and live broadcasts for horoscope
-            predictions.
+            Join our community for the latest news on NFT tarot card and live broadcasts of TarotPi Prophet.
           </div>
           <div className={`flex flex-row ${ifMobile ? 'gap-20' : 'gap-40'} flex-wrap`}>
             {medias.map((i) => (

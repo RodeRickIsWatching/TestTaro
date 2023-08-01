@@ -10,7 +10,7 @@ const Container = styled.div`
   .nav-label {
     font-family: Inter;
   }
-
+/* 
   .active-link {
     position: relative;
     &::after {
@@ -29,7 +29,7 @@ const Container = styled.div`
       width: 100%;
       padding: 0 6px;
     }
-  }
+  } */
 `;
 
 const navs = [
@@ -37,7 +37,7 @@ const navs = [
   { label: 'Prediction', href: '/prediction' },
   { label: 'Card Reading', href: '/cardReading' },
   { label: 'Marketplace', href: '/marketplace' },
-  { label: 'Gitbook', href: '/gitbook' },
+  { label: 'Gitbook', href: 'https://docs.tarotpi.com/' },
 ];
 
 const Header = () => {
@@ -55,6 +55,7 @@ const Header = () => {
             key={index}
             className={({ isActive }) => (isActive || pathname === i?.extraHref ? 'active-link' : '')}
             to={i.href}
+            target={i?.href?.startsWith('https') ? '_blank' : '_self'}
           >
             <div className="pointer nav-label">{i.label}</div>
           </NavLink>
