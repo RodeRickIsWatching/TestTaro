@@ -31,10 +31,10 @@ const Container = styled.div`
 
 const navs = [
   { label: 'Home', href: '/home', extraHref: '/' },
+  { label: 'Prediction', href: '/prediction' },
+  { label: 'CardReading', href: '/cardReading' },
   { label: 'Marketplace', href: '/marketplace' },
-  { label: 'Artists', href: '/artists' },
-  { label: 'Community', href: '/community' },
-  { label: 'Collections', href: '/collections' },
+  { label: 'Gitbook', href: '/' },
 ];
 
 const Header = () => {
