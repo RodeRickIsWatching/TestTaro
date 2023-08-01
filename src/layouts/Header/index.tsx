@@ -25,6 +25,9 @@ const Container = styled.div`
       height: 15px;
 
       background: linear-gradient(to bottom, rgba(255, 222, 130, 0) 0%, rgba(255, 222, 130, 0.2) 100%);
+
+      width: 100%;
+      padding: 0 6px;
     }
   }
 `;
@@ -32,9 +35,9 @@ const Container = styled.div`
 const navs = [
   { label: 'Home', href: '/home', extraHref: '/' },
   { label: 'Prediction', href: '/prediction' },
-  { label: 'CardReading', href: '/cardReading' },
+  { label: 'Card Reading', href: '/cardReading' },
   { label: 'Marketplace', href: '/marketplace' },
-  { label: 'Gitbook', href: '/' },
+  { label: 'Gitbook', href: '/gitbook' },
 ];
 
 const Header = () => {
