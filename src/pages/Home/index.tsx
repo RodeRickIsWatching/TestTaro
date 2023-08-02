@@ -1497,7 +1497,7 @@ export function Component() {
                     impressive collection of 9,999 genesis NFT cards with 22 major arcana characters, these exclusive
                     NFT cards will be made available for purchase on OpenSea in October 2023!
                   </div>
-                  <div className={`flex flex-row flex-wrap ${ifMobile ? 'gap-24' : 'gap-34'}`}>
+                  {/* <div className={`flex flex-row flex-wrap ${ifMobile ? 'gap-24' : 'gap-34'}`}>
                     {partner.map((i) => (
                       <div
                         className={ifMobile ? '' : 'flex-1'}
@@ -1511,7 +1511,7 @@ export function Component() {
                         })}
                       </div>
                     ))}
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -1536,13 +1536,13 @@ export function Component() {
                     impressive collection of 9,999 genesis NFT cards with 22 major arcana characters, these exclusive
                     NFT cards will be made available for purchase on OpenSea in October 2023!
                   </div>
-                  <div className="flex flex-row flex-wrap gap-34 partner">
+                  {/* <div className="flex flex-row flex-wrap gap-34 partner">
                     {partner.map((i) => (
                       <div className="flex-1" style={{ maxWidth: '30%' }} key={i.name}>
                         {i.img}
                       </div>
                     ))}
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
