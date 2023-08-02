@@ -5,6 +5,7 @@ import BaseLabel from '@/components/_global/BaseLabel';
 import React, { useMemo, useState } from 'react';
 import useMobile from '@/hooks/useMobile';
 import { useCountDown } from 'ahooks';
+import LazyLoad from 'react-lazy-load';
 
 const scroll = keyframes`
 from{
@@ -504,6 +505,15 @@ const Basic = styled.section<{ ifMobile?: boolean }>`
 `;
 
 const MainSection = styled(Basic)<{ ifMobile?: boolean }>`
+  .LazyLoad {
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .is-visible {
+    opacity: 1;
+  }
+
   .sc1 {
     .banner-img-container {
       .main-img {
@@ -886,7 +896,10 @@ export function Component() {
       prefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
       type: 'Attribute',
       children: [
-        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon2.svg')} />,
+        <img
+          style={{ width: ifMobile ? '30px' : '36px' }}
+          src={getImageUrl('@/assets/images/_global/attr/icon2.svg')}
+        />,
         <BaseLabel light>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
             Fire
@@ -898,28 +911,40 @@ export function Component() {
       prefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
       type: 'Power',
       children: [
-        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon2.svg')} />,
+        <img
+          style={{ width: ifMobile ? '30px' : '36px' }}
+          src={getImageUrl('@/assets/images/_global/attr/icon2.svg')}
+        />,
         <BaseLabel light>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
             1905
           </span>
         </BaseLabel>,
 
-        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon3.svg')} />,
+        <img
+          style={{ width: ifMobile ? '30px' : '36px' }}
+          src={getImageUrl('@/assets/images/_global/attr/icon3.svg')}
+        />,
         <BaseLabel light>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
             975
           </span>
         </BaseLabel>,
 
-        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon1.svg')} />,
+        <img
+          style={{ width: ifMobile ? '30px' : '36px' }}
+          src={getImageUrl('@/assets/images/_global/attr/icon1.svg')}
+        />,
         <BaseLabel light>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
             956
           </span>
         </BaseLabel>,
 
-        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon4.svg')} />,
+        <img
+          style={{ width: ifMobile ? '30px' : '36px' }}
+          src={getImageUrl('@/assets/images/_global/attr/icon4.svg')}
+        />,
         <BaseLabel light>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
             980
@@ -931,28 +956,40 @@ export function Component() {
       prefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
       type: 'Suits',
       children: [
-        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon5.svg')} />,
+        <img
+          style={{ width: ifMobile ? '30px' : '36px' }}
+          src={getImageUrl('@/assets/images/_global/attr/icon5.svg')}
+        />,
         <BaseLabel light size={ifMobile ? '21px' : '27px'}>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
             X
           </span>
         </BaseLabel>,
 
-        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon6.svg')} />,
+        <img
+          style={{ width: ifMobile ? '30px' : '36px' }}
+          src={getImageUrl('@/assets/images/_global/attr/icon6.svg')}
+        />,
         <BaseLabel light size={ifMobile ? '21px' : '27px'}>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
             V
           </span>
         </BaseLabel>,
 
-        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon7.svg')} />,
+        <img
+          style={{ width: ifMobile ? '30px' : '36px' }}
+          src={getImageUrl('@/assets/images/_global/attr/icon7.svg')}
+        />,
         <BaseLabel light size={ifMobile ? '21px' : '27px'}>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
             II
           </span>
         </BaseLabel>,
 
-        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon8.svg')} />,
+        <img
+          style={{ width: ifMobile ? '30px' : '36px' }}
+          src={getImageUrl('@/assets/images/_global/attr/icon8.svg')}
+        />,
         <BaseLabel light size={ifMobile ? '21px' : '27px'}>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
             IV
@@ -978,7 +1015,9 @@ export function Component() {
           </h1>
 
           {ifMobile ? null : (
+            // <LazyLoad >
             <img className="a-icon a-icon-2" src={getImageUrl('@/assets/images/_global/icon2.svg')} alt="" />
+            // </LazyLoad>
           )}
 
           {ifMobile ? (
@@ -987,7 +1026,9 @@ export function Component() {
                 Reversed cards hold within them growth and insight; <span className="active-color">upright cards</span>{' '}
                 symbolize joy and abundance
               </div>
+              {/* <LazyLoad height={475}> */}
               <img className="main-img" src={getImageUrl('@/assets/images/_global/nft1.png')} alt="" />
+              {/* </LazyLoad> */}
             </div>
           ) : (
             <div className="banner-img-container relative flex flex-row justify-center">
@@ -1047,9 +1088,13 @@ export function Component() {
                 </div>
                 <div>
                   {curSelectInMobile === 1 ? (
+                    // <LazyLoad height={390}>
                     <img style={{ width: '260px' }} src={getImageUrl('@/assets/images/_global/NFT-left.png')} alt="" />
                   ) : (
+                    // </LazyLoad>
+                    // <LazyLoad height={390}>
                     <img style={{ width: '260px' }} src={getImageUrl('@/assets/images/_global/NFT-right.png')} alt="" />
+                    // </LazyLoad>
                   )}
                 </div>
               </div>
@@ -1105,7 +1150,9 @@ export function Component() {
                   </span>
                 </BaseLabel>
                 <div>
+                  {/* <LazyLoad height={480}> */}
                   <img style={{ width: '320px' }} src={getImageUrl('@/assets/images/_global/NFT-left.png')} alt="" />
+                  {/* </LazyLoad> */}
                 </div>
               </div>
               <div className="flex flex-col gap-30">
@@ -1143,7 +1190,9 @@ export function Component() {
                   </span>
                 </BaseLabel>
                 <div>
+                  {/* <LazyLoad height={480}> */}
                   <img style={{ width: '320px' }} src={getImageUrl('@/assets/images/_global/NFT-right.png')} alt="" />
+                  {/* </LazyLoad> */}
                 </div>
               </div>
             </div>
@@ -1352,7 +1401,7 @@ export function Component() {
                 <div key={index} className="thin-border flex flex-row items-center justify-center">
                   <div className="c relative flex-wrap flex flex-col items-center justify-center">
                     <div className="relative">
-                      {i.src}
+                      <LazyLoad height={414}>{i.src}</LazyLoad>
                       <div className="desc flex flex-col gap-8 f-17">
                         <div className="flex flex-row items-center gap-6 flex-wrap">
                           <span style={{ color: '#CFCFB0' }}>Name: </span>
@@ -1435,7 +1484,9 @@ export function Component() {
                       src={getImageUrl('@/assets/images/_global/icon18.png')}
                       alt=""
                     />
+                    {/* <LazyLoad height={380}> */}
                     <img className="a-nft" src={getImageUrl('@/assets/images/_global/news-about-us.png')} alt="" />
+                    {/* </LazyLoad> */}
                   </div>
 
                   <div
@@ -1469,12 +1520,14 @@ export function Component() {
               <div className="flex flex-row gap-180 items-center">
                 <div className="relative">
                   <img src={getImageUrl('@/assets/images/_global/icon18.png')} alt="" />
+                  {/* <LazyLoad> */}
                   <img
                     style={{ width: '230px' }}
                     className="a-nft"
                     src={getImageUrl('@/assets/images/_global/news-about-us.png')}
                     alt=""
                   />
+                  {/* </LazyLoad> */}
                 </div>
                 <div className="flex flex-col gap-44 ">
                   <span className={ifMobile ? 'f-20' : 'f-48'}>NEWS ABOUT US</span>
