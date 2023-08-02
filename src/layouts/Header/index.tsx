@@ -10,10 +10,14 @@ const Container = styled.div`
   .nav-label {
     font-family: Inter;
   }
-/* 
+
   .active-link {
     position: relative;
-    &::after {
+    
+    div{
+      color: #ffde82;
+    }
+    /* &::after {
       content: '';
       position: absolute;
       top: 100%;
@@ -28,8 +32,8 @@ const Container = styled.div`
 
       width: 100%;
       padding: 0 6px;
-    }
-  } */
+    } */
+  }
 `;
 
 const navs = [
