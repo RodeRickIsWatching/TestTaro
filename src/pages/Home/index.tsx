@@ -75,7 +75,7 @@ const partner = [
 
 const medias = [
   {
-    type: 'tiktok',
+    type: 'TikTok',
     img: <img src={getImageUrl('@/assets/images/_global/media/tiktok.svg')} />,
     href: 'https://www.tiktok.com/@Tarot_pi',
   },
@@ -193,7 +193,7 @@ const roadmap1 = [
     title: 'Q2',
     y: '2023',
     contentsPrefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
-    contents: ['Prediction Marketplace (completed)'],
+    contents: ['Prediction Market (completed)'],
   },
   {
     title: 'Q3',
@@ -210,7 +210,7 @@ const roadmap1 = [
     title: 'Q4',
     y: '2023',
     contentsPrefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
-    contents: ['Launch Card Reading game', 'Develop Mystery Box feature', 'Develop marketplace for tarot card trading'],
+    contents: ['Launch TarotPi Prophet', 'Develop Mystery Box feature', 'Develop marketplace for tarot card trading'],
   },
 ];
 
@@ -894,7 +894,7 @@ export function Component() {
     },
     {
       prefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
-      type: 'Attribute',
+      type: 'Native Element',
       children: [
         <img
           style={{ width: ifMobile ? '30px' : '36px' }}
@@ -909,7 +909,7 @@ export function Component() {
     },
     {
       prefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
-      type: 'Power',
+      type: 'Elemental Mana',
       children: [
         <img
           style={{ width: ifMobile ? '30px' : '36px' }}
@@ -954,7 +954,7 @@ export function Component() {
     },
     {
       prefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
-      type: 'Suits',
+      type: 'Slots',
       children: [
         <img
           style={{ width: ifMobile ? '30px' : '36px' }}
@@ -1146,7 +1146,7 @@ export function Component() {
               <div className="flex flex-col gap-9 items-center">
                 <BaseLabel>
                   <span style={{ color: '#CECECC' }} className="f-18">
-                    NFT front
+                    NFT Front
                   </span>
                 </BaseLabel>
                 <div>
@@ -1186,7 +1186,7 @@ export function Component() {
               <div className="flex flex-col gap-9 items-center">
                 <BaseLabel>
                   <span style={{ color: '#CECECC' }} className="f-18">
-                    NFT opposite
+                    NFT Back
                   </span>
                 </BaseLabel>
                 <div>
@@ -1215,7 +1215,7 @@ export function Component() {
                   alt=""
                 />
                 <span className={ifMobile ? 'm-f-16' : 'f-28'} style={{ color: 'rgba(255, 255, 253, 0.8)' }}>
-                  Prediction Team
+                  Team Battle
                 </span>
                 <img
                   style={{ width: ifMobile ? '20px' : '36px' }}
@@ -1493,9 +1493,9 @@ export function Component() {
                     className={`maxw-484 ${ifMobile ? 'm-f-14' : 'f-22'}`}
                     style={{ color: '#9A9A9A', textAlign: 'left' }}
                   >
-                    TarotPi is a platform driven by NFT tarot cards and prediction. Featuring 9,999 NFT cards and 22
-                    major arcana characters, the NFT cards will be issued and sold on OpenSea! The TarotPi Prophet will
-                    also be launched soon!
+                    TarotPi is an ecosystem resolving around NFT tarot cards and different prediction games. Boasting an
+                    impressive collection of 9,999 genesis NFT cards with 22 major arcana characters, these exclusive
+                    NFT cards will be made available for purchase on OpenSea in October 2023!
                   </div>
                   <div className={`flex flex-row flex-wrap ${ifMobile ? 'gap-24' : 'gap-34'}`}>
                     {partner.map((i) => (
@@ -1532,9 +1532,9 @@ export function Component() {
                 <div className="flex flex-col gap-44 ">
                   <span className={ifMobile ? 'f-20' : 'f-48'}>NEWS ABOUT US</span>
                   <div className="maxw-484 f-22" style={{ color: '#9A9A9A', textAlign: 'left' }}>
-                    TarotPi is a platform driven by NFT tarot cards and prediction. Featuring 9,999 NFT cards and 22
-                    major arcana characters, the NFT cards will be issued and sold on OpenSea! The Constellation
-                    Prediction platform will also be launched soon!
+                    TarotPi is an ecosystem resolving around NFT tarot cards and different prediction games. Boasting an
+                    impressive collection of 9,999 genesis NFT cards with 22 major arcana characters, these exclusive
+                    NFT cards will be made available for purchase on OpenSea in October 2023!
                   </div>
                   <div className="flex flex-row flex-wrap gap-34 partner">
                     {partner.map((i) => (

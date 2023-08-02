@@ -39,7 +39,7 @@ const Container = styled.div`
 const navs = [
   { label: 'Home', href: '/home', extraHref: '/' },
   { label: 'Prediction', href: '/prediction' },
-  { label: 'Card Reading', href: '/cardReading' },
+  { label: 'Prophet', href: '/prophet' },
   { label: 'Marketplace', href: '/marketplace' },
   { label: 'Gitbook', href: 'https://docs.tarotpi.com/' },
 ];
