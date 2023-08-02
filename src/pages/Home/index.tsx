@@ -779,7 +779,7 @@ const Container = styled(MainSection)<{ ifMobile?: boolean }>`
   }
   .a-icon-2 {
     width: 152px;
-    right: 0;
+    right: -86px;
     top: 8%;
   }
   .a-icon-3 {
@@ -886,7 +886,7 @@ export function Component() {
       prefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
       type: 'Attribute',
       children: [
-        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon2.png')} />,
+        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon2.svg')} />,
         <BaseLabel light>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
             Fire
@@ -898,28 +898,28 @@ export function Component() {
       prefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
       type: 'Power',
       children: [
-        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon2.png')} />,
+        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon2.svg')} />,
         <BaseLabel light>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
             1905
           </span>
         </BaseLabel>,
 
-        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon3.png')} />,
+        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon3.svg')} />,
         <BaseLabel light>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
             975
           </span>
         </BaseLabel>,
 
-        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon1.png')} />,
+        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon1.svg')} />,
         <BaseLabel light>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
             956
           </span>
         </BaseLabel>,
 
-        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon4.png')} />,
+        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon4.svg')} />,
         <BaseLabel light>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
             980
@@ -931,28 +931,28 @@ export function Component() {
       prefix: <img src={getImageUrl('@/assets/images/_global/icon8.svg')} />,
       type: 'Suits',
       children: [
-        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon5.png')} />,
+        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon5.svg')} />,
         <BaseLabel light size={ifMobile ? '21px' : '27px'}>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
             X
           </span>
         </BaseLabel>,
 
-        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon6.png')} />,
+        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon6.svg')} />,
         <BaseLabel light size={ifMobile ? '21px' : '27px'}>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
             V
           </span>
         </BaseLabel>,
 
-        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon7.png')} />,
+        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon7.svg')} />,
         <BaseLabel light size={ifMobile ? '21px' : '27px'}>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
             II
           </span>
         </BaseLabel>,
 
-        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon8.png')} />,
+        <img style={{width: ifMobile ? '30px' : '36px' }} src={getImageUrl('@/assets/images/_global/attr/icon8.svg')} />,
         <BaseLabel light size={ifMobile ? '21px' : '27px'}>
           <span className={ifMobile ? 'm-f-14' : 'f-16'} style={{ color: '#E1E1E1' }}>
             IV
