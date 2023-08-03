@@ -16,9 +16,6 @@
 <g opacity="0.8" filter="url(#filter4_f_39_916)">
 <rect x="1399" y="4102" width="434" height="305" fill="#413E1F"/>
 </g>
-<g filter="url(#filter5_f_39_916)">
-<rect x="155" y="5897" width="473" height="330" fill="#1F413D"/>
-</g>
 </g>
 <defs>
 <filter id="filter0_f_39_916" x="960" y="1482" width="1134" height="1005" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
@@ -45,11 +42,6 @@
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feGaussianBlur stdDeviation="175" result="effect1_foregroundBlur_39_916"/>
-</filter>
-<filter id="filter5_f_39_916" x="-245" y="5497" width="1273" height="1130" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feGaussianBlur stdDeviation="200" result="effect1_foregroundBlur_39_916"/>
 </filter>
 <clipPath id="clip0_39_916">
 <rect width="1920" height="6736" fill="white"/>
