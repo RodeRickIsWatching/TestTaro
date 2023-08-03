@@ -21,11 +21,15 @@ const Footer = () => {
   const ifMobile = useMobile();
 
   return (
-    <Container className="flex flex-col gap-40" style={{marginTop: ifMobile ? '60px' : '172px'}}>
+    <Container className="flex flex-col gap-40" style={{ marginTop: ifMobile ? '60px' : '172px' }}>
       {ifMobile ? (
         <img src={getImageUrl('@/assets/images/_global/m-footer.svg')} alt="" />
       ) : (
-        <img src={getImageUrl('@/assets/images/_global/footer.svg')} alt="" />
+        <img
+          style={{ maxWidth: '1390px', margin: 'auto' }}
+          src={getImageUrl('@/assets/images/_global/footer.svg')}
+          alt=""
+        />
       )}
 
       <span>MARKET@TAROTPI.COM</span>

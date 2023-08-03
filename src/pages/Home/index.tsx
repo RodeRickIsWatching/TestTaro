@@ -273,6 +273,9 @@ const Basic = styled.section<{ ifMobile?: boolean }>`
   .gap-34 {
     gap: 34px;
   }
+  .gap-32{
+    gap: 32px;
+  }
   .gap-30 {
     gap: 30px;
   }
@@ -634,15 +637,15 @@ const MainSection = styled(Basic)<{ ifMobile?: boolean }>`
       /* background: url(${getImageUrl('@/assets/images/_global/tarot/border.svg')});
       background-size: ${({ ifMobile }) => (ifMobile ? 'contain' : 'cover')};
       background-repeat: no-repeat; */
-      width: ${({ ifMobile }) => (ifMobile ? '330px' : '383px')};
+      /* width: ${({ ifMobile }) => (ifMobile ? '330px' : '383px')}; */
       /* height: 490.5px; */
-      aspect-ratio: 355 / 447;
+      /* aspect-ratio: 355 / 447; */
       &:hover .desc {
         transform: translate(0, 0%) !important;
       }
 
       & > .c {
-        padding: ${({ ifMobile }) => (ifMobile ? '14px 25px' : '55px 0 55px 22.5px')};
+        /* padding: ${({ ifMobile }) => (ifMobile ? '14px 25px' : '55px 0 55px 22.5px')}; */
 
         & > div {
           overflow: hidden;
@@ -655,7 +658,7 @@ const MainSection = styled(Basic)<{ ifMobile?: boolean }>`
                   `
                 : css`
                     width: 276px;
-                    height: 414px;
+                    height: 385px;
                   `};
           }
           .desc {
@@ -824,8 +827,8 @@ export function Component() {
 
   const { days } = formattedRes;
 
-  const perSize = useMemo(() => (ifMobile ? 1 : 6), [ifMobile]);
-  const totalPage = useMemo(() => (ifMobile ? 12 : 2), [ifMobile]);
+  const perSize = useMemo(() => (ifMobile ? 1 : 4), [ifMobile]);
+  const totalPage = useMemo(() => (ifMobile ? 12 : 3), [ifMobile]);
 
   const [curSelectInMobile, setCurSelectInMobile] = useState(1);
 
@@ -1396,12 +1399,12 @@ export function Component() {
             </div>
           </div>
           <div className={`flex flex-col ${ifMobile ? 'gap-20' : 'gap-40'}  maxw-1250 `}>
-            <div className="flex flex-row justify-center gap-50 flex-wrap">
+            <div className="flex flex-row justify-center gap-32 flex-wrap">
               {filteredTarots.map((i, index) => (
                 <div key={index} className="thin-border flex flex-row items-center justify-center">
                   <div className="c relative flex-wrap flex flex-col items-center justify-center">
                     <div className="relative">
-                      <LazyLoad height={414}>{i.src}</LazyLoad>
+                      <LazyLoad>{i.src}</LazyLoad>
                       <div className="desc flex flex-col gap-8 f-17">
                         <div className="flex flex-row items-center gap-6 flex-wrap">
                           <span style={{ color: '#CFCFB0' }}>Name: </span>
