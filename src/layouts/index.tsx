@@ -6,6 +6,11 @@ import '@/assets/styles/index.scss';
 import Footer from './Footer';
 import useMobile from '@/hooks/useMobile';
 import MobileHeader from './MobileHeader';
+import styled, { css } from 'styled-components';
+
+const Container = styled.main<{ ifMobile?: boolean }>`
+  ${({ ifMobile }) => ifMobile && css``}
+`;
 
 function BasicLayout() {
   const ifMobile = useMobile();
@@ -14,9 +19,9 @@ function BasicLayout() {
     <React.Fragment>
       {ifMobile ? <MobileHeader /> : <Header />}
       <Scrollbar id="vite-content" trackGap={[10, 10, 10, 10]}>
-        <main>
+        <Container ifMobile={ifMobile}>
           <Outlet />
-        </main>
+        </Container>
 
         <Footer />
       </Scrollbar>
