@@ -55,7 +55,7 @@ export const MockUSDT = '0x3c2980a3962B1BaFFe58241249866D7779B5546a';
 export const TART = '0x649AFCeFD255CadFE1DFca27DbC3D300F2915542';
 
 export const PresaleMarket =
-  '0xa28e2370e2d7f6cf2cDe43734D78Ad477d7Afc68' || '0x2861bDFC1a5398bfFaeda8476db3077a94A374Cb';
+  '0xcb186F6bbB2Df145ff450ee0A4Ec6aF4baadEec7' || '0x2861bDFC1a5398bfFaeda8476db3077a94A374Cb';
 
 export const usdtContract = {
   address: MockUSDT,
