@@ -1,6 +1,6 @@
 import { css, styled } from 'styled-components';
 
-const Container = styled.div<{ light?: boolean; size?: string }>`
+const Container = styled.div<{ light?: boolean; size?: string; disabled?: boolean }>`
   &::before {
     content: '';
     width: 105%;
@@ -34,11 +34,12 @@ const Container = styled.div<{ light?: boolean; size?: string }>`
     css`
       width: ${size};
       height: ${size};
-    `}/* opacity: 0.5; */
+    `} /* opacity: 0.5; */
 
   /* filter: blur(3.6276848316192627px); */
 
   /* opacity: 0.5; */
+  filter: opacity(${({ disabled }) => (disabled ? 0.5 : 1)});
 `;
 
 const BaseLabel = ({
@@ -46,11 +47,17 @@ const BaseLabel = ({
   light,
   size,
   onClick,
+  disabled,
+  className,
+  style
 }: {
   children: any;
   light?: boolean;
   size?: string;
   onClick?: any;
+  disabled?: boolean;
+  className?: any
+  style?: any
 }) => {
   return (
     // <svg
@@ -116,7 +123,7 @@ const BaseLabel = ({
     //   </defs>
     // </svg>
 
-    <Container light={light} size={size} onClick={onClick}>
+    <Container light={light} size={size} onClick={onClick} disabled={disabled} className={className} style={style}>
       {/* <div className="bg" /> */}
       {children}
     </Container>

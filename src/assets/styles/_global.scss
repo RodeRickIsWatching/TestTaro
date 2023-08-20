@@ -42,6 +42,9 @@
 }
 html {
   background: #030303;
+  body{
+    margin-right: 0!important;
+  }
 }
 img {
   display: block;
@@ -126,6 +129,10 @@ a {
   cursor: not-allowed;
 }
 
+.relative{
+  position: relative;
+}
+
 .gap-4 {
   gap: 4px;
 }
@@ -148,12 +155,23 @@ a {
 .gap-14 {
   gap: 14px;
 }
+.gap-15{
+  gap: 15px;
+}
 .gap-16 {
   gap: 16px;
 }
 
+.gap-18{
+  gap: 18px
+}
+
 .gap-20 {
   gap: 20px;
+}
+
+.gap-22{
+  gap: 22px;
 }
 
 .gap-24 {
@@ -172,12 +190,36 @@ a {
   gap: 81px
 }
 
+.gap-30{
+  gap: 30px;
+}
+
 .gap-36 {
   gap: 36px;
 }
 
 .gap-44 {
   gap: 44px;
+}
+
+.gap-50{
+  gap: 50px;
+}
+
+.gap-55{
+  gap: 55px;
+}
+
+.gap-60{
+  gap: 60px;
+}
+
+.gap-100{
+  gap: 100px;
+}
+
+.gap-194{
+  gap: 194px;
 }
 
 .f-14 {
@@ -265,4 +307,17 @@ a {
 
 .justify-start {
   justify-content: flex-start;
+}
+
+
+.align-right{
+  text-align: right;
+}
+
+.align-left{
+  text-align: left!important;
+}
+
+.align-center{
+  text-align: center;
 }

@@ -20,7 +20,7 @@ const useChainWatcher = () => {
   //   }
   // }, [chain?.unsupported]);
 
-  return { unsupported: currentStatus, isLoading, pendingChainId, setupNetwork };
+  return { status, chains, chain, unsupported: currentStatus, isLoading, pendingChainId, setupNetwork };
 };
 
 export default useChainWatcher;

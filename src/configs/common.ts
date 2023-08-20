@@ -1,4 +1,7 @@
-import { getImageUrl } from "@/utils/tools";
+import { getImageUrl } from '@/utils/tools';
+import { erc20ABI } from 'wagmi';
+import { arbitrum, arbitrumGoerli, bsc, bscTestnet } from '@wagmi/core/chains';
+import presaleAbi from '@/configs/abi/presale.json';
 
 export const MAX_ALLOWANCE = '0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff';
 
@@ -8,23 +11,65 @@ export const isDev = import.meta.env.MODE === 'development';
 
 export const medias = [
   {
-    icon: getImageUrl('@/assets/images/medias/twitter.svg'),
-    link: 'https://twitter.com/SubstanceX_',
-    label: 'Twitter',
+    type: 'TikTok',
+    img: getImageUrl('@/assets/images/_global/media/tiktok.svg'),
+    mobileImg: getImageUrl('@/assets/images/_global/media/tiktok-mobile.svg'),
+    href: 'https://www.tiktok.com/@Tarot_pi',
   },
   {
-    icon: getImageUrl('@/assets/images/medias/discord.svg'),
-    link: 'https://discord.gg/substancex',
-    label: 'Discord',
+    type: 'twitter',
+    img: getImageUrl('@/assets/images/_global/media/twitter.svg'),
+    mobileImg: getImageUrl('@/assets/images/_global/media/twitter-mobile.svg'),
+    href: 'https://twitter.com/tarotpi',
   },
   {
-    icon: getImageUrl('@/assets/images/medias/telegram.svg'),
-    link: 'https://t.me/Substancexofficial',
-    label: 'Telegram',
+    type: 'ins',
+    img: getImageUrl('@/assets/images/_global/media/ins.svg'),
+    mobileImg: getImageUrl('@/assets/images/_global/media/ins-mobile.svg'),
+    href: 'https://www.instagram.com/_tarotpi/',
   },
   {
-    icon: getImageUrl('@/assets/images/medias/medium.svg'),
-    link: 'https://medium.com/@SubstanceX',
-    label: 'Medium',
+    type: 'facebook',
+    img: getImageUrl('@/assets/images/_global/media/facebook.svg'),
+    mobileImg: getImageUrl('@/assets/images/_global/media/facebook-mobile.svg'),
+    href: 'https://www.facebook.com/profile.php?id=100094770578472',
+  },
+  {
+    type: 'medium',
+    img: getImageUrl('@/assets/images/_global/media/medium.svg'),
+    mobileImg: getImageUrl('@/assets/images/_global/media/medium-mobile.svg'),
+    href: 'https://medium.com/@tarotpi',
   },
 ];
+
+export const navs = [
+  { label: 'Home', href: '/home', extraHref: '/' },
+  { label: 'Token', href: '/token' },
+  { label: 'Prediction', href: '/prediction' },
+  { label: 'Prophet', href: '/prophet' },
+  { label: 'Marketplace', href: '/marketplace' },
+  { label: 'Gitbook', href: 'https://docs.tarotpi.com/' },
+];
+
+export const MockUSDT = '0x3c2980a3962B1BaFFe58241249866D7779B5546a';
+export const TART = '0x649AFCeFD255CadFE1DFca27DbC3D300F2915542';
+
+export const PresaleMarket =
+  '0xa28e2370e2d7f6cf2cDe43734D78Ad477d7Afc68' || '0x2861bDFC1a5398bfFaeda8476db3077a94A374Cb';
+
+export const usdtContract = {
+  address: MockUSDT,
+  abi: erc20ABI,
+};
+
+export const tartContract = {
+  address: TART,
+  abi: erc20ABI,
+};
+
+export const presaleContract = {
+  address: PresaleMarket,
+  abi: presaleAbi,
+};
+
+export const basicChainId = bscTestnet.id;

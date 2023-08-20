@@ -41,7 +41,7 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
   disabled?: boolean;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
-  // clear?: boolean;
+  solid?: boolean;
   max?: string;
   decimal?: number;
   onChange?: (...args: any[]) => any;
@@ -57,6 +57,7 @@ const Input: React.FC<InputProps> = React.forwardRef((props: InputProps, ref: Re
     type = 'text',
     danger = false,
     disabled = false,
+    solid = false,
     prefix,
     suffix,
     // clear = false,
@@ -81,6 +82,7 @@ const Input: React.FC<InputProps> = React.forwardRef((props: InputProps, ref: Re
   const classes = classNames(className, 'component-input flex flex-row items-center justify-between', {
     danger,
     disabled,
+    solid
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

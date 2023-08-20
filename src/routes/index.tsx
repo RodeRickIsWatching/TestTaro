@@ -1,6 +1,7 @@
 import { createBrowserRouter, Navigate, Link, RouterProvider, redirect, useNavigate } from 'react-router-dom';
 import BasicLayout from '@/layouts';
 import { useEffect } from 'react';
+import WalletLayout from '@/layouts/walletLayout';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,16 @@ const router = createBrowserRouter([
       {
         index: true,
         lazy: () => import('@/pages/Home'),
+      },
+    ],
+  },
+  {
+    path: '/token',
+    element: <WalletLayout />,
+    children: [
+      {
+        index: true,
+        lazy: () => import('@/pages/Token'),
       },
     ],
   },

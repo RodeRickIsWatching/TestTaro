@@ -4,6 +4,7 @@
   height: 40px;
   color: rgba(255, 255, 255, 0.85);
   input {
+    font-family: Inter;
     width: 100%;
     flex: 1;
     height: inherit;
@@ -44,7 +45,7 @@
   // &:not(.danger, .disabled)input:focus + label {
   //   border: 1px solid rgba(255, 255, 255, 0.85);
   // }
-  &:not(.danger, .disabled):hover label,
+  &:not(.danger, .disabled, .solid):hover label,
   input:focus + label {
     border: 1px solid rgba(255, 255, 255, 0.85);
   }
@@ -65,6 +66,15 @@
     label,
     input:focus + label {
       border: 1px solid #fd4772;
+    }
+  }
+  &.solid {
+    input {
+      color: rgba(49, 49, 68, 1);
+    }
+    label,
+    input:focus + label {
+      border: 1px solid rgba(49, 49, 68, 1);
     }
   }
   &.disabled {

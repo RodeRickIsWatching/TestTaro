@@ -6,6 +6,7 @@ import React, { useMemo, useState } from 'react';
 import useMobile from '@/hooks/useMobile';
 import { useCountDown } from 'ahooks';
 import LazyLoad from 'react-lazy-load';
+import { medias } from '@/configs/common';
 
 const scroll = keyframes`
 from{
@@ -71,34 +72,6 @@ const partner = [
   //   name: 'sequoia',
   //   img: <img src={getImageUrl('@/assets/images/_global/partner/sequoia.svg')} />,
   // },
-];
-
-const medias = [
-  {
-    type: 'TikTok',
-    img: <img src={getImageUrl('@/assets/images/_global/media/tiktok.svg')} />,
-    href: 'https://www.tiktok.com/@Tarot_pi',
-  },
-  {
-    type: 'twitter',
-    img: <img src={getImageUrl('@/assets/images/_global/media/twitter.svg')} />,
-    href: 'https://twitter.com/tarotpi',
-  },
-  {
-    type: 'ins',
-    img: <img src={getImageUrl('@/assets/images/_global/media/ins.svg')} />,
-    href: 'https://www.instagram.com/_tarotpi/',
-  },
-  {
-    type: 'facebook',
-    img: <img src={getImageUrl('@/assets/images/_global/media/facebook.svg')} />,
-    href: 'https://www.facebook.com/profile.php?id=100094770578472',
-  },
-  {
-    type: 'medium',
-    img: <img src={getImageUrl('@/assets/images/_global/media/medium.svg')} />,
-    href: 'https://medium.com/@tarotpi',
-  },
 ];
 
 const tarots = [
@@ -1594,7 +1567,9 @@ export function Component() {
                     : {}
                 }
               >
-                <div>{i.img}</div>
+                <div>
+                  <img src={i.img} />
+                </div>
               </a>
             ))}
           </div>

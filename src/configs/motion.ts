@@ -197,6 +197,25 @@ const modalVariants: MotionVariant = {
   },
 };
 
+// const slideInModalVariants: MotionVariant = {
+//   exit: {
+//     opacity: 1,
+//     y: 100,
+//     transition: {
+//       duration: 0.2,
+//       ease: easings.easeOut,
+//     },
+//   },
+//   enter: {
+//     opacity: 1,
+//     y: 0,
+//     transition: {
+//       duration: 0.3,
+//       ease: easings.easeIn,
+//     },
+//   },
+// };
+
 export const modalConfig: HTMLMotionProps<any> = {
   initial: 'exit',
   animate: 'enter',

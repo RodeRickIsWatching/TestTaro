@@ -5,7 +5,6 @@ import { maskConfig, modalConfig } from '@/configs/motion';
 import { AnimatePresence, motion } from 'framer-motion';
 import { RemoveScroll } from 'react-remove-scroll';
 import { cloneElement } from '../_util/reactNode';
-import { getImageUrl } from '@/utils/tools';
 import { Scrollbar, Button } from '../';
 import './index.scss';
 
@@ -60,12 +59,21 @@ const Portal: React.FC<ModalProps> = (props: ModalProps) => {
       <div className="header flex flex-row items-center justify-between">
         <h2 className="title">{title}</h2>
         {closable && (
-          <img
-            className="close"
-            src={getImageUrl('@/assets/images/_global/icon-close.svg')}
-            alt="icon"
-            onClick={handleCancel}
-          />
+          <div className="close flex flex-row items-center justify-center" onClick={handleCancel}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41L17.59 5Z"
+                fill="#9E9D9A"
+              />
+            </svg>
+          </div>
+
+          // <img
+          //   className="close"
+          //   src={getImageUrl('@/assets/images/_global/icon-close.svg')}
+          //   alt="icon"
+          //   onClick={handleCancel}
+          // />
         )}
       </div>
     );

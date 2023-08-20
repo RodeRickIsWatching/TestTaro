@@ -1,9 +1,12 @@
+import WalletModal from '@/components/WalletModal';
 import { navs } from '@/configs/common';
+import useWatchAsset from '@/hooks/useWatchAsset';
 import { getImageUrl } from '@/utils/tools';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 const Container = styled.div`
+  position: relative;
   padding: 22px 32px;
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -14,8 +17,8 @@ const Container = styled.div`
 
   .active-link {
     position: relative;
-    
-    div{
+
+    div {
       color: #ffde82;
     }
     /* &::after {
@@ -37,17 +40,21 @@ const Container = styled.div`
   }
 `;
 
-
-const Header = () => {
+const WalletHeader = () => {
   const { pathname } = useLocation();
 
   return (
     <Container className="flex flex-row items-center justify-between">
-      <div>
+      <div className="flex-1">
         <img src={getImageUrl('@/assets/images/_global/nav-logo.svg')} />
       </div>
 
-      <div className="flex flex-row gap-20 items-center">
+      <div
+        className="flex flex-row gap-20 items-center flex-1 justify-center"
+        style={{
+          marginLeft: '-181px',
+        }}
+      >
         {navs.map((i, index) => (
           <NavLink
             key={index}
@@ -59,8 +66,12 @@ const Header = () => {
           </NavLink>
         ))}
       </div>
+
+      <div className="flex-1 justify-end items-center flex flex-row">
+        <WalletModal />
+      </div>
     </Container>
   );
 };
 
-export default Header;
+export default WalletHeader;

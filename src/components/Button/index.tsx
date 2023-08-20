@@ -5,7 +5,7 @@ import { cloneElement } from '../_util/reactNode';
 import { IconGlobalSpin } from '@/assets/icons/IconGroup';
 import './index.scss';
 
-const ButtonTypes = tuple('primary', 'solid', 'second', 'text', 'short-solid', 'long-solid', 'short', 'long');
+const ButtonTypes = tuple('primary', 'solid', 'second', 'text', 'short-solid', 'long-solid', 'short', 'long', 'dark', 'light', 'tart', 'tart-solid');
 
 type ButtonType = (typeof ButtonTypes)[number];
 
@@ -62,8 +62,10 @@ const Button: React.FC<ButtonProps> = React.forwardRef((props: ButtonProps, ref:
   return (
     <button className={classes} ref={ref} onClick={handleClick} {...rest}>
       {prefix}
-      {!disabled && loading && <IconGlobalSpin color={loadingColor} />}
-      <span>{cloneElement(children)}</span>
+      {!disabled && loading && <span><IconGlobalSpin color={loadingColor} /></span>}
+      {
+        !loading && (<span>{cloneElement(children)}</span>)
+      }
       {suffix}
     </button>
   );

@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { styled } from 'styled-components';
 import { slide as Menu } from 'react-burger-menu';
 import { useBoolean } from 'ahooks';
+import { medias, navs } from '@/configs/common';
 
 const Container = styled.div<{ opened?: boolean }>`
   padding: 22px 32px;
@@ -39,14 +40,6 @@ const Container = styled.div<{ opened?: boolean }>`
     z-index: ${({ opened }) => (opened ? 1 : -1)}!important;
   }
 `;
-
-const navs = [
-  { label: 'Home', href: '/home', extraHref: '/' },
-  { label: 'Prediction', href: '/prediction' },
-  { label: 'Prophet', href: '/prophet' },
-  { label: 'Marketplace', href: '/marketplace' },
-  { label: 'Gitbook', href: 'https://docs.tarotpi.com/' },
-];
 
 const styles = {
   bmMenuWrap: {
@@ -114,7 +107,7 @@ const MobileHeader = () => {
                 X
               </div>
             </div>
-            <div className="flex flex-col gap-12">
+            <div className="flex flex-col gap-12 flex-1">
               {navs.map((i, index) => (
                 <NavLink
                   key={index}
@@ -123,16 +116,33 @@ const MobileHeader = () => {
                   target={i?.href?.startsWith('https') ? '_blank' : '_self'}
                   style={{ padding: '8px 0' }}
                 >
-                  <div
-                    className="pointer "
-                    style={{
-                      fontFamily: 'Inter',
-                      fontSize: '20px',
-                    }}
-                  >
-                    {i.label}
+                  <div className="flex flex-row items-center justify-between">
+                    <div
+                      className="pointer"
+                      style={{
+                        fontFamily: 'Inter',
+                        fontSize: '20px',
+                      }}
+                    >
+                      {i.label}
+                    </div>
+                    <div
+                      style={{
+                        fontFamily: 'Inter',
+                        fontSize: '20px',
+                      }}
+                    >
+                      &gt;
+                    </div>
                   </div>
                 </NavLink>
+              ))}
+            </div>
+            <div className="medias flex items-center gap-20 justify-center">
+              {medias.map((i) => (
+                <a href={i.href} target="_blank">
+                  <img src={i.mobileImg} style={{ width: '50px', height: '50px' }} />
+                </a>
               ))}
             </div>
           </div>
