@@ -80,7 +80,7 @@ const Container = styled(Modal)`
     }
     .claim-tart {
       position: absolute;
-      top: 20px;
+      top: 15px;
       right: 0;
       transform: translate(-50%, 0%);
       cursor: pointer;
@@ -172,7 +172,7 @@ const BuyModal = ({ visible, onClose }: { visible: boolean; onClose: any }) => {
       <Container visible={visible} onClose={onClose} onCancel={onClose} title="My order and claim history">
         <div className="modal-content-container flex flex-col gap-20">
           {!releasingAmount || BigNumber(releasingAmount).lte(0) ? null : (
-            <div className="active-color claim-tart-mobile" onClick={claimTartVisibleSetTrue}>
+            <div className={`active-color ${ifMobile ? 'claim-tart-mobile' : 'claim-tart'}`} onClick={claimTartVisibleSetTrue}>
               Claim released TART
             </div>
           )}
@@ -234,8 +234,8 @@ const BuyModal = ({ visible, onClose }: { visible: boolean; onClose: any }) => {
                 <tbody>
                   {history?.map((i, index) => (
                     <tr key={index}>
-                      <td className="f-14 align-center">{dayjs.unix(i.createdAt).format('DD/MM/YYYY HH:mm:ss')}</td>
-                      <td className="f-14 align-center">
+                      <td className="f-14 align-left">{dayjs.unix(i.createdAt).format('DD/MM/YYYY HH:mm:ss')}</td>
+                      <td className="f-14 align-left">
                         <span>{i.type}</span>
                       </td>
                       <td className="f-14 align-left">{i.amount}</td>

@@ -1,3 +1,4 @@
+/* eslint-disable no-negated-condition */
 import fetchDepositLogs from '@/graphql/history';
 import { useRequest } from 'ahooks';
 import { useMemo } from 'react';
@@ -5,7 +6,7 @@ import usePresale from './usePresale';
 import { presaleContract } from '@/configs/common';
 import BigNumber from 'bignumber.js';
 import dayjs from 'dayjs';
-import { useRecoilState } from 'recoil';
+import { constSelector, useRecoilState } from 'recoil';
 import { recoilReleasingAmount, recoilTotalReleasingAmount } from '@/models';
 
 const mock = {
@@ -74,9 +75,16 @@ const useDepositHistory = () => {
 
   const releasingAmount = useMemo(() => {
     const amount = history?.reduce((previousValue, nextValue) => {
-      return BigNumber(previousValue)
-        .plus(nextValue?.status === 'Releasing' ? BigNumber.max(nextValue?.remain, '0') : '0')
-        .toString();
+      return (
+        BigNumber(previousValue)
+          // .plus(BigNumber.max(nextValue?.remain || '0', '0'))
+          .plus(
+            nextValue?.status === 'All Unlocked'
+              ? BigNumber.max(nextValue?.remain || '0', '0')
+              : '0',
+          )
+          .toString()
+      );
     }, '0');
     setReleasingAmount(amount || '');
   }, [history]);
@@ -93,17 +101,25 @@ const useDepositHistory = () => {
   const totalReleased = useMemo(() => {
     const amount = history?.reduce((previousValue, nextValue) => {
       return BigNumber(previousValue)
-        .plus(nextValue?.status === 'All Unlocked' ? BigNumber.max(nextValue?.amount, '0') : '0')
+        .plus(nextValue?.status !== 'Arrived' ? BigNumber.max(nextValue?.amount, '0') : '0')
         .toString();
     }, '0');
     return amount;
   }, [history]);
 
   const totalReleasingAmount = useMemo(() => {
-    const amount = BigNumber(totalReleased).minus(totalClaimed).toString();
+    // const amount = BigNumber(totalReleased).minus(totalClaimed).toString();
+    const amount = history?.reduce((previousValue, nextValue) => {
+      return (
+        BigNumber(previousValue)
+          // .plus(BigNumber.max(nextValue?.remain || '0', '0'))
+          .plus(nextValue?.status === 'Releasing' ? BigNumber.max(nextValue?.remain || '0', '0') : '0')
+          .toString()
+      );
+    }, '0');
 
     setTotalReleasingAmount(amount || '');
-  }, [totalClaimed, totalReleased]);
+  }, [history]);
 
   return { ...props, history, releasingAmount: _releasingAmount, totalReleasingAmount: _totalReleasingAmount };
 };

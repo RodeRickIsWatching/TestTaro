@@ -188,9 +188,14 @@ const HistoryModal = ({ visible, onClose }: { visible: boolean; onClose: any }) 
                 max={curStageMaxValueRemaining}
                 placeholder="Input Amount"
                 suffix={
-                  <span className="f-14 pointer" style={{ color: '#FBC65F' }} onClick={handleMax}>
-                    MAX
-                  </span>
+                  <div className="flex items-center gap-8">
+                    <span className="f-14" style={{ color: '#9E9D9A' }}>
+                      (～{usdtAmount || '-'} USDT)
+                    </span>
+                    <span className="f-14 pointer" style={{ color: '#FBC65F' }} onClick={handleMax}>
+                      MAX
+                    </span>
+                  </div>
                 }
               />
             </div>
