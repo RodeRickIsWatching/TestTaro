@@ -54,7 +54,7 @@ const useDepositHistory = () => {
         lockTime: releaseTimestamp,
         released: released,
         remain: remain,
-        status: dayjs().isAfter(dayjs.unix(+releaseTimestamp)) ? 'Releasing' : 'All Unlocked',
+        status: dayjs().isAfter(dayjs.unix(+releaseTimestamp)) ? 'All Unlocked' : 'Releasing',
       };
     });
 
@@ -93,7 +93,7 @@ const useDepositHistory = () => {
   const totalReleased = useMemo(() => {
     const amount = history?.reduce((previousValue, nextValue) => {
       return BigNumber(previousValue)
-        .plus(nextValue?.status === 'Releasing' ? BigNumber.max(nextValue?.amount, '0') : '0')
+        .plus(nextValue?.status === 'All Unlocked' ? BigNumber.max(nextValue?.amount, '0') : '0')
         .toString();
     }, '0');
     return amount;
