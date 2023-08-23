@@ -343,6 +343,7 @@ const Container = styled.div`
         line-height: 22px; /* 157.143% */
       }
       .row-content-text {
+        border-top: 1px solid #333230;
         display: flex;
         align-items: center;
         padding: 16px 0 !important;
