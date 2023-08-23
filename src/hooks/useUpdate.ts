@@ -94,6 +94,13 @@ const useUpdate = () => {
         } else {
           result[`${addr}`][p[index].functionName] = i?._isBigNumber ? i.toString() : i;
         }
+
+        if (addr === usdtContract.address.toLowerCase()) {
+          result[`${addr}`]['token'] = 'USDT';
+        }
+        if (addr === tartContract.address.toLowerCase()) {
+          result[`${addr}`]['token'] = 'TART';
+        }
       });
 
       setBalance(result);

@@ -12,6 +12,7 @@ import usePresale from '@/hooks/usePresale';
 import { presaleContract } from '@/configs/common';
 import BigNumber from 'bignumber.js';
 import useMobile from '@/hooks/useMobile';
+import Faq from 'react-faq-component';
 
 const Container = styled.div`
   max-width: 1200px;
@@ -305,7 +306,101 @@ const Container = styled.div`
       font-weight: 700;
     }
   }
+
+  .faq-row-wrapper {
+    width: 100%;
+    margin: auto;
+    background: transparent;
+    .faq-body {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .faq-row {
+      position: relative;
+      padding: 0 20px!important;
+      .icon-wrapper {
+        position: static !important;
+        /* top: 50%; */
+        /* transform: translate(0, -50%); */
+        svg {
+          fill: #fff !important;
+        }
+      }
+      border-radius: 8px;
+      border: none;
+      background: linear-gradient(90deg, #201d13 0%, #221f13 100%);
+      padding: 0 40px;
+
+
+      .row-title,
+      .row-content-text {
+        /* height: 80px; */
+        color: var(--1, #cbcac4)!important;
+        font-family: PingFang SC;
+        font-size: 14px!important;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px; /* 157.143% */
+      }
+      .row-content-text {
+        display: flex;
+        align-items: center;
+        padding: 16px 0!important;
+      }
+
+      .row-title-text,
+      .row-content-text {
+        color: var(--unnamed, #fefcfa);
+        font-family: PingFang SC;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+    }
+  }
 `;
+
+const section5 = {
+  rows: [
+    {
+      title: '1. Introduction',
+      content: 'This Privacy Policy outlines the way in which www.tarotpi.com and its affiliated entities collect, use, maintain, share, and safeguard user information on the TarotPi website. When "we", "our", or "us" is mentioned, it refers to TarotPi and its affiliates. Our commitment is to your privacy, and as described in this policy, we gather certain types of information for regulatory obligations and for purposes to help us enhance the services we offer.',
+    },
+    {
+      title: '2. Information Collection',
+      content: `Direct Information: This includes personal data you provide when you create a TarotPi account, possibly including your wallet address.
+
+      Indirect Information: This is garnered during your interaction with our services. Examples are:
+      
+      Service Usage Information: This encompasses data such as access times, device data, and browser details.
+      Transaction Information: Transaction details might be collected for both personal and enterprise users.
+      `,
+    },
+    {
+      title: '3. Purposes of Data Collection',
+      content: `Service Provisioning: To offer and maintain our array of services.
+      User Safety: For protective measures against potential threats like phishing, spam, or other cyber-attacks.
+      Legal & Regulatory Compliance: To meet legal requirements and respond to legal requests or demands.
+      Performance Analysis: To ensure that our platform runs efficiently and address any potential issues.
+      Communication: For direct communication, which is held in confidence.
+      Terms Enforcement: To ensure that users adhere to our Terms of Use.`,
+    },
+    {
+      title: '4. Protection of User Data',
+      content: 'At TarotPi, we prioritize the safety and integrity of your data. We\'ve incorporated various security protocols, such as PCI Scanning and SSL encryption, to safeguard your data. We also adopt internal access restrictions and physical security measures. However, please understand that no data transmission over the internet can be fully guaranteed to be secure.',
+    },
+    {
+      title: '5. Changes to the Privacy Policy',
+      content: 'We may occasionally modify this Privacy Policy. Any significant changes will be communicated on our platform, and by continuing to use our services post-update, you consent to the revised policy.',
+    },
+    {
+      title: '6. Contact Us',
+      content: 'Your trust is invaluable to us. If you have questions, concerns, or data protection requests related to our Privacy Policy, please reach out to us at contact@tarotpi.com.',
+    },
+  ],
+};
 
 const tartFeatureCard = [
   {
@@ -602,6 +697,16 @@ export function Component() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        <div className={`flex flex-col ${ifMobile ? 'gap-24' : 'gap-60'} items-center`}>
+          <div className={ifMobile ? 'f-20-mobile' : 'f-48'}>Privacy Policy for TarotPi</div>
+          <div className="flex flex-row items-center gap-30 flex-wrap">
+            <Faq
+              data={section5}
+              // styles={styles} config={config}
+            />
           </div>
         </div>
       </Container>

@@ -51,7 +51,7 @@ const useDepositHistory = () => {
 
       return {
         ...i,
-        type: `Buy(Stage ${+i?.stageId + 1})`,
+        type: `Buy(Stage ${+i?.stageId + 2})`,
         lockTime: releaseTimestamp,
         released: released,
         remain: remain,

@@ -111,7 +111,8 @@ const usePresale = () => {
       const stageInfo = res.slice(0, stages);
       const otherInfo = res.slice(stages);
 
-      stageInfo.forEach((i: any, index) => {
+      stageInfo.forEach((i: any, index: number) => {
+        const overWrittenIndex = +index + 1;
         const addr = p[index]?.address?.toLowerCase();
         if (!result[`${addr}`]) {
           result[`${addr}`] = {};
@@ -132,7 +133,7 @@ const usePresale = () => {
           leftLimitReadable: leftLimitReadable,
           priceReadable: ethers.utils.formatUnits(i?.price?.toString(), 8),
           totalLimitReadable: totalLimitReadable,
-          index: +index + 1,
+          index: +index + 2,
           depositsCount: BigNumber(totalLimit).minus(leftLimit).toString(),
           depositsCountReadable: BigNumber(totalLimitReadable).minus(leftLimitReadable).toString(),
         };
