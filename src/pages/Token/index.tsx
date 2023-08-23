@@ -672,7 +672,7 @@ export function Component() {
         </div>
         <div className={`flex flex-col ${ifMobile ? 'gap-24' : 'gap-60'} items-center`}>
           <div className={ifMobile ? 'f-20-mobile' : 'f-48'}>WIth TART You can</div>
-          <div className="flex flex-row items-center gap-30 flex-wrap">
+          <div className="flex flex-row items-center gap-30 flex-wrap justify-center">
             {tartFeatureCard.map((i, index) => (
               <div
                 className="feature-card flex flex-col gap-28"
