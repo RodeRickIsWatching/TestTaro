@@ -31,9 +31,9 @@ const RoundStatus = styled.div<{ status: string }>`
 `;
 
 const Container = styled.div`
-.round{
-  border-radius: 50%;
-}
+  .round {
+    border-radius: 50%;
+  }
   /* .wallet-modal-trigger {
     margin-bottom: 22px;
     &:hover {
@@ -149,7 +149,7 @@ const WalletBalanceModal = ({ triggerRef, visible, onClose }: { triggerRef: any;
       }}
     >
       <div className="flex flex-row items-center gap-10">
-        <img className='round' src={generateAvatar(address || '', 22)} />
+        <img className="round" src={generateAvatar(address || '', 22)} />
         <div className="f-14">{filterHideText(address as string, 8, 2)}</div>
       </div>
       <div className="divider" />
@@ -179,6 +179,8 @@ const WalletModal = () => {
 
   const { chain, status, chains, unsupported, isLoading, pendingChainId, setupNetwork } = useChainWatcher();
 
+  console.log('chain', chain);
+
   const { balance } = useBalance();
   const { watchTart } = useWatchAsset();
 
@@ -198,9 +200,14 @@ const WalletModal = () => {
                 setupNetwork();
               }}
             >
-              <div className="flex flex-row items-center gap-2">
-                <RoundStatus status={unsupported ? 'error' : 'success'} />
-                <span className="f-14">{unsupported ? 'wrong network' : chain?.name}</span>
+              <div className="flex flex-row items-center gap-6">
+                {unsupported ? (
+                  <RoundStatus status={unsupported ? 'error' : 'success'} />
+                ) : (
+                  <img src={getImageUrl('@/assets/images/_global/symbol/bnb.svg')} />
+                )}
+
+                <span className="f-14">{unsupported ? 'wrong network' : chain?.network}</span>
               </div>
             </div>
             <div className="tart-balance flex flex-row items-center gap-8">
@@ -220,7 +227,7 @@ const WalletModal = () => {
               }}
             >
               <div>
-                <img className='round' src={generateAvatar(address || '', 22)} />
+                <img className="round" src={generateAvatar(address || '', 22)} />
               </div>
               <div className="f-14">{filterHideText(address as string, 8, 2)}</div>
 
