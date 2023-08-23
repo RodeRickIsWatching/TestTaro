@@ -504,7 +504,7 @@ export function Component() {
             </div>
             <div
               className={`pointer ${ifMobile ? 'align-center f-14-mobile' : 'f-22-active-color'}`}
-              onClick={() => jumpLink('https://docs.tarotpi.com/', '_blank')}
+              onClick={() => jumpLink('https://docs.tarotpi.com/tarotpi-tokenomics', '_blank')}
             >
               &gt;&gt;More Detail
             </div>
@@ -719,7 +719,7 @@ export function Component() {
         </div>
 
         <div className={`flex flex-col ${ifMobile ? 'gap-24' : 'gap-60'} items-center`}>
-          <div className={ifMobile ? 'f-20-mobile' : 'f-48'}>Privacy Policy for TarotPi</div>
+          <div className={ifMobile ? 'f-20-mobile' : 'f-48'}>T&Cs</div>
           <div className="flex flex-row items-center gap-30 flex-wrap">
             <Faq
               data={section5}
