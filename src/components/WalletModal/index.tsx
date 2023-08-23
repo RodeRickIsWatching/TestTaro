@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { Button, Modal } from '..';
+import { Button, Modal, message } from '..';
 import useAuth from '@/hooks/useAuth';
 import { injectedConnector } from '@/configs/wallet';
 import { filterHideText, getImageUrl } from '@/utils/tools';
@@ -10,6 +10,7 @@ import useWatchAsset from '@/hooks/useWatchAsset';
 import { useBoolean, useClickAway } from 'ahooks';
 import { useRef } from 'react';
 import { generateAvatar } from '@/utils/jazzIcon';
+import clipboard from 'copy-to-clipboard';
 
 const RoundStatus = styled.div<{ status: string }>`
   width: 6px;
@@ -116,6 +117,16 @@ const StyledModal = styled.div`
     /* height: 308px  ; */
     background: #212020;
 
+    .f-14 {
+      color: #deddd7;
+      text-align: center;
+      font-family: PingFang SC;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 20px; /* 142.857% */
+    }
+
     .divider {
       height: 1px;
       width: 100%;
@@ -138,7 +149,10 @@ const WalletBalanceModal = ({ triggerRef, visible, onClose }: { triggerRef: any;
     onClose?.();
   }, [ref, triggerRef]);
 
-  console.log('balance', balance, usdtBalance);
+  const handleCopy = async () => {
+    await clipboard(address as string);
+    message.success('Done')
+  };
 
   return (
     <StyledModal
@@ -151,6 +165,9 @@ const WalletBalanceModal = ({ triggerRef, visible, onClose }: { triggerRef: any;
       <div className="flex flex-row items-center gap-10">
         <img className="round" src={generateAvatar(address || '', 22)} />
         <div className="f-14">{filterHideText(address as string, 8, 2)}</div>
+        <div className="pointer" onClick={handleCopy}>
+          <img src={getImageUrl('@/assets/images/_global/icon-copy.svg')} />
+        </div>
       </div>
       <div className="divider" />
       <div className="flex flex-col gap-24">
@@ -167,8 +184,12 @@ const WalletBalanceModal = ({ triggerRef, visible, onClose }: { triggerRef: any;
         ))}
       </div>
       <div className="divider" />
-      <Button style={{ padding: '11px 0', width: '100%' }} type="dark" onClick={() => disconnect()}>
-        Disconnect Wallet
+      <Button
+        style={{ padding: '11px 0', width: '100%', background: '#373733' }}
+        type="dark"
+        onClick={() => disconnect()}
+      >
+        <span className="f-14">Disconnect Wallet</span>
       </Button>
     </StyledModal>
   );

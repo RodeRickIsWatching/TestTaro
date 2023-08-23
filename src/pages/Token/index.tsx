@@ -47,6 +47,10 @@ const Container = styled.div`
     gap: 194px;
   }
 
+  .mt-20 {
+    margin-top: 20px;
+  }
+
   .f-56 {
     color: #fefcfa;
     font-family: Canela Trial;
@@ -55,6 +59,17 @@ const Container = styled.div`
     font-weight: 700;
     line-height: 120%; /* 67.2px */
     letter-spacing: 3px;
+  }
+
+  .f-36 {
+    color: var(--unnamed, #fbc65f);
+    text-align: center;
+    font-family: Canela Trial;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 34px; /* 94.444% */
+    letter-spacing: 1.2px;
   }
 
   .f-22 {
@@ -332,7 +347,6 @@ const Container = styled.div`
       background: linear-gradient(90deg, #201d13 0%, #221f13 100%);
       padding: 0 40px;
 
-      .row-title,
       .row-content-text {
         /* height: 80px; */
         color: var(--1, #cbcac4) !important;
@@ -342,6 +356,15 @@ const Container = styled.div`
         font-weight: 400;
         line-height: 22px; /* 157.143% */
       }
+      .row-title-text {
+        color: var(--unnamed, #fefcfa);
+        font-family: Canela Trial;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 1px;
+      }
       .row-content-text {
         border-top: 1px solid #333230;
         display: flex;
@@ -349,15 +372,6 @@ const Container = styled.div`
         padding: 16px 0 !important;
       }
 
-      .row-title-text,
-      .row-content-text {
-        color: var(--unnamed, #fefcfa);
-        font-family: PingFang SC;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-      }
     }
   }
 `;
@@ -719,12 +733,16 @@ export function Component() {
         </div>
 
         <div className={`flex flex-col ${ifMobile ? 'gap-24' : 'gap-60'} items-center`}>
-          <div className={ifMobile ? 'f-20-mobile' : 'f-48'}>T&Cs</div>
+          <div className={ifMobile ? 'f-20-mobile' : 'f-48'}>Privacy Policy for TarotPi</div>
           <div className="flex flex-row items-center gap-30 flex-wrap">
             <Faq
               data={section5}
               // styles={styles} config={config}
             />
+          </div>
+
+          <div className={`pointer flex flex-col ${ifMobile ? 'mt-20' : 'mt-20'} items-center`}>
+            <div className={ifMobile ? 'f-20-mobile' : 'f-36'}>See more about T&Cs &gt;&gt;</div>
           </div>
         </div>
       </Container>
