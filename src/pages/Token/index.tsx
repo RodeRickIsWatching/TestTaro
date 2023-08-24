@@ -741,8 +741,11 @@ export function Component() {
             />
           </div>
 
-          <div className={`pointer flex flex-col ${ifMobile ? 'mt-20' : 'mt-20'} items-center`} onClick={()=>jumpLink('https://docs.tarotpi.com/tarotpi-tokenomics/terms-of-service', '_blank')}>
-            <div className={ifMobile ? 'f-20-mobile' : 'f-36'}>See more about T&Cs &gt;&gt;</div>
+          <div className={`pointer flex flex-col ${ifMobile ? 'mt-20' : 'mt-20'} items-center`} onClick={() => jumpLink('https://docs.tarotpi.com/tarotpi-tokenomics/terms-of-service', '_blank')}>
+            <div
+              style={{ color: '#FBC65F' }}
+              className={ifMobile ? 'f-20-mobile' : 'f-36'}
+            >See more about T&Cs &gt;&gt;</div>
           </div>
         </div>
       </Container>
