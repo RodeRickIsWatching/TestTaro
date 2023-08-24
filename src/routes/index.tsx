@@ -6,7 +6,7 @@ import WalletLayout from '@/layouts/walletLayout';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <BasicLayout />,
+    element: <WalletLayout />,
     children: [
       {
         index: true,
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/home',
-    element: <BasicLayout />,
+    element: <WalletLayout />,
     children: [
       {
         index: true,
