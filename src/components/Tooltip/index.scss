@@ -6,11 +6,15 @@
     .content {
       padding: 12px;
       // max-width: 300px;
-      background: #24262c;
-      border-radius: 6px;
-      font-size: 12px;
-      line-height: 16px;
-      color: rgba(255, 255, 255, 0.45);
+      // background: #24262c;
+      background: rgba(0, 0, 0, 0.70);
+      border-radius: 4px;
+      color: var(--unnamed, #FEFCFA);
+      font-family: PingFang SC;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px; /* 142.857% */
     }
     .arrow {
       position: absolute;

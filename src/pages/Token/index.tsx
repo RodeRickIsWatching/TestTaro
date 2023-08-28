@@ -13,6 +13,7 @@ import { presaleContract } from '@/configs/common';
 import BigNumber from 'bignumber.js';
 import useMobile from '@/hooks/useMobile';
 import Faq from 'react-faq-component';
+import { Tooltip } from '@/components';
 
 const baseStage = 0;
 
@@ -397,15 +398,26 @@ const Container = styled.div`
     }
   }
 
-  .buy-btn{
+  .buy-btn {
     border: none;
     backdrop-filter: none;
-    &::before{
+    &::before {
       background: url(${getImageUrl('@/assets/images/token/buy.svg')}) no-repeat;
-      background-size: contain;
+      background-size: cover;
+      background-position: center;
       opacity: 1;
       filter: none;
-      
+    }
+  }
+  .buy-sp-btn{
+    border: none;
+    backdrop-filter: none;
+    &::before {
+      background: url(${getImageUrl('@/assets/images/token/sp-buy.svg')}) no-repeat;
+      background-size: cover;
+      background-position: center;
+      opacity: 1;
+      filter: none;
     }
   }
 `;
@@ -675,10 +687,22 @@ export function Component() {
                   />
                 </div>
                 <div className="flex flex-row items-center justify-between">
-                  <span className="f-20" style={ifMobile ? { fontSize: '14px' } : {}}>
+                  <span className="f-20" style={ifMobile ? { fontSize: '14px', lineHeight: '20px' } : {}}>
                     {curStageInfo?.leftLimitReadable || '-'} tokens remaining until price increases.
                   </span>
-                  {ifMobile ? null : (
+                  {ifMobile ? (
+                    <Tooltip placement="topRight" title={<span>Total Stock Amount in this stage: 10,000,000 TART</span>}>
+                      <img
+                        style={{
+                          alignSelf: 'flex-start',
+                          marginTop: '4px',
+                          flex: 1,
+                          display: 'flex',
+                        }}
+                        src={getImageUrl('@/assets/images/_global/hint.svg')}
+                      />
+                    </Tooltip>
+                  ) : (
                     <div className="flex items-center">
                       <span className="f-20" style={{ fontFamily: 'Canela Trial Bold' }}>
                         {depositsCountReadable || '-'}
@@ -749,11 +773,12 @@ export function Component() {
 
                 <BaseLabel
                   disabled={!!startCountdown}
-                  className="pointer buy-btn"
+                  className={`pointer ${ ifMobile ? 'buy-sp-btn' : 'buy-btn'}`}
                   style={
                     ifMobile
                       ? {
                           width: '100%',
+                          // height: '45px',
                         }
                       : {}
                   }
@@ -762,7 +787,10 @@ export function Component() {
                     buyOrderSetTrue();
                   }}
                 >
-                  <div style={{ color: '#FFFFFD', padding: '10px 20px', fontFamily: 'Canela Trial Bold' }} className="f-16">
+                  <div
+                    style={{ color: '#FFFFFD', padding: '10px 20px', fontFamily: 'Canela Trial Bold' }}
+                    className="f-16"
+                  >
                     {startCountdown ? 'Coming soon' : 'Buy Now'}
                   </div>
                 </BaseLabel>
