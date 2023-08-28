@@ -21,6 +21,9 @@ const Container = styled.div`
   max-width: 1200px;
   margin: auto;
   width: 100vw;
+  &.x-hidden{
+    overflow-x: hidden;
+  }
 
   .bg-shadow {
     width: 434px;
@@ -546,7 +549,7 @@ export function Component() {
   return (
     <>
       <Container
-        className={`flex flex-col items-center relative ${ifMobile ? 'gap-100' : 'gap-194'}`}
+        className={`flex flex-col items-center relative ${ifMobile ? 'x-hidden gap-100' : 'gap-194'}`}
         style={{ padding: ifMobile ? '33px 6px 0' : '131px 0 0' }}
       >
         <div className="bg-shadow" style={ifMobile ? { width: '100vw' } : {}} />
