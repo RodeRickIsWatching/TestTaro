@@ -983,9 +983,9 @@ export function Component() {
             <img className="a-icon a-icon-1" src={getImageUrl('@/assets/images/_global/icon1.svg')} alt="" />
           )}
 
-          <h1 className={ifMobile ? 'f-31' : 'f-61 maxw-1095'} style={{ letterSpacing: '3px' }}>
+          <h1 className={ifMobile ? 'f-31' : 'f-61 maxw-1095'} style={{ fontFamily: 'Canela Trial Bold', letterSpacing: '3px' }}>
             All these old letters of my Book are aright; but צ is not the Star.
-            <span className="active-color" style={{ letterSpacing: '3px' }}>
+            <span className="active-color" style={{ fontFamily: 'Canela Trial Bold', letterSpacing: '3px' }}>
               ---- Liber AL vel Legis I:57
             </span>
           </h1>

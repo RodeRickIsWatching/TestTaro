@@ -14,6 +14,8 @@ import BigNumber from 'bignumber.js';
 import useMobile from '@/hooks/useMobile';
 import Faq from 'react-faq-component';
 
+const baseStage = 0;
+
 const Container = styled.div`
   max-width: 1200px;
   margin: auto;
@@ -202,6 +204,27 @@ const Container = styled.div`
   .presale-container {
     padding: 10px;
 
+    .stage-label-container {
+      .f-14 {
+        color: var(--unnamed, #c2bdad);
+        font-family: Canela Trial;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px; /* 142.857% */
+        letter-spacing: 1.451px;
+      }
+      .f-16 {
+        color: var(--unnamed, #c2bdad);
+        font-family: Canela Trial;
+        font-size: 18.138px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%; /* 21.766px */
+        letter-spacing: 1.814px;
+      }
+    }
+
     .container {
       border-radius: 4px;
       background: linear-gradient(180deg, rgba(64, 53, 21, 0.8) 0%, rgba(35, 35, 32, 0.8) 100%);
@@ -371,7 +394,18 @@ const Container = styled.div`
         align-items: center;
         padding: 16px 0 !important;
       }
+    }
+  }
 
+  .buy-btn{
+    border: none;
+    backdrop-filter: none;
+    &::before{
+      background: url(${getImageUrl('@/assets/images/token/buy.svg')}) no-repeat;
+      background-size: contain;
+      opacity: 1;
+      filter: none;
+      
     }
   }
 `;
@@ -494,17 +528,23 @@ export function Component() {
 
   const { presale, curStageInfo } = usePresale();
 
+  const depositsCountReadable = useMemo(() => {
+    return BigNumber(curStageInfo?.depositsCountReadable).plus(baseStage).toString();
+  }, [curStageInfo?.depositsCountReadable]);
   return (
     <>
       <Container
         className={`flex flex-col items-center relative ${ifMobile ? 'gap-100' : 'gap-194'}`}
         style={{ padding: ifMobile ? '33px 6px 0' : '131px 0 0' }}
       >
-        <div className="bg-shadow" />
+        <div className="bg-shadow" style={ifMobile ? { width: '100vw' } : {}} />
 
         <div className="flex flex-col gap-55 w-full">
           <div className="flex flex-col gap-20 relative" style={ifMobile ? { marginBottom: '-100px' } : {}}>
-            <div className={`${ifMobile ? 'align-center f-31-mobile' : 'f-56'}`}>
+            <div
+              style={{ fontFamily: 'Canela Trial Bold' }}
+              className={`${ifMobile ? 'align-center f-31-mobile' : 'f-56'}`}
+            >
               TART:
               <br />
               Tarot, Predict and Win!
@@ -540,22 +580,29 @@ export function Component() {
             >
               <div className="h-1 flex flex-row items-center justify-between flex-wrap gap-14">
                 <div className="flex flex-row items-center gap-24">
-                  <div className="f-30" style={ifMobile ? { fontSize: '21px' } : {}}>
+                  <div
+                    className="f-30"
+                    style={
+                      ifMobile
+                        ? { fontSize: '21px', fontFamily: 'Canela Trial Bold' }
+                        : { fontFamily: 'Canela Trial Bold' }
+                    }
+                  >
                     Stage{curStageInfo?.index || '-'}
                   </div>
-                  <div className="flex flex-row items-center gap-12">
+                  <div className="flex flex-row items-center gap-12 stage-label-container">
                     <BaseLabel>
                       <div
-                        className="f-16"
-                        style={ifMobile ? { fontSize: '14px', color: '#C2BDAD' } : { color: '#C2BDAD' }}
+                        className={ifMobile ? 'f-14' : 'f-16'}
+                        // style={ifMobile ? { fontSize: '14px', color: '#C2BDAD!important' } : { color: '#C2BDAD!important' }}
                       >
                         Live
                       </div>
                     </BaseLabel>
                     <BaseLabel>
                       <div
-                        className="f-16"
-                        style={ifMobile ? { fontSize: '14px', color: '#C2BDAD' } : { color: '#C2BDAD' }}
+                        className={ifMobile ? 'f-14' : 'f-16'}
+                        // style={ifMobile ? { fontSize: '14px', color: '#C2BDAD!important' } : { color: '#C2BDAD!important' }}
                       >
                         BSC
                       </div>
@@ -592,22 +639,36 @@ export function Component() {
                         : {}
                     }
                   >
-                    <span className="f-22 active" style={ifMobile ? { fontSize: '16px' } : {}}>
-                      TART Sold: {curStageInfo?.depositsCountReadable || '-'}
+                    <span
+                      className="f-22 active"
+                      style={
+                        ifMobile
+                          ? { fontSize: '16px', fontFamily: 'Canela Trial Bold' }
+                          : { fontFamily: 'Canela Trial Bold' }
+                      }
+                    >
+                      TART Sold: {depositsCountReadable || '-'}
                     </span>
-                    <span className="f-22" style={ifMobile ? { fontSize: '15px' } : {}}>
+                    <span
+                      className="f-22"
+                      style={
+                        ifMobile
+                          ? { fontSize: '15px', fontFamily: 'Canela Trial Bold', color: '#FEFCFA' }
+                          : { fontFamily: 'Canela Trial Bold', color: '#FEFCFA' }
+                      }
+                    >
                       1 TART = {curStageInfo?.priceReadable || '-'} USDT
                     </span>
                   </div>
                   {ifMobile ? null : (
-                    <span className="f-18">
+                    <span className="f-18" style={{ fontFamily: 'Canela Trial Bold', fontSize: '20px' }}>
                       Total Stock Amount in this stage: {curStageInfo?.totalLimitReadable || '-'} TART
                     </span>
                   )}
                 </div>
                 <div className="progress relative">
                   <Progress
-                    percent={BigNumber(curStageInfo?.depositsCountReadable)
+                    percent={BigNumber(depositsCountReadable)
                       .div(curStageInfo?.totalLimitReadable)
                       .multipliedBy(100)
                       .toString()}
@@ -619,11 +680,18 @@ export function Component() {
                   </span>
                   {ifMobile ? null : (
                     <div className="flex items-center">
-                      <span className="f-20">{curStageInfo?.depositsCountReadable || '-'}</span>
-                      <span className="f-20" style={{ color: 'rgba(255, 255, 255, 0.46);' }}>
+                      <span className="f-20" style={{ fontFamily: 'Canela Trial Bold' }}>
+                        {depositsCountReadable || '-'}
+                      </span>
+                      <span
+                        className="f-20"
+                        style={{ fontFamily: 'Canela Trial Bold', color: 'rgba(255, 255, 255, 0.46);' }}
+                      >
                         /
                       </span>
-                      <span className="f-20 active">{curStageInfo?.totalLimitReadable || '-'}</span>
+                      <span className="f-20 active" style={{ fontFamily: 'Canela Trial Bold' }}>
+                        {curStageInfo?.totalLimitReadable || '-'}
+                      </span>
                     </div>
                   )}
                 </div>
@@ -681,7 +749,7 @@ export function Component() {
 
                 <BaseLabel
                   disabled={!!startCountdown}
-                  className="pointer"
+                  className="pointer buy-btn"
                   style={
                     ifMobile
                       ? {
@@ -694,7 +762,7 @@ export function Component() {
                     buyOrderSetTrue();
                   }}
                 >
-                  <div style={{ color: '#CECECC', padding: '10px 20px' }} className="f-16">
+                  <div style={{ color: '#FFFFFD', padding: '10px 20px', fontFamily: 'Canela Trial Bold' }} className="f-16">
                     {startCountdown ? 'Coming soon' : 'Buy Now'}
                   </div>
                 </BaseLabel>
@@ -741,11 +809,13 @@ export function Component() {
             />
           </div>
 
-          <div className={`pointer flex flex-col ${ifMobile ? 'mt-20' : 'mt-20'} items-center`} onClick={() => jumpLink('https://docs.tarotpi.com/tarotpi-tokenomics/terms-of-service', '_blank')}>
-            <div
-              style={{ color: '#FBC65F' }}
-              className={ifMobile ? 'f-20-mobile' : 'f-36'}
-            >See more about T&Cs &gt;&gt;</div>
+          <div
+            className={`pointer flex flex-col ${ifMobile ? 'mt-20' : 'mt-20'} items-center`}
+            onClick={() => jumpLink('https://docs.tarotpi.com/tarotpi-tokenomics/terms-of-service', '_blank')}
+          >
+            <div style={{ color: '#FBC65F' }} className={ifMobile ? 'f-20-mobile' : 'f-36'}>
+              See more about T&Cs &gt;&gt;
+            </div>
           </div>
         </div>
       </Container>

@@ -49,15 +49,15 @@ const BaseLabel = ({
   onClick,
   disabled,
   className,
-  style
+  style,
 }: {
   children: any;
   light?: boolean;
   size?: string;
   onClick?: any;
   disabled?: boolean;
-  className?: any
-  style?: any
+  className?: any;
+  style?: any;
 }) => {
   return (
     // <svg
