@@ -115,6 +115,9 @@ const MobileHeader = () => {
                   to={i.href}
                   target={i?.href?.startsWith('https') ? '_blank' : '_self'}
                   style={{ padding: '8px 0' }}
+                  onClick={() => {
+                    setFalse();
+                  }}
                 >
                   <div className="flex flex-row items-center justify-between">
                     <div
@@ -140,7 +143,13 @@ const MobileHeader = () => {
             </div>
             <div className="medias flex items-center gap-20 justify-center">
               {medias.map((i) => (
-                <a href={i.href} target="_blank">
+                <a
+                  href={i.href}
+                  target="_blank"
+                  onClick={() => {
+                    setFalse();
+                  }}
+                >
                   <img src={i.mobileImg} style={{ width: '50px', height: '50px' }} />
                 </a>
               ))}

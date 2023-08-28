@@ -1,7 +1,7 @@
 import { Button, Input, Modal } from '@/components';
 import { useBoolean } from 'ahooks';
 import dayjs from 'dayjs';
-import { useEffect } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { styled } from 'styled-components';
 import ClaimModal from './claimModal';
 import useDepositHistory from '@/hooks/useDepositHistory';
@@ -91,7 +91,7 @@ const Container = styled(Modal)`
       font-weight: 600;
       line-height: 30px; /* 214.286% */
     }
-    .claim-tart-mobile{
+    .claim-tart-mobile {
       text-align: right;
       cursor: pointer;
       color: var(--unnamed, #fbc65f);
@@ -117,6 +117,23 @@ const Container = styled(Modal)`
           padding-right: 20px;
         }
       }
+    }
+  }
+  .pagination-btn {
+    display: flex;
+    width: 85px;
+    padding: 12px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 32px;
+    background: #363430;
+    border: none;
+    transition: all linear 0.2s;
+
+    &.disabled {
+      background: transparent;
+      border: 1px solid #363430;
     }
   }
 `;
@@ -167,17 +184,43 @@ const BuyModal = ({ visible, onClose }: { visible: boolean; onClose: any }) => {
     }
   }, [address]);
 
+  const perPage = useMemo(() => (ifMobile ? 10000 : 7), [ifMobile]);
+  const totalSize = useMemo(() => history?.length, [history?.length]);
+  const totalPage = useMemo(
+    () => BigNumber(history?.length).div(perPage).minus(1).toFixed(0, BigNumber.ROUND_CEIL),
+    [history?.length, perPage],
+  );
+  const [curPage, setCurPage] = useState(0);
+  // 0 -> 0~9, 1 -> 10~19 ...
+  const filteredOrders = useMemo(
+    () =>
+      history?.filter((i: any, index: number) => {
+        return index <= curPage * perPage + perPage && index > curPage * perPage;
+      }),
+    [curPage, history, perPage],
+  );
+
+  const handlePrev = () => {
+    if (curPage === 0) return;
+    setCurPage((old) => old - 1);
+  };
+  const handleNext = () => {
+    if (curPage >= +totalPage) return;
+    setCurPage((old) => old + 1);
+  };
+
   return (
     <>
       <Container visible={visible} onClose={onClose} onCancel={onClose} title="My order and claim history">
         <div className="modal-content-container flex flex-col gap-20">
           {!releasingAmount || BigNumber(releasingAmount).lte(0) ? null : (
-            <div className={`active-color ${ifMobile ? 'claim-tart-mobile' : 'claim-tart'}`} onClick={claimTartVisibleSetTrue}>
+            <div
+              className={`active-color ${ifMobile ? 'claim-tart-mobile' : 'claim-tart'}`}
+              onClick={claimTartVisibleSetTrue}
+            >
               Claim released TART
             </div>
           )}
-
-
 
           {ifMobile ? (
             <div className="flex flex-col gap-14">
@@ -187,7 +230,7 @@ const BuyModal = ({ visible, onClose }: { visible: boolean; onClose: any }) => {
                   <span className="f-12-mobile">Amount/Released&To released/Data</span>
                 </div>
                 <div className="flex flex-col">
-                  {history?.map((i, index) => (
+                  {filteredOrders?.map((i, index) => (
                     <div key={index} className="flex flex-col gap-12">
                       <div className="flex flex-row items-center justify-between">
                         <span style={{ color: '#E7BB41' }} className="f-14-mobile">
@@ -217,7 +260,7 @@ const BuyModal = ({ visible, onClose }: { visible: boolean; onClose: any }) => {
                 </div>
               </>
             </div>
-          ) : history?.length ? (
+          ) : filteredOrders?.length ? (
             <div>
               <table className="w-full">
                 <thead>
@@ -232,7 +275,7 @@ const BuyModal = ({ visible, onClose }: { visible: boolean; onClose: any }) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {history?.map((i, index) => (
+                  {filteredOrders?.map((i, index) => (
                     <tr key={index}>
                       <td className="f-14 align-left">{dayjs.unix(i.createdAt).format('DD/MM/YYYY HH:mm:ss')}</td>
                       <td className="f-14 align-left">
@@ -249,6 +292,18 @@ const BuyModal = ({ visible, onClose }: { visible: boolean; onClose: any }) => {
                   ))}
                 </tbody>
               </table>
+
+              <div className="flex flex-row items-center gap-12 justify-end" style={{ marginTop: '12px' }}>
+                <div className={`pagination-btn pointer ${curPage === 0 ? 'disabled' : ''}`} onClick={handlePrev}>
+                  Prev
+                </div>
+                <div
+                  className={`pagination-btn pointer ${curPage >= +totalPage ? 'disabled' : ''}`}
+                  onClick={handleNext}
+                >
+                  Next
+                </div>
+              </div>
             </div>
           ) : (
             <div className="flex flex-row items-center justify-center f-12" style={{ padding: '100px 0' }}>
