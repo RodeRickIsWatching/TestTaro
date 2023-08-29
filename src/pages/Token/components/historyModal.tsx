@@ -159,7 +159,38 @@ const colums: any = [
   },
 ];
 
-const BuyModal = ({ visible, onClose }: { visible: boolean; onClose: any }) => {
+const HistoryItem = ({ ele }: { ele: any }) => {
+  const released = useMemo(() => {
+    if (ele?.status === 'All Unlocked') {
+      return BigNumber(ele?.released || '0').plus(ele?.remain || '0').toString();
+    }
+    return ele?.released;
+  }, [ele?.released, ele?.remain, ele?.status]);
+  const remaining = useMemo(() => {
+    if (ele?.status === 'All Unlocked') {
+      return '0';
+    }
+    return ele?.remain;
+  }, [ele?.remain, ele?.status]);
+
+  return (
+    <tr>
+      <td className="f-14 align-left">{dayjs.unix(ele?.createdAt).format('DD/MM/YYYY HH:mm:ss')}</td>
+      <td className="f-14 align-left">
+        <span>{ele?.type}</span>
+      </td>
+      <td className="f-14 align-left">{ele?.amount}</td>
+      <td className="f-14 align-left">
+        {ele?.lockTime ? dayjs.unix(ele?.lockTime).format('DD/MM/YYYY HH:mm:ss') : '-'}
+      </td>
+      <td className="f-14 align-left">{released || '-'}</td>
+      <td className="f-14 align-left">{remaining || '-'}</td>
+      <td className="f-14 align-right">{ele?.status}</td>
+    </tr>
+  );
+};
+
+const HistoryModal = ({ visible, onClose }: { visible: boolean; onClose: any }) => {
   const { run, history, releasingAmount, cancel } = useDepositHistory();
   const ifMobile = useMobile();
 
@@ -276,19 +307,7 @@ const BuyModal = ({ visible, onClose }: { visible: boolean; onClose: any }) => {
                 </thead>
                 <tbody>
                   {filteredOrders?.map((i, index) => (
-                    <tr key={index}>
-                      <td className="f-14 align-left">{dayjs.unix(i.createdAt).format('DD/MM/YYYY HH:mm:ss')}</td>
-                      <td className="f-14 align-left">
-                        <span>{i.type}</span>
-                      </td>
-                      <td className="f-14 align-left">{i.amount}</td>
-                      <td className="f-14 align-left">
-                        {i?.lockTime ? dayjs.unix(i.lockTime).format('DD/MM/YYYY HH:mm:ss') : '-'}
-                      </td>
-                      <td className="f-14 align-left">{i.released || '-'}</td>
-                      <td className="f-14 align-left">{i.remain || '-'}</td>
-                      <td className="f-14 align-right">{i.status}</td>
-                    </tr>
+                    <HistoryItem ele={i} key={index} />
                   ))}
                 </tbody>
               </table>
@@ -317,4 +336,4 @@ const BuyModal = ({ visible, onClose }: { visible: boolean; onClose: any }) => {
   );
 };
 
-export default BuyModal;
+export default HistoryModal;
