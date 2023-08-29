@@ -427,7 +427,7 @@ const Container = styled.div`
       right: 0;
       bottom: 0;
       background: url(${getImageUrl('@/assets/images/token/sp-buy.svg')}) no-repeat;
-      background-size: cover;
+      background-size: contain;
       background-position: center;
       opacity: 1;
       filter: none;
@@ -712,7 +712,7 @@ export function Component() {
                   {ifMobile ? (
                     <Tooltip
                       placement="topRight"
-                      title={<span>Total Stock Amount in this stage: 10,000,000 TART</span>}
+                      title={<span style={{width: '202px', display: 'inline-block'}}>Total Stock Amount in this stage: 10,000,000 TART</span>}
                     >
                       <img
                         style={{
