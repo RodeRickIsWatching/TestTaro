@@ -195,7 +195,7 @@ const BuyModal = ({ visible, onClose }: { visible: boolean; onClose: any }) => {
   const filteredOrders = useMemo(
     () =>
       history?.filter((i: any, index: number) => {
-        return index <= curPage * perPage + perPage && index > curPage * perPage;
+        return index < curPage * perPage + perPage && index >= curPage * perPage;
       }),
     [curPage, history, perPage],
   );
