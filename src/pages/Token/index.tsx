@@ -414,11 +414,18 @@ const Container = styled.div`
   }
   .buy-sp-btn {
     aspect-ratio: 303 / 45;
-    width: 303px;
+    max-width: 303px;
+    width: 100%;
     margin: auto;
     border: none;
     backdrop-filter: none;
     &::before {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background: url(${getImageUrl('@/assets/images/token/sp-buy.svg')}) no-repeat;
       background-size: cover;
       background-position: center;
