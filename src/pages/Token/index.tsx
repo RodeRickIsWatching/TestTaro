@@ -413,6 +413,9 @@ const Container = styled.div`
     }
   }
   .buy-sp-btn{
+    aspect-ratio: 303 / 45;
+    width: 303px;
+    margin: auto;
     border: none;
     backdrop-filter: none;
     &::before {
@@ -701,6 +704,8 @@ export function Component() {
                           marginTop: '4px',
                           flex: 1,
                           display: 'flex',
+                          width: '16px',
+                          height: '16px'
                         }}
                         src={getImageUrl('@/assets/images/_global/hint.svg')}
                       />
@@ -780,7 +785,7 @@ export function Component() {
                   style={
                     ifMobile
                       ? {
-                          width: '100%',
+                          // width: '100%',
                           // height: '45px',
                         }
                       : {}

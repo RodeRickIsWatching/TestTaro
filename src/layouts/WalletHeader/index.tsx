@@ -13,6 +13,7 @@ const Container = styled.div`
 
   .nav-label {
     font-family: Inter;
+    font-size: 16px;
   }
 
   .active-link {
@@ -62,7 +63,9 @@ const WalletHeader = () => {
             to={i.href}
             target={i?.href?.startsWith('https') ? '_blank' : '_self'}
           >
-            <div className="pointer nav-label">{i.label}</div>
+            <div className="pointer nav-label">
+              {i.label}
+            </div>
           </NavLink>
         ))}
       </div>

@@ -61,11 +61,11 @@ const Container = styled.div`
   .connected {
     .tart-balance {
       padding: 10px 16px;
-      min-width: 109px;
+      /* min-width: 109px; */
       height: 40px;
       flex-shrink: 0;
       background-color: rgba(251, 198, 95, 0.2);
-      border-radius: 16px;
+      border-radius: 60px;
       .f-14 {
         color: #fefcfa;
         font-family: Inter;
@@ -78,7 +78,7 @@ const Container = styled.div`
 
     .profile-container {
       border: 1px solid #353535;
-      border-radius: 16px;
+      border-radius: 60px;
       padding: 7px 14px;
 
       .verticle-seperator {

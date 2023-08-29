@@ -128,7 +128,7 @@ const ClaimModal = ({ visible, onClose }: { visible: boolean; onClose: any }) =>
             <div className="flex flex-col gap-10 items-center">
               <div className="flex flex-row items-center justify-between">
                 <span className="f-14" style={{ color: '#FEFCFA' }}>
-                  Buy Amount
+                  Claim Amount
                 </span>
               </div>
               <span className="f-24">{releasingAmount || '-'}&nbsp;TART</span>
@@ -141,7 +141,12 @@ const ClaimModal = ({ visible, onClose }: { visible: boolean; onClose: any }) =>
                   <span className="f-14">{totalReleasingAmount || '-'} TART</span>
                 </div>
               </div>
-              <Button type="tart" onClick={handleConfirm} loading={loading} disabled={!releasingAmount || BigNumber(releasingAmount).lte(0)}>
+              <Button
+                type="tart"
+                onClick={handleConfirm}
+                loading={loading}
+                disabled={!releasingAmount || BigNumber(releasingAmount).lte(0)}
+              >
                 <div style={{ height: '42px' }} className="flex flex-row items-center ">
                   <span>Confirm</span>
                 </div>
