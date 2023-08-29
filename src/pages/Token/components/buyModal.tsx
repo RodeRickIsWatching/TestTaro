@@ -2,6 +2,7 @@ import { Button, Input, Modal, message } from '@/components';
 import { usdtContract, presaleContract, MAX_ALLOWANCE, isDev } from '@/configs/common';
 import useAuth from '@/hooks/useAuth';
 import useBalance from '@/hooks/useBalance';
+import useChainWatcher from '@/hooks/useChainWatcher';
 import usePresale from '@/hooks/usePresale';
 import useUpdate from '@/hooks/useUpdate';
 import { catchError, jumpLink } from '@/utils/tools';
@@ -101,7 +102,12 @@ const HistoryModal = ({ visible, onClose }: { visible: boolean; onClose: any }) 
 
   const [loading, { setTrue: setTrueLoading, setFalse: setFalseLoading }] = useBoolean(false);
 
+  const { unsupported, setupNetwork } = useChainWatcher();
+
   const handleConfirm = async () => {
+    if (unsupported) {
+      setupNetwork();
+    }
     const amount = ethers.utils.parseUnits(BigNumber(buyAmount || '0').toFixed(6), 18).toString();
 
     try {
@@ -135,6 +141,7 @@ const HistoryModal = ({ visible, onClose }: { visible: boolean; onClose: any }) 
       setFalseLoading();
     }
   };
+
   return (
     <Container visible={visible} onClose={onClose} onCancel={onClose} title="Buy Order">
       <div className="modal-content-container flex flex-col gap-20">

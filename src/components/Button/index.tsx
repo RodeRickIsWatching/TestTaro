@@ -4,8 +4,22 @@ import { tuple } from '../_type/type';
 import { cloneElement } from '../_util/reactNode';
 import { IconGlobalSpin } from '@/assets/icons/IconGroup';
 import './index.scss';
+import useChainWatcher from '@/hooks/useChainWatcher';
 
-const ButtonTypes = tuple('primary', 'solid', 'second', 'text', 'short-solid', 'long-solid', 'short', 'long', 'dark', 'light', 'tart', 'tart-solid');
+const ButtonTypes = tuple(
+  'primary',
+  'solid',
+  'second',
+  'text',
+  'short-solid',
+  'long-solid',
+  'short',
+  'long',
+  'dark',
+  'light',
+  'tart',
+  'tart-solid',
+);
 
 type ButtonType = (typeof ButtonTypes)[number];
 
@@ -33,6 +47,8 @@ const Button: React.FC<ButtonProps> = React.forwardRef((props: ButtonProps, ref:
     ...rest
   } = props;
 
+  const { unsupported, setupNetwork } = useChainWatcher();
+
   const classes = classNames(className, 'component-button flex flex-row items-center justify-center', {
     [`${type}`]: type,
     loading,
@@ -56,16 +72,22 @@ const Button: React.FC<ButtonProps> = React.forwardRef((props: ButtonProps, ref:
       e.preventDefault();
       return;
     }
+    if (unsupported) {
+      setupNetwork();
+      return;
+    }
     (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)?.(e);
   };
 
   return (
     <button className={classes} ref={ref} onClick={handleClick} {...rest}>
       {prefix}
-      {!disabled && loading && <span><IconGlobalSpin color={loadingColor} /></span>}
-      {
-        !loading && (<span>{cloneElement(children)}</span>)
-      }
+      {!disabled && loading && (
+        <span>
+          <IconGlobalSpin color={loadingColor} />
+        </span>
+      )}
+      {!loading && (unsupported ? <span>Wrong Network</span> : <span>{cloneElement(children)}</span>)}
       {suffix}
     </button>
   );
