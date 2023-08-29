@@ -21,7 +21,7 @@ const Container = styled.div`
   max-width: 1200px;
   margin: auto;
   width: 100vw;
-  &.x-hidden{
+  &.x-hidden {
     overflow-x: hidden;
   }
 
@@ -412,7 +412,7 @@ const Container = styled.div`
       filter: none;
     }
   }
-  .buy-sp-btn{
+  .buy-sp-btn {
     aspect-ratio: 303 / 45;
     width: 303px;
     margin: auto;
@@ -612,6 +612,9 @@ export function Component() {
                     <BaseLabel>
                       <div
                         className={ifMobile ? 'f-14' : 'f-16'}
+                        style={{
+                          zIndex: 1,
+                        }}
                         // style={ifMobile ? { fontSize: '14px', color: '#C2BDAD!important' } : { color: '#C2BDAD!important' }}
                       >
                         Live
@@ -620,6 +623,9 @@ export function Component() {
                     <BaseLabel>
                       <div
                         className={ifMobile ? 'f-14' : 'f-16'}
+                        style={{
+                          zIndex: 1,
+                        }}
                         // style={ifMobile ? { fontSize: '14px', color: '#C2BDAD!important' } : { color: '#C2BDAD!important' }}
                       >
                         BSC
@@ -697,7 +703,10 @@ export function Component() {
                     {curStageInfo?.leftLimitReadable || '-'} tokens remaining until price increases.
                   </span>
                   {ifMobile ? (
-                    <Tooltip placement="topRight" title={<span>Total Stock Amount in this stage: 10,000,000 TART</span>}>
+                    <Tooltip
+                      placement="topRight"
+                      title={<span>Total Stock Amount in this stage: 10,000,000 TART</span>}
+                    >
                       <img
                         style={{
                           alignSelf: 'flex-start',
@@ -705,7 +714,7 @@ export function Component() {
                           flex: 1,
                           display: 'flex',
                           width: '16px',
-                          height: '16px'
+                          height: '16px',
                         }}
                         src={getImageUrl('@/assets/images/_global/hint.svg')}
                       />
@@ -781,7 +790,7 @@ export function Component() {
 
                 <BaseLabel
                   disabled={!!startCountdown}
-                  className={`pointer ${ ifMobile ? 'buy-sp-btn' : 'buy-btn'}`}
+                  className={`pointer ${ifMobile ? 'buy-sp-btn' : 'buy-btn'}`}
                   style={
                     ifMobile
                       ? {
@@ -796,7 +805,7 @@ export function Component() {
                   }}
                 >
                   <div
-                    style={{ color: '#FFFFFD', padding: '10px 20px', fontFamily: 'Canela Trial Bold' }}
+                    style={{ zIndex: 1, color: '#FFFFFD', padding: '10px 20px', fontFamily: 'Canela Trial Bold' }}
                     className="f-16"
                   >
                     {startCountdown ? 'Coming soon' : 'Buy Now'}
