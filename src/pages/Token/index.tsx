@@ -417,21 +417,11 @@ const Container = styled.div`
     max-width: 303px;
     width: 100%;
     margin: auto;
-    border: none;
     backdrop-filter: none;
-    &::before {
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url(${getImageUrl('@/assets/images/token/sp-buy.svg')}) no-repeat;
-      background-size: contain;
-      background-position: center;
-      opacity: 1;
-      filter: none;
-    }
+    background: linear-gradient(153deg, rgba(255, 211, 77, 0.40) 0%, rgba(255, 211, 77, 0.00) 100%);
+    border-radius: 40px;
+    border: 1px solid var(--unnamed, #FBC65F);
+
   }
 `;
 
@@ -712,7 +702,11 @@ export function Component() {
                   {ifMobile ? (
                     <Tooltip
                       placement="topRight"
-                      title={<span style={{width: '202px', display: 'inline-block'}}>Total Stock Amount in this stage: 10,000,000 TART</span>}
+                      title={
+                        <span style={{ width: '202px', display: 'inline-block' }}>
+                          Total Stock Amount in this stage: 10,000,000 TART
+                        </span>
+                      }
                     >
                       <img
                         style={{
@@ -795,29 +789,46 @@ export function Component() {
                   </div>
                 ) : null}
 
-                <BaseLabel
-                  disabled={!!startCountdown}
-                  className={`pointer ${ifMobile ? 'buy-sp-btn' : 'buy-btn'}`}
-                  style={
-                    ifMobile
-                      ? {
-                          // width: '100%',
-                          // height: '45px',
-                        }
-                      : {}
-                  }
-                  onClick={() => {
-                    if (startCountdown) return;
-                    buyOrderSetTrue();
-                  }}
-                >
+                {ifMobile ? (
                   <div
-                    style={{ zIndex: 1, color: '#FFFFFD', padding: '10px 20px', fontFamily: 'Canela Trial Bold' }}
-                    className="f-16"
+                    className={`pointer ${ifMobile ? 'buy-sp-btn' : 'buy-btn'}`}
+                    onClick={() => {
+                      if (startCountdown) return;
+                      buyOrderSetTrue();
+                    }}
                   >
-                    {startCountdown ? 'Coming soon' : 'Buy Now'}
+                    <div
+                      style={{ zIndex: 1, color: '#FFFFFD', padding: '10px 20px', fontFamily: 'Canela Trial Bold' }}
+                      className="f-16"
+                    >
+                      {startCountdown ? 'Coming soon' : 'Buy Now'}
+                    </div>
                   </div>
-                </BaseLabel>
+                ) : (
+                  <BaseLabel
+                    disabled={!!startCountdown}
+                    className={`pointer ${ifMobile ? 'buy-sp-btn' : 'buy-btn'}`}
+                    style={
+                      ifMobile
+                        ? {
+                            // width: '100%',
+                            // height: '45px',
+                          }
+                        : {}
+                    }
+                    onClick={() => {
+                      if (startCountdown) return;
+                      buyOrderSetTrue();
+                    }}
+                  >
+                    <div
+                      style={{ zIndex: 1, color: '#FFFFFD', padding: '10px 20px', fontFamily: 'Canela Trial Bold' }}
+                      className="f-16"
+                    >
+                      {startCountdown ? 'Coming soon' : 'Buy Now'}
+                    </div>
+                  </BaseLabel>
+                )}
               </div>
             </div>
           </div>
