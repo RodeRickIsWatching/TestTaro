@@ -167,7 +167,6 @@ const usePresale = () => {
     if (!presale) return;
     const info = presale[presaleContract.address.toLowerCase()];
     const len = Object.keys(info).filter((i) => i?.includes('stage-'))?.length;
-    console.log('len', len);
 
     let curStage = {
       leftLimit: '0',
