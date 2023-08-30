@@ -112,6 +112,7 @@ const usePresale = () => {
       const otherInfo = res.slice(stages);
 
       stageInfo.forEach((i: any, index: number) => {
+        if (!i) return;
         const overWrittenIndex = +index + 1;
         const addr = p[index]?.address?.toLowerCase();
         if (!result[`${addr}`]) {
@@ -165,6 +166,8 @@ const usePresale = () => {
   const curStageInfo = useMemo(() => {
     if (!presale) return;
     const info = presale[presaleContract.address.toLowerCase()];
+    const len = Object.keys(info).filter((i) => i?.includes('stage-'))?.length;
+    console.log('len', len);
 
     let curStage = {
       leftLimit: '0',
@@ -177,18 +180,21 @@ const usePresale = () => {
       index: '0',
     };
     const stage1 = info?.['stage-0'];
-    const stage2 = info?.['stage-1'];
+    const stage2 = len > 1 ? info?.['stage-1'] : undefined;
     const ifStage1Complete = BigNumber(info?.['stage-0']?.leftLimit).lte(0);
-    const ifStage2Complete = BigNumber(info?.['stage-1']?.leftLimit).lte(0);
+    const ifStage2Complete = stage2 ? BigNumber(info?.['stage-1']?.leftLimit || '0').lte(0) : false;
+
 
     if (!ifStage1Complete) {
       curStage = stage1;
-    } else if (!ifStage2Complete) {
+    } else if (!ifStage2Complete && stage2) {
       curStage = stage2;
     }
 
-    if (ifStage1Complete && ifStage2Complete) {
+    if (ifStage1Complete && ifStage2Complete && stage2) {
       curStage = stage2;
+    } else {
+      curStage = stage1;
     }
 
     return {
@@ -196,8 +202,6 @@ const usePresale = () => {
       ...curStage,
     };
   }, [presale]);
-
-  console.log('curStageInfo', curStageInfo);
 
   const props = useRequest(intervalUpdate, {
     manual: true,
