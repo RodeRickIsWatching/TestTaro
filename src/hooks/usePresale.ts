@@ -111,34 +111,35 @@ const usePresale = () => {
       const stageInfo = res.slice(0, stages);
       const otherInfo = res.slice(stages);
 
-      stageInfo.forEach((i: any, index: number) => {
-        if (!i) return;
-        const overWrittenIndex = +index + 1;
-        const addr = p[index]?.address?.toLowerCase();
-        if (!result[`${addr}`]) {
-          result[`${addr}`] = {};
-        }
+      stageInfo
+        ?.filter((i) => i)
+        .forEach((i: any, index: number) => {
+          const overWrittenIndex = +index + 1;
+          const addr = p[index]?.address?.toLowerCase();
+          if (!result[`${addr}`]) {
+            result[`${addr}`] = {};
+          }
 
-        const totalLimit = i?.totalLimit.toString();
-        const leftLimit = i?.leftLimit.toString();
+          const totalLimit = i?.totalLimit.toString();
+          const leftLimit = i?.leftLimit.toString();
 
-        const totalLimitReadable = ethers.utils.formatUnits(totalLimit, 18);
-        const leftLimitReadable = ethers.utils.formatUnits(leftLimit, 18);
+          const totalLimitReadable = ethers.utils.formatUnits(totalLimit, 18);
+          const leftLimitReadable = ethers.utils.formatUnits(leftLimit, 18);
 
-        result[`${addr}`][`stage-${index}`] = {
-          leftLimit: leftLimit,
-          lockDuration: i?.lockDuration?.toString(),
-          price: i?.price?.toString(),
-          totalLimit: totalLimit,
+          result[`${addr}`][`stage-${index}`] = {
+            leftLimit: leftLimit,
+            lockDuration: i?.lockDuration?.toString(),
+            price: i?.price?.toString(),
+            totalLimit: totalLimit,
 
-          leftLimitReadable: leftLimitReadable,
-          priceReadable: ethers.utils.formatUnits(i?.price?.toString(), 8),
-          totalLimitReadable: totalLimitReadable,
-          index: +index + 2,
-          depositsCount: BigNumber(totalLimit).minus(leftLimit).toString(),
-          depositsCountReadable: BigNumber(totalLimitReadable).minus(leftLimitReadable).toString(),
-        };
-      });
+            leftLimitReadable: leftLimitReadable,
+            priceReadable: ethers.utils.formatUnits(i?.price?.toString(), 8),
+            totalLimitReadable: totalLimitReadable,
+            index: +index + 2,
+            depositsCount: BigNumber(totalLimit).minus(leftLimit).toString(),
+            depositsCountReadable: BigNumber(totalLimitReadable).minus(leftLimitReadable).toString(),
+          };
+        });
 
       otherInfo.forEach((i: any, index) => {
         const curIndex = +index + +stages;
@@ -179,10 +180,9 @@ const usePresale = () => {
       index: '0',
     };
     const stage1 = info?.['stage-0'];
-    const stage2 = len > 1 ? info?.['stage-1'] : undefined;
+    const stage2 = info?.['stage-1'];
     const ifStage1Complete = BigNumber(info?.['stage-0']?.leftLimit).lte(0);
     const ifStage2Complete = stage2 ? BigNumber(info?.['stage-1']?.leftLimit || '0').lte(0) : false;
-
 
     if (!ifStage1Complete) {
       curStage = stage1;

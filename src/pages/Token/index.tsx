@@ -704,7 +704,7 @@ export function Component() {
                       placement="topRight"
                       title={
                         <span style={{ width: '202px', display: 'inline-block' }}>
-                          Total Stock Amount in this stage: 10,000,000 TART
+                          Total Stock Amount in this stage: {curStageInfo?.totalLimitReadable || '-'} TART
                         </span>
                       }
                     >
