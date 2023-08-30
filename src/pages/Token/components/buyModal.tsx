@@ -86,11 +86,17 @@ const HistoryModal = ({ visible, onClose }: { visible: boolean; onClose: any }) 
     );
   }, [curStageInfo?.leftLimitReadable, usdtBalance]);
 
-  const handleMax = () => {
-    if (!curStageMaxValueRemaining) return;
+  const curStageMaxValueRemainingRelatedTart = useMemo(() => {
+    return BigNumber(curStageMaxValueRemaining || '0')
+      .div(curStageInfo?.priceReadable || '0')
+      .toFixed(inputDecimal, BigNumber.ROUND_DOWN);
+  }, [curStageInfo?.priceReadable, curStageMaxValueRemaining]);
 
-    console.log('curStageMaxValueRemaining', curStageMaxValueRemaining);
-    setBuyAmount(curStageMaxValueRemaining as string);
+  const handleMax = () => {
+    if (!+curStageMaxValueRemainingRelatedTart) return;
+
+    console.log('curStageMaxValueRemainingRelatedTart', curStageMaxValueRemainingRelatedTart);
+    setBuyAmount(curStageMaxValueRemainingRelatedTart as string);
   };
 
   const needApprove = useMemo(() => {
@@ -192,7 +198,8 @@ const HistoryModal = ({ visible, onClose }: { visible: boolean; onClose: any }) 
                 decimal={inputDecimal}
                 onChange={setBuyAmount}
                 value={buyAmount}
-                max={curStageMaxValueRemaining}
+                // max={curStageMaxValueRemaining}
+                max={curStageMaxValueRemainingRelatedTart}
                 placeholder="Input Amount"
                 suffix={
                   <div className="flex items-center gap-8">
