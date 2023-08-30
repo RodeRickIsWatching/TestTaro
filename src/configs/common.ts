@@ -11,6 +11,10 @@ export const isProd = import.meta.env.MODE === 'production';
 
 export const isDev = import.meta.env.MODE === 'development';
 
+export const graphBaseUrl = prod
+  ? 'https://api.thegraph.com/subgraphs/name/dragonprot/tarotpi'
+  : 'https://api.thegraph.com/subgraphs/name/dragonprot/tarotpi-dev';
+
 export const medias = [
   {
     type: 'TikTok',

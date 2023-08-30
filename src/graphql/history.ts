@@ -1,3 +1,4 @@
+import { graphBaseUrl } from '@/configs/common';
 import { gql, GraphQLClient } from 'graphql-request';
 
 const depositLogs = gql`
@@ -21,7 +22,7 @@ const depositLogs = gql`
   }
 `;
 
-const perpetualClient = new GraphQLClient('https://api.thegraph.com/subgraphs/name/dragonprot/tarotpi-dev', {
+const perpetualClient = new GraphQLClient(graphBaseUrl, {
   headers: {},
 });
 
