@@ -64,8 +64,8 @@ export const MockUSDT = prod
 export const TART = prod ? '0xd0c193c6902361e75d41bba6a282C70ecBB70408' : '0x649AFCeFD255CadFE1DFca27DbC3D300F2915542';
 
 export const PresaleMarket = prod
-  ? '0x8C12D8a4A9953C11f7CA074Eb7d49961c824a188'
-  : '0xcb186F6bbB2Df145ff450ee0A4Ec6aF4baadEec7' || '0x2861bDFC1a5398bfFaeda8476db3077a94A374Cb';
+  ? '0xf2b6Cd959cF2CfC98cd829F54Afb2D42F84150De'
+  : '0xcb186F6bbB2Df145ff450ee0A4Ec6aF4baadEec7';
 
 export const usdtContract = {
   address: MockUSDT,
