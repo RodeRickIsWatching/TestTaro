@@ -2,9 +2,9 @@ import { InjectedConnector } from '@wagmi/core';
 import { arbitrum, arbitrumGoerli, bsc, bscTestnet } from '@wagmi/core/chains';
 import { publicProvider } from '@wagmi/core/providers/public';
 import { WagmiConfig, configureChains, createClient } from 'wagmi';
-import { isProd } from './common';
+import { prod } from './common';
 
-export const chainId = isProd ? [bsc] : [bscTestnet];
+export const chainId = prod ? [bsc] : [bscTestnet];
 
 export const injectedConnector = new InjectedConnector({
   chains: [...chainId],

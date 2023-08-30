@@ -3,6 +3,8 @@ import { erc20ABI } from 'wagmi';
 import { arbitrum, arbitrumGoerli, bsc, bscTestnet } from '@wagmi/core/chains';
 import presaleAbi from '@/configs/abi/presale.json';
 
+export const prod = true;
+
 export const MAX_ALLOWANCE = '0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff';
 
 export const isProd = import.meta.env.MODE === 'production';
@@ -51,11 +53,15 @@ export const navs = [
   { label: 'Gitbook', href: 'https://docs.tarotpi.com/' },
 ];
 
-export const MockUSDT = '0x3c2980a3962B1BaFFe58241249866D7779B5546a';
-export const TART = '0x649AFCeFD255CadFE1DFca27DbC3D300F2915542';
+export const MockUSDT = prod
+  ? '0x55d398326f99059fF775485246999027B3197955'
+  : '0x3c2980a3962B1BaFFe58241249866D7779B5546a';
 
-export const PresaleMarket =
-  '0xcb186F6bbB2Df145ff450ee0A4Ec6aF4baadEec7' || '0x2861bDFC1a5398bfFaeda8476db3077a94A374Cb';
+export const TART = prod ? '0xd0c193c6902361e75d41bba6a282C70ecBB70408' : '0x649AFCeFD255CadFE1DFca27DbC3D300F2915542';
+
+export const PresaleMarket = prod
+  ? '0x8C12D8a4A9953C11f7CA074Eb7d49961c824a188'
+  : '0xcb186F6bbB2Df145ff450ee0A4Ec6aF4baadEec7' || '0x2861bDFC1a5398bfFaeda8476db3077a94A374Cb';
 
 export const usdtContract = {
   address: MockUSDT,
@@ -72,4 +78,4 @@ export const presaleContract = {
   abi: presaleAbi,
 };
 
-export const basicChainId = bscTestnet.id;
+export const basicChainId = prod ? bsc.id : bscTestnet.id;
