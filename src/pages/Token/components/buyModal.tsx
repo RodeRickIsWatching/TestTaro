@@ -113,6 +113,7 @@ const HistoryModal = ({ visible, onClose }: { visible: boolean; onClose: any }) 
   const handleConfirm = async () => {
     if (unsupported) {
       setupNetwork();
+      return ;
     }
     const amount = ethers.utils.parseUnits(BigNumber(buyAmount || '0').toFixed(6), 18).toString();
 
