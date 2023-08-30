@@ -1,5 +1,6 @@
+/* eslint-disable no-negated-condition */
 import { Button, Input, Modal, message } from '@/components';
-import { usdtContract, presaleContract, MAX_ALLOWANCE, isDev } from '@/configs/common';
+import { usdtContract, presaleContract, MAX_ALLOWANCE, isDev, prod } from '@/configs/common';
 import useAuth from '@/hooks/useAuth';
 import useBalance from '@/hooks/useBalance';
 import useChainWatcher from '@/hooks/useChainWatcher';
@@ -177,7 +178,7 @@ const HistoryModal = ({ visible, onClose }: { visible: boolean; onClose: any }) 
                 style={{ color: '#FBC65F' }}
                 onClick={() => {
                   //
-                  jumpLink(`https://${isDev ? 'testnet.' : ''}bscscan.com/tx/${curTx}`, '_blank');
+                  jumpLink(`https://${!prod ? 'testnet.' : ''}bscscan.com/tx/${curTx}`, '_blank');
                 }}
               >
                 View on Block Explorer

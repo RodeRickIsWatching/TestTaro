@@ -1,5 +1,6 @@
+/* eslint-disable no-negated-condition */
 import { Button, Input, Modal, message } from '@/components';
-import { isDev, presaleContract } from '@/configs/common';
+import { isDev, presaleContract, prod } from '@/configs/common';
 import useAuth from '@/hooks/useAuth';
 import useDepositHistory from '@/hooks/useDepositHistory';
 import { catchError, jumpLink } from '@/utils/tools';
@@ -116,7 +117,7 @@ const ClaimModal = ({ visible, onClose }: { visible: boolean; onClose: any }) =>
                 style={{ color: '#FBC65F' }}
                 onClick={() => {
                   //
-                  jumpLink(`https://${isDev ? 'testnet.' : ''}bscscan.com/tx/${curTx}`, '_blank');
+                  jumpLink(`https://${!prod ? 'testnet.' : ''}bscscan.com/tx/${curTx}`, '_blank');
                 }}
               >
                 View on Block Explorer

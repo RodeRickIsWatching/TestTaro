@@ -65,7 +65,7 @@ export const TART = prod ? '0xd0c193c6902361e75d41bba6a282C70ecBB70408' : '0x649
 
 export const PresaleMarket = prod
   ? '0xf2b6Cd959cF2CfC98cd829F54Afb2D42F84150De'
-  : '0xcb186F6bbB2Df145ff450ee0A4Ec6aF4baadEec7';
+  : '0x03C295ff7f1Fe1085e9ceA827d5d7b7f8cA7c684';
 
 export const usdtContract = {
   address: MockUSDT,
