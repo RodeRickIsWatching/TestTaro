@@ -186,11 +186,18 @@ const usePresale = () => {
     } else if (!ifStage2Complete) {
       curStage = stage2;
     }
+
+    if (ifStage1Complete && ifStage2Complete) {
+      curStage = stage2;
+    }
+
     return {
       ...info,
       ...curStage,
     };
   }, [presale]);
+
+  console.log('curStageInfo', curStageInfo);
 
   const props = useRequest(intervalUpdate, {
     manual: true,

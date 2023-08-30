@@ -418,10 +418,9 @@ const Container = styled.div`
     width: 100%;
     margin: auto;
     backdrop-filter: none;
-    background: linear-gradient(153deg, rgba(255, 211, 77, 0.40) 0%, rgba(255, 211, 77, 0.00) 100%);
+    background: linear-gradient(153deg, rgba(255, 211, 77, 0.4) 0%, rgba(255, 211, 77, 0) 100%);
     border-radius: 40px;
-    border: 1px solid var(--unnamed, #FBC65F);
-
+    border: 1px solid var(--unnamed, #fbc65f);
   }
 `;
 
@@ -546,6 +545,7 @@ export function Component() {
   const depositsCountReadable = useMemo(() => {
     return BigNumber(curStageInfo?.depositsCountReadable).plus(baseStage).toString();
   }, [curStageInfo?.depositsCountReadable]);
+
   return (
     <>
       <Container
@@ -794,6 +794,7 @@ export function Component() {
                     className={`pointer ${ifMobile ? 'buy-sp-btn' : 'buy-btn'}`}
                     onClick={() => {
                       if (startCountdown) return;
+                      if (!+curStageInfo?.leftLimitReadable) return;
                       buyOrderSetTrue();
                     }}
                   >
@@ -801,12 +802,12 @@ export function Component() {
                       style={{ zIndex: 1, color: '#FFFFFD', padding: '10px 20px', fontFamily: 'Canela Trial Bold' }}
                       className="f-16"
                     >
-                      {startCountdown ? 'Coming soon' : 'Buy Now'}
+                      {startCountdown ? 'Coming soon' : +curStageInfo?.leftLimitReadable ? 'Buy Now' : 'Sold Out'}
                     </div>
                   </div>
                 ) : (
                   <BaseLabel
-                    disabled={!!startCountdown}
+                    disabled={!!startCountdown || !+curStageInfo?.leftLimitReadable}
                     className={`pointer ${ifMobile ? 'buy-sp-btn' : 'buy-btn'}`}
                     style={
                       ifMobile
@@ -818,6 +819,7 @@ export function Component() {
                     }
                     onClick={() => {
                       if (startCountdown) return;
+                      if (!+curStageInfo?.leftLimitReadable) return;
                       buyOrderSetTrue();
                     }}
                   >
@@ -825,7 +827,7 @@ export function Component() {
                       style={{ zIndex: 1, color: '#FFFFFD', padding: '10px 20px', fontFamily: 'Canela Trial Bold' }}
                       className="f-16"
                     >
-                      {startCountdown ? 'Coming soon' : 'Buy Now'}
+                      {startCountdown ? 'Coming soon' : +curStageInfo?.leftLimitReadable ? 'Buy Now' : 'Sold Out'}
                     </div>
                   </BaseLabel>
                 )}
