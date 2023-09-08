@@ -985,6 +985,7 @@ export function Component() {
 
           <h1 className={ifMobile ? 'f-31' : 'f-61 maxw-1095'} style={{ fontFamily: 'Canela Trial Bold', letterSpacing: '3px' }}>
             All these old letters of my Book are aright; but צ is not the Star.
+            <br />
             <span className="active-color" style={{ fontFamily: 'Canela Trial Bold', letterSpacing: '3px' }}>
               ---- Liber AL vel Legis I:57
             </span>
