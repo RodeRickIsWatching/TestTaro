@@ -51,7 +51,7 @@ export const medias = [
 export const navs = [
   { label: 'Home', href: '/home', extraHref: '/' },
   { label: 'Token', href: '/token' },
-  { label: 'Prediction', href: '/prediction' },
+  { label: 'Prediction', href: 'https://prediction.tarotpi.com/' },
   { label: 'Prophet', href: '/prophet' },
   { label: 'Marketplace', href: '/marketplace' },
   { label: 'Gitbook', href: 'https://docs.tarotpi.com/' },
